@@ -3,6 +3,6 @@ module lk.ijse.gdse.staysmartproject {
     requires javafx.fxml;
 
 
-    opens lk.ijse.gdse.staysmartproject to javafx.fxml;
+    opens lk.ijse.gdse.staysmartproject.controller to javafx.fxml;
     exports lk.ijse.gdse.staysmartproject;
 }
