@@ -10,7 +10,7 @@
    <children>
       <ImageView fitHeight="602.0" fitWidth="904.0" layoutX="-2.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/welcome-gb-image.jpg" />
+            <Image url="@../images/welcome-bg-imager.jpg" />
          </image>
       </ImageView>
       <Button fx:id="btnStartNow" layoutX="369.0" layoutY="523.0" mnemonicParsing="false" onAction="#btnStartNowAction" prefHeight="43.0" prefWidth="161.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;" text="Start Now">

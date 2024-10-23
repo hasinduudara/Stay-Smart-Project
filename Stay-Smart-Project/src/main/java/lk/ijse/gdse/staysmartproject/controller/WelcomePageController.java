@@ -2,8 +2,11 @@ package lk.ijse.gdse.staysmartproject.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
+
+import java.io.IOException;
 
 public class WelcomePageController {
 
@@ -14,7 +17,16 @@ public class WelcomePageController {
     private AnchorPane welcomePage;
 
     @FXML
-    void btnStartNowAction(ActionEvent event) {
+    private Button btnSignInLoging;
+
+    @FXML
+    void btnStartNowAction(ActionEvent event) throws IOException {
+        welcomePage.getChildren().clear();
+        welcomePage.getChildren().add(FXMLLoader.load(getClass().getResource("/view/signInPage.fxml")));
+    }
+
+    @FXML
+    void btnSignInLogingAction(ActionEvent event) {
 
     }
 
