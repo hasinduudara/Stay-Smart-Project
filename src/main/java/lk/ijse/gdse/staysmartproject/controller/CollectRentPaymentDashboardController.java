@@ -15,9 +15,13 @@ import lk.ijse.gdse.staysmartproject.dto.TenantDTO;
 import lk.ijse.gdse.staysmartproject.dto.tm.HouseTM;
 import lk.ijse.gdse.staysmartproject.dto.tm.RentPaymentTM;
 import lk.ijse.gdse.staysmartproject.dto.tm.TenantTM;
+import lk.ijse.gdse.staysmartproject.model.HouseModel;
 import lk.ijse.gdse.staysmartproject.model.RentPaymentModel;
+import lk.ijse.gdse.staysmartproject.model.TenantModel;
+import lombok.Data;
 
 import java.net.URL;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -77,6 +81,8 @@ public class CollectRentPaymentDashboardController implements Initializable {
     private TextField txtHouseId;
 
     RentPaymentModel rentPaymentModel = new RentPaymentModel();
+    TenantModel tenantModel = new TenantModel();
+    HouseModel houseModel = new HouseModel();
 
     @FXML
     void btnPrintBillAction(ActionEvent event) {
@@ -84,44 +90,58 @@ public class CollectRentPaymentDashboardController implements Initializable {
     }
 
     @FXML
-    void btnSearchAction(ActionEvent event) {
-        LocalDate selectedDate = dpDate.getValue();
-        if (selectedDate == null) {
-            new Alert(Alert.AlertType.ERROR, "Please select a date").show();
-            return;
-        }
+    void btnSearchAction(ActionEvent event) throws SQLException, ClassNotFoundException {
+        String houseId = txtHouseId.getText(); // Get the entered House_ID from the text field
 
-        try {
-            RentPaymentDTO rentPaymentDTO = rentPaymentModel.getRentPaymentByDate(java.sql.Date.valueOf(selectedDate));
-            if (rentPaymentDTO != null) {
-                String houseId = rentPaymentDTO.getHouse_ID();
-                String tenantId = rentPaymentDTO.getTenant_ID();
+        if (!houseId.isEmpty()) {
+            ArrayList<TenantDTO> tenantsByHouseId = tenantModel.getTenantsByHouseId(houseId);
+            final HouseTM houseById = houseModel.findHouseById(houseId);
 
-                HouseDTO houseDTO = rentPaymentModel.getHouseById(houseId);
-                TenantDTO tenantDTO = rentPaymentModel.getTenantById(tenantId);
+            if (!tenantsByHouseId.isEmpty()) {
+                TenantDTO tenant = tenantsByHouseId.getFirst();
 
-                if (houseDTO != null && tenantDTO != null) {
-                    txtHouseId.setText(houseDTO.getHouse_ID());
-                    lblTenantId.setText(tenantDTO.getTenant_ID());
-                    lblName.setText(tenantDTO.getName());
-                    lblRentPrice.setText(String.valueOf(houseDTO.getRent_Price()));
-                    //dpDate.setValue(rentPaymentDTO.getPayment_Date().toLocalDate());
-                } else {
-                    new Alert(Alert.AlertType.INFORMATION, "No house or tenant found for the selected date").show();
-                }
+                lblTenantId.setText(tenant.getTenant_ID());
+                lblName.setText(tenant.getName());
+                dpDate.setValue(LocalDate.now());
+                lblRentPrice.setText(String.valueOf(houseById.getRent_Price()));
+                dpDate.setValue(LocalDate.now());
             } else {
-                new Alert(Alert.AlertType.INFORMATION, "No rent payment found for the selected date").show();
+                lblName.setText("");
+                lblTenantId.setText("");
+                lblRentPrice.setText("");
             }
-            dpDate.setValue(null); // Clear the date picker after search
-        } catch (SQLException | ClassNotFoundException e) {
-            e.printStackTrace();
-            new Alert(Alert.AlertType.ERROR, "Failed to search house and tenant details").show();
+        } else {
+            lblName.setText("");
         }
     }
 
     @FXML
-    void btnSubmitPaymentAction(ActionEvent event) {
+    void btnSubmitPaymentAction(ActionEvent event) throws SQLException, ClassNotFoundException {
+        if (lblName.getText().isEmpty()) {
+            showErrorMessage("Please select valid house id");
+        } else {
+            final boolean isSaved = rentPaymentModel.saveRentPayment(new RentPaymentDTO(
+                    lblRentPaymentId.getText(),
+                    Double.valueOf(lblRentPrice.getText()),
+                    Date.valueOf(dpDate.getValue()),
+                    lblTenantId.getText(),
+                    txtHouseId.getText()
+            ));
+            if (isSaved) {
+                refreshPage();
+                new Alert(Alert.AlertType.INFORMATION, "saved successfully").show();
+            } else {
+                new Alert(Alert.AlertType.ERROR, "save failed").show();
+            }
+        }
+    }
 
+    private void showErrorMessage(String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Login Error");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 
     @FXML
@@ -169,17 +189,27 @@ public class CollectRentPaymentDashboardController implements Initializable {
     private void refreshTable() throws SQLException, ClassNotFoundException {
         ArrayList<RentPaymentDTO> rentPaymentDTOS = rentPaymentModel.getAllRentPayments();
         ObservableList<RentPaymentTM> rentPaymentTMS = FXCollections.observableArrayList();
+
         for (RentPaymentDTO rentPaymentDTO : rentPaymentDTOS) {
+            String houseId = rentPaymentDTO.getHouse_ID();
+            String tenantName = "";
+
+            ArrayList<TenantDTO> tenantsByHouseId = tenantModel.getTenantsByHouseId(houseId);
+            if (!tenantsByHouseId.isEmpty()) {
+                tenantName = tenantsByHouseId.get(0).getName();
+            }
+
             RentPaymentTM rentPaymentTM = new RentPaymentTM(
                     rentPaymentDTO.getRent_Payment_ID(),
                     rentPaymentDTO.getRent_Amount(),
                     rentPaymentDTO.getPayment_Date(),
                     rentPaymentDTO.getTenant_ID(),
-                    rentPaymentDTO.getHouse_ID()
+                    rentPaymentDTO.getHouse_ID(),
+                    tenantName
             );
             rentPaymentTMS.add(rentPaymentTM);
         }
+
         tableCollectRentPayment.setItems(rentPaymentTMS);
     }
-
 }

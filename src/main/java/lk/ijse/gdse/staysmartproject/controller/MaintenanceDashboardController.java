@@ -13,9 +13,6 @@ import javafx.scene.layout.AnchorPane;
 public class MaintenanceDashboardController {
 
     @FXML
-    private Button btnSearch;
-
-    @FXML
     private Button btnSubmit;
 
     @FXML
@@ -53,11 +50,6 @@ public class MaintenanceDashboardController {
 
     @FXML
     private TextField txtHouseId;
-
-    @FXML
-    void btnSearchAction(ActionEvent event) {
-
-    }
 
     @FXML
     void btnSubmitAction(ActionEvent event) {

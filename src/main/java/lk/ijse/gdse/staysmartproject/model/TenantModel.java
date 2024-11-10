@@ -78,4 +78,19 @@ public class TenantModel {
         }
         return null;
     }
+
+    public ArrayList<TenantDTO> getTenantsByHouseId(String houseId) throws SQLException, ClassNotFoundException {
+        ResultSet rst = CrudUtil.execute("SELECT * FROM tenant WHERE House_ID=?", houseId);
+        ArrayList<TenantDTO> tenantsByHouseId = new ArrayList<>();
+        while (rst.next()) {
+            tenantsByHouseId.add(new TenantDTO(
+                    rst.getString("Tenant_ID"),
+                    rst.getString("House_ID"),
+                    rst.getString("Name"),
+                    rst.getString("Email"),
+                    rst.getDate("End_Of_Date")
+            ));
+        }
+        return tenantsByHouseId;
+    }
 }

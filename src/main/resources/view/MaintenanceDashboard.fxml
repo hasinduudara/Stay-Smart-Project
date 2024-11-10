@@ -29,14 +29,6 @@
                      </font>
                   </Label>
                   <TextField fx:id="txtHouseId" prefHeight="50.0" prefWidth="271.0" promptText="House ID" style="-fx-border-color: #000000; -fx-border-width: 0 0 1; -fx-background-color: #ffffff;" />
-                  <Button fx:id="btnSearch" mnemonicParsing="false" onAction="#btnSearchAction" prefHeight="34.0" prefWidth="104.0" style="-fx-background-color: #0097ff; -fx-border-color: #000000; -fx-border-radius: 20; -fx-background-radius: 20;" text="Button" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="15.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets top="5.0" />
-                     </HBox.margin>
-                  </Button>
                </children>
             </HBox>
             <HBox prefHeight="43.0" prefWidth="566.0" spacing="20.0">

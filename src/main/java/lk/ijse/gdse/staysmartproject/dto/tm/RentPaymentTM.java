@@ -15,4 +15,5 @@ public class RentPaymentTM {
     private Date Payment_Date;
     private String Tenant_ID;
     private String House_ID;
+    private String name;
 }
