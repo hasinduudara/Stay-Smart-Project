@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="manageHouseDashboard" prefHeight="558.0" prefWidth="612.0" style="-fx-background-color: #ffffff; -fx-background-radius: 20;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.staysmartproject.controller.ManageHouseDashboardController">
+   <children>
+      <Label alignment="CENTER" layoutX="70.0" layoutY="14.0" prefHeight="32.0" prefWidth="472.0" style="-fx-background-color: #ffffff; -fx-background-radius: 20; -fx-border-color: #000000; -fx-border-radius: 20;" text="Manage House">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <VBox layoutX="43.0" layoutY="54.0" prefHeight="170.0" prefWidth="526.0">
+         <children>
+            <HBox prefHeight="50.0" prefWidth="576.0">
+               <children>
+                  <HBox prefHeight="50.0" prefWidth="576.0" spacing="50.0">
+                     <children>
+                        <Label prefHeight="43.0" prefWidth="65.0" text="House ID">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtHouseId" prefHeight="44.0" prefWidth="231.0" promptText="House ID" style="-fx-border-color: #000000; -fx-border-width: 0 0 1; -fx-background-color: #ffffff;" />
+                        <Button fx:id="btnSearch" mnemonicParsing="false" onAction="#btnSearchAction" prefHeight="34.0" prefWidth="112.0" style="-fx-background-color: #008fff; -fx-background-radius: 30; -fx-border-color: #000000; -fx-border-radius: 30;" text="Search" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Button>
+                     </children>
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                  </HBox>
+               </children>
+            </HBox>
+            <HBox prefHeight="52.0" prefWidth="576.0" spacing="25.0">
+               <children>
+                  <Label prefHeight="43.0" prefWidth="93.0" text="House Status">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblHouseStatus" prefHeight="42.0" prefWidth="253.0" />
+                  <Button fx:id="btnHouseStatusReset" mnemonicParsing="false" onAction="#btnHouseStatusResetAction" prefHeight="34.0" prefWidth="112.0" style="-fx-background-color: #01be38; -fx-background-radius: 30; -fx-border-color: #000000; -fx-border-radius: 30;" text="Reset" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Button>
+               </children>
+               <padding>
+                  <Insets top="5.0" />
+               </padding>
+            </HBox>
+            <HBox prefHeight="50.0" prefWidth="576.0" spacing="10.0">
+               <children>
+                  <HBox prefHeight="50.0" prefWidth="576.0" spacing="21.0">
+                     <children>
+                        <Label prefHeight="43.0" prefWidth="91.0" text="Rent Price">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtRentPrice" prefHeight="44.0" prefWidth="263.0" promptText="Rent Price" style="-fx-border-color: #000000; -fx-border-width: 0 0 1; -fx-background-color: #ffffff;" />
+                        <Button fx:id="btnRentPriceChange" mnemonicParsing="false" onAction="#btnRentPriceChangeAction" prefHeight="34.0" prefWidth="112.0" style="-fx-background-color: #008fff; -fx-background-radius: 30; -fx-border-color: #000000; -fx-border-radius: 30;" text="Change" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Button>
+                     </children>
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                  </HBox>
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets top="3.0" />
+         </padding>
+      </VBox>
+      <TableView fx:id="tableManageHouse" layoutX="23.0" layoutY="234.0" onMouseClicked="#onClickTable" prefHeight="280.0" prefWidth="566.0" style="-fx-border-color: #000000;">
+        <columns>
+          <TableColumn fx:id="colHouseId" prefWidth="152.0000057220459" text="House ID" />
+          <TableColumn fx:id="colStatus" prefWidth="235.20001220703125" text="Status" />
+            <TableColumn fx:id="colRentPrice" prefWidth="178.40005493164062" text="Rent Price" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

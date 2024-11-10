@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="singInPage" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #f7f7f7;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.staysmartproject.controller.SignInPageController">
+   <children>
+      <AnchorPane layoutX="48.0" layoutY="53.0" prefHeight="324.0" prefWidth="324.0" style="-fx-background-color: #ececec; -fx-background-radius: 50; -fx-border-radius: 50; -fx-border-color: #000000;">
+         <children>
+            <TextField fx:id="txtSignInPassword" layoutX="103.0" layoutY="134.0" onAction="#txtSignInPasswordAction" promptText="Password" style="-fx-background-radius: 50;" />
+            <Label alignment="CENTER" layoutX="28.0" layoutY="22.0" prefHeight="35.0" prefWidth="268.0" style="-fx-background-color: #00cd79; -fx-background-radius: 50;" text="Log In To Your Account" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="19.0" />
+               </font>
+            </Label>
+            <Label layoutX="24.0" layoutY="91.0" text="User Name">
+               <font>
+                  <Font name="System Bold" size="12.8" />
+               </font>
+            </Label>
+            <TextField fx:id="txtSignInUserName" layoutX="103.0" layoutY="87.0" promptText="User Name" style="-fx-background-radius: 50;" />
+            <Label layoutX="24.0" layoutY="135.0" text="Password">
+               <font>
+                  <Font name="System Bold" size="12.8" />
+               </font>
+            </Label>
+            <PasswordField fx:id="PFSignInPassword" layoutX="103.0" layoutY="134.0" onAction="#PFSignInPasswordAction" promptText="Password" style="-fx-background-radius: 50;" />
+            <ImageView fx:id="btnSignInView" fitHeight="27.0" fitWidth="25.0" layoutX="269.0" layoutY="132.0" onDragDetected="#btnSignInViewAction" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/view-icon.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="46.0" layoutY="222.0" text="Forgot password?">
+               <font>
+                  <Font name="System Bold Italic" size="12.800000190734863" />
+               </font>
+            </Label>
+            <Button fx:id="btnSignInForgotPassword" layoutX="166.0" layoutY="218.0" mnemonicParsing="false" onAction="#btnSignInForgotPasswordAction" text="Forgot Password" />
+            <Label layoutX="33.0" layoutY="270.0" text="Don't have an account?">
+               <font>
+                  <Font name="System Bold Italic" size="12.800000190734863" />
+               </font>
+            </Label>
+            <Button fx:id="btnSignInCreateAcc" layoutX="187.0" layoutY="266.0" mnemonicParsing="false" onAction="#btnSignInCreateAccAction" text="Create Account" />
+            <Button fx:id="btnSignInLoging" layoutX="136.0" layoutY="175.0" mnemonicParsing="false" onAction="#btnSignInLogingAction" text="Log In">
+               <font>
+                  <Font name="System Bold" size="12.8" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <Text layoutX="124.0" layoutY="421.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First log into your account.">
+         <font>
+            <Font name="System Italic" size="15.0" />
+         </font>
+      </Text>
+      <Text layoutX="98.0" layoutY="451.0" strokeType="OUTSIDE" strokeWidth="0.0" text="If you forget the password, create a">
+         <font>
+            <Font name="System Italic" size="15.0" />
+         </font>
+      </Text>
+      <Text layoutX="95.0" layoutY="480.0" strokeType="OUTSIDE" strokeWidth="0.0" text="new password by &quot;forget password&quot;.">
+         <font>
+            <Font name="System Italic" size="15.0" />
+         </font>
+      </Text>
+      <Text layoutX="113.0" layoutY="512.0" strokeType="OUTSIDE" strokeWidth="0.0" text="If you do not have an account,">
+         <font>
+            <Font name="System Italic" size="15.0" />
+         </font>
+      </Text>
+      <Text layoutX="85.0" layoutY="541.0" strokeType="OUTSIDE" strokeWidth="0.0" text="create an account by &quot;Create Account&quot;.">
+         <font>
+            <Font name="System Italic" size="15.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="439.0" fitWidth="418.0" layoutX="433.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/anime-style-house-structure.jpg" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

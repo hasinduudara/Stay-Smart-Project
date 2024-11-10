@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="maintenanceDashboard" prefHeight="558.0" prefWidth="612.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.staysmartproject.controller.MaintenanceDashboardController">
+   <children>
+      <Label alignment="CENTER" layoutX="70.0" layoutY="10.0" prefHeight="32.0" prefWidth="472.0" style="-fx-background-color: #ffffff; -fx-background-radius: 20; -fx-border-color: #000000; -fx-border-radius: 20;" text="Maintenance">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <VBox layoutX="19.0" layoutY="76.0" prefHeight="147.0" prefWidth="574.0">
+         <children>
+            <HBox prefHeight="43.0" prefWidth="566.0" spacing="20.0">
+               <children>
+                  <Label prefHeight="38.0" prefWidth="106.0" text="House ID">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtHouseId" prefHeight="50.0" prefWidth="271.0" promptText="House ID" style="-fx-border-color: #000000; -fx-border-width: 0 0 1; -fx-background-color: #ffffff;" />
+                  <Button fx:id="btnSearch" mnemonicParsing="false" onAction="#btnSearchAction" prefHeight="34.0" prefWidth="104.0" style="-fx-background-color: #0097ff; -fx-border-color: #000000; -fx-border-radius: 20; -fx-background-radius: 20;" text="Button" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets top="5.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox prefHeight="43.0" prefWidth="566.0" spacing="20.0">
+               <children>
+                  <Label prefHeight="38.0" prefWidth="106.0" text="Amount">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtAmount" prefHeight="50.0" prefWidth="271.0" promptText="Amount ( eg: 5000.00 )" style="-fx-border-color: #000000; -fx-border-width: 0 0 1; -fx-background-color: #ffffff;" />
+               </children>
+            </HBox>
+            <HBox prefHeight="43.0" prefWidth="566.0" spacing="20.0">
+               <children>
+                  <Label prefHeight="38.0" prefWidth="106.0" text="Description">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtDescription" prefHeight="43.0" prefWidth="415.0" promptText="Changing a bulb" style="-fx-border-color: #000000; -fx-border-width: 0 0 1; -fx-background-color: #ffffff;" />
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets top="2.0" />
+         </padding>
+      </VBox>
+      <Button fx:id="btnSubmit" alignment="CENTER" contentDisplay="CENTER" layoutX="246.0" layoutY="260.0" mnemonicParsing="false" onAction="#btnSubmitAction" prefHeight="31.0" prefWidth="109.0" style="-fx-background-color: #01be38; -fx-background-radius: 30; -fx-border-color: #000000; -fx-border-radius: 30;" text="Submit" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+      <TableView fx:id="tableMaintenance" layoutX="19.0" layoutY="301.0" prefHeight="244.0" prefWidth="574.0" style="-fx-border-color: #000000;">
+         <columns>
+            <TableColumn fx:id="colMaintenanceId" prefWidth="104.00006675720215" text="Maintenance ID" />
+            <TableColumn fx:id="colHouseId" prefWidth="86.39996337890625" text="House ID" />
+            <TableColumn fx:id="colAmount" prefWidth="105.60003662109375" text="Amount" />
+            <TableColumn fx:id="colDescription" prefWidth="171.99993896484375" text="Description" />
+            <TableColumn fx:id="colDate" prefWidth="102.39996948242185" text="Date" />
+         </columns>
+      </TableView>
+      <Label layoutX="19.0" layoutY="47.0" text="Maintenance ID">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblMaintenanceId" layoutX="145.0" layoutY="42.0" prefHeight="32.0" prefWidth="169.0" text="MT001">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="20.0" layoutY="222.0" text="Date">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <DatePicker fx:id="dpDate" layoutX="146.0" layoutY="214.0" onAction="#dpDateAction" prefHeight="38.0" prefWidth="280.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000; -fx-border-width: 0 0 1 0;" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="signUpPage" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.staysmartproject.controller.SignUpPageController">
+   <children>
+      <AnchorPane layoutX="45.0" layoutY="76.0" prefHeight="369.0" prefWidth="324.0" style="-fx-background-color: #ececec; -fx-background-radius: 50; -fx-border-radius: 50; -fx-border-color: #000000;">
+         <children>
+            <TextField fx:id="txtSignUpPassword" layoutX="106.0" layoutY="217.0" onAction="#txtSignUpPasswordAction" promptText="Password" style="-fx-background-radius: 50;" />
+            <Label alignment="CENTER" layoutX="28.0" layoutY="22.0" prefHeight="35.0" prefWidth="268.0" style="-fx-background-color: #00cd79; -fx-background-radius: 50;" text="Create An Account" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="19.0" />
+               </font>
+            </Label>
+            <Label layoutX="27.0" layoutY="177.0" text="User Name">
+               <font>
+                  <Font name="System Bold" size="12.8" />
+               </font>
+            </Label>
+            <TextField fx:id="txtSignUpUsername" layoutX="106.0" layoutY="173.0" promptText="User Name" style="-fx-background-radius: 50;" />
+            <Label layoutX="27.0" layoutY="221.0" text="Password">
+               <font>
+                  <Font name="System Bold" size="12.8" />
+               </font>
+            </Label>
+            <PasswordField fx:id="PFSignUpPassword" layoutX="107.0" layoutY="217.0" onAction="#PFSignUpPasswordAction" promptText="Password" style="-fx-background-radius: 50;" />
+            <ImageView fx:id="btnSignUpView" fitHeight="27.0" fitWidth="25.0" layoutX="272.0" layoutY="218.0" onDragDetected="#btnSignUpViewAction" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/view-icon.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="55.0" layoutY="319.0" text="Do you have an account?">
+               <font>
+                  <Font name="System Bold Italic" size="12.800000190734863" />
+               </font>
+            </Label>
+            <Button fx:id="btnSignUpLogingAcc" layoutX="213.0" layoutY="315.0" mnemonicParsing="false" onAction="#btnSignUpLogingAccAction" text="Sign In" />
+            <Button fx:id="btnSignUpCreateAcc" layoutX="107.0" layoutY="268.0" mnemonicParsing="false" onAction="#btnSignUpCreateAccAction" text="Create Account">
+               <font>
+                  <Font name="System Bold" size="12.8" />
+               </font>
+            </Button>
+            <Label layoutX="27.0" layoutY="89.0" text="Name">
+               <font>
+                  <Font name="System Bold" size="12.8" />
+               </font>
+            </Label>
+            <TextField fx:id="txtSignUpName" layoutX="106.0" layoutY="85.0" promptText="Name" style="-fx-background-radius: 50;" />
+            <Label layoutX="28.0" layoutY="133.0" text="Email">
+               <font>
+                  <Font name="System Bold" size="12.8" />
+               </font>
+            </Label>
+            <TextField fx:id="txtSignUpEmail" layoutX="107.0" layoutY="129.0" promptText="Email" style="-fx-background-radius: 50;" />
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="502.0" fitWidth="448.0" layoutX="409.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/house-architecture.jpg" />
+         </image>
+      </ImageView>
+      <Text layoutX="128.0" layoutY="476.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Complete the above and">
+         <font>
+            <Font name="System Italic" size="15.0" />
+         </font>
+      </Text>
+      <Text layoutX="148.0" layoutY="504.0" strokeType="OUTSIDE" strokeWidth="0.0" text="create an account.">
+         <font>
+            <Font name="System Italic" size="15.0" />
+         </font>
+      </Text>
+      <Text layoutX="134.0" layoutY="532.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Make sure to enter the">
+         <font>
+            <Font name="System Italic" size="15.0" />
+         </font>
+      </Text>
+      <Text layoutX="143.0" layoutY="563.0" strokeType="OUTSIDE" strokeWidth="0.0" text="correct information.">
+         <font>
+            <Font name="System Italic" size="15.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

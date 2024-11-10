@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="welcomePage" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.staysmartproject.controller.WelcomePageController">
+   <children>
+      <ImageView fitHeight="602.0" fitWidth="904.0" layoutX="-2.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/welcome-bg-imager.jpg" />
+         </image>
+      </ImageView>
+      <Button fx:id="btnStartNow" layoutX="369.0" layoutY="523.0" mnemonicParsing="false" onAction="#btnStartNowAction" prefHeight="43.0" prefWidth="161.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;" text="Start Now">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="addTenantDashboard" prefHeight="558.0" prefWidth="612.0" style="-fx-background-color: #ffffff; -fx-background-radius: 20; -fx-border-color: #000000; -fx-border-radius: 20;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.staysmartproject.controller.AddTenantDashboardController">
+   <children>
+      <Label alignment="CENTER" layoutX="69.0" layoutY="14.0" prefHeight="32.0" prefWidth="472.0" style="-fx-background-color: #ffffff; -fx-background-radius: 20; -fx-border-color: #000000; -fx-border-radius: 20;" text="Add Tenant">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <VBox layoutX="12.0" layoutY="52.0" prefHeight="206.0" prefWidth="586.0">
+         <children>
+            <HBox prefHeight="38.0" prefWidth="586.0">
+               <children>
+                  <Label prefHeight="51.0" prefWidth="179.0" text="Tenant ID">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblTenantId" prefHeight="51.0" prefWidth="179.0" text="T001">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="41.0" prefWidth="586.0">
+               <children>
+                  <Label prefHeight="51.0" prefWidth="179.0" text="House ID">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtHouseId" prefHeight="50.0" prefWidth="271.0" promptText="House ID" style="-fx-border-color: #000000; -fx-border-width: 0 0 1; -fx-background-color: #ffffff;" />
+               </children>
+            </HBox>
+            <HBox prefHeight="40.0" prefWidth="586.0">
+               <children>
+                  <Label prefHeight="51.0" prefWidth="179.0" text="Name">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtName" prefHeight="50.0" prefWidth="271.0" promptText="Name" style="-fx-border-color: #000000; -fx-border-width: 0 0 1px 0; -fx-background-color: #ffffff;" />
+               </children>
+            </HBox>
+            <HBox prefHeight="40.0" prefWidth="586.0">
+               <children>
+                  <Label prefHeight="51.0" prefWidth="179.0" text="Email">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtEmail" prefHeight="50.0" prefWidth="271.0" promptText="Email" style="-fx-border-color: #000000; -fx-border-width: 0 0 1px 0; -fx-background-color: #ffffff;" />
+               </children>
+            </HBox>
+            <HBox prefHeight="40.0" prefWidth="586.0">
+               <children>
+                  <Label prefHeight="51.0" prefWidth="179.0" text="End Of Date">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <DatePicker fx:id="dpEndOfDate" onAction="#dpEndOfDate" prefHeight="38.0" prefWidth="274.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000; -fx-border-width: 0 0 1;" />
+               </children>
+               <padding>
+                  <Insets top="5.0" />
+               </padding>
+            </HBox>
+         </children>
+      </VBox>
+      <VBox layoutX="13.0" layoutY="254.0" prefHeight="49.0" prefWidth="586.0">
+         <children>
+            <HBox alignment="CENTER" prefHeight="41.0" prefWidth="586.0" spacing="25.0">
+               <children>
+                  <Button fx:id="btnAddTenantReset" mnemonicParsing="false" onAction="#btnAddTenantResetAction" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #ff7c00; -fx-border-color: #000000; -fx-background-radius: 20; -fx-border-radius: 20;" text="Reset" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.8" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnAddTenantUpdate" mnemonicParsing="false" onAction="#btnAddTenantUpdateAction" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #03c866; -fx-background-radius: 20; -fx-border-color: #000000; -fx-border-radius: 20;" text="Update" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.8" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnAddTenantDelete" mnemonicParsing="false" onAction="#btnAddTenantDeleteAction" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #ff2f2f; -fx-background-radius: 20; -fx-border-color: #000000; -fx-border-radius: 20;" text="Delete" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.800000190734863" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnAddTenantSave" mnemonicParsing="false" onAction="#btnAddTenantSaveAction" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #0097ff; -fx-background-radius: 20; -fx-border-color: #000000; -fx-border-radius: 20;" text="Save" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.8" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnAddTenantContractReport" mnemonicParsing="false" onAction="#btnAddTenantContractReportAction" prefHeight="30.0" prefWidth="130.0" style="-fx-background-color: #b23cfe; -fx-background-radius: 20; -fx-border-color: #000000; -fx-border-radius: 20;" text="Contract Report" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.8" />
+                     </font>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
+         </children>
+      </VBox>
+      <TableView fx:id="tableAddTenant" layoutX="18.0" layoutY="307.0" onMouseClicked="#onClickTable" prefHeight="229.0" prefWidth="575.0" style="-fx-border-color: #000000;">
+        <columns>
+          <TableColumn fx:id="colTenantId" prefWidth="75.99999809265137" text="Tenant ID" />
+          <TableColumn fx:id="colHouseId" prefWidth="84.00000762939453" text="House ID" />
+            <TableColumn fx:id="colName" prefWidth="137.5999755859375" text="Name" />
+            <TableColumn fx:id="colEmail" prefWidth="160.79998779296875" text="Email" />
+            <TableColumn fx:id="colEndOfDate" prefWidth="114.39999389648438" text="End Of Date" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
