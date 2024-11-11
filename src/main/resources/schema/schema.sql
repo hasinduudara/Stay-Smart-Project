@@ -75,32 +75,14 @@ CREATE TABLE Maintains (
                            FOREIGN KEY (House_ID) REFERENCES House(House_ID) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
+
+
+
+
+
 -- Finances Table
 CREATE TABLE Finances (
                           Finance_ID INT PRIMARY KEY,
                           Income DECIMAL(15, 2) DEFAULT 0.00,
                           Expenses DECIMAL(15, 2) DEFAULT 0.00
 );
-
--- Insert initial row for tracking finances
-INSERT INTO Finances (Finance_ID, Income, Expenses) VALUES (1, 0.00, 0.00);
-
--- Trigger to update Income after insert on Rent_Payment
-CREATE TRIGGER update_income_after_insert
-    AFTER INSERT ON Rent_Payment
-    FOR EACH ROW
-BEGIN
-    UPDATE Finances
-    SET Income = (SELECT SUM(Rent_Amount) FROM Rent_Payment)
-    WHERE Finance_ID = 1;
-END;
-
--- Trigger to update Expenses after insert on Maintains
-CREATE TRIGGER update_expenses_after_insert
-    AFTER INSERT ON Maintains
-    FOR EACH ROW
-BEGIN
-    UPDATE Finances
-    SET Expenses = (SELECT SUM(Amount) FROM Maintains)
-    WHERE Finance_ID = 1;
-END;
