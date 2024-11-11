@@ -1,15 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="manageFinancesDashboard" prefHeight="558.0" prefWidth="612.0" style="-fx-background-radius: 50;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.staysmartproject.controller.ManageFinancesDashboardController">
+<AnchorPane fx:id="manageFinancesDashboard" prefHeight="558.0" prefWidth="612.0" style="-fx-background-radius: 20; -fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.staysmartproject.controller.ManageFinancesDashboardController">
    <children>
-      <Label alignment="CENTER" layoutX="70.0" layoutY="14.0" prefHeight="32.0" prefWidth="472.0" style="-fx-background-color: #ffffff; -fx-background-radius: 20; -fx-border-color: #000000; -fx-border-radius: 20;" text="Send Notification">
+      <Label alignment="CENTER" layoutX="70.0" layoutY="19.0" prefHeight="32.0" prefWidth="472.0" style="-fx-background-color: #ffffff; -fx-background-radius: 20; -fx-border-color: #000000; -fx-border-radius: 20;" text="Manage Finances">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
+      <VBox layoutX="18.0" layoutY="68.0" prefHeight="126.0" prefWidth="574.0">
+         <children>
+            <HBox prefHeight="54.0" prefWidth="574.0">
+               <children>
+                  <Label prefHeight="50.0" prefWidth="198.0" text="All Tenant Payments (Rs) :">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblAlltenantPayments" prefHeight="46.0" prefWidth="254.0" style="-fx-background-color: #ffffff;">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="54.0" prefWidth="574.0">
+               <children>
+                  <Label prefHeight="50.0" prefWidth="210.0" text="All Maintenance Costs (Rs) :">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblAllMaintenanceCosts" prefHeight="46.0" prefWidth="254.0" style="-fx-background-color: #ffffff;">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <Button fx:id="btnCalculateProfit" layoutX="207.0" layoutY="203.0" mnemonicParsing="false" onAction="#btnCalculateProfitAction" prefHeight="38.0" prefWidth="198.0" style="-fx-background-color: #008fff; -fx-background-radius: 30; -fx-border-color: #000000; -fx-border-radius: 30;" text="Calculate The Profit" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Button>
+      <HBox layoutX="90.0" layoutY="261.0" prefHeight="54.0" prefWidth="431.0">
+         <children>
+            <Label prefHeight="46.0" prefWidth="110.0" text="Profit (Rs) :">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblViewProfit" prefHeight="47.0" prefWidth="282.0" style="-fx-border-color: #000000; -fx-border-width: 0 0 1 0; -fx-background-color: #ffffff;">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <Button fx:id="btnGenerateReport" layoutX="210.0" layoutY="331.0" mnemonicParsing="false" onAction="#btnGenerateReportAction" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: #01be38; -fx-background-radius: 30; -fx-border-color: #000000; -fx-border-radius: 30;" text="Generate A Report" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

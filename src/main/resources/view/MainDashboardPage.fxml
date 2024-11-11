@@ -19,27 +19,27 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
-            <Button fx:id="btnCollectRentPayment" layoutX="9.0" layoutY="89.0" mnemonicParsing="false" onAction="#btnCollectRentPaymentAction" prefHeight="42.0" prefWidth="203.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50; -fx-border-color: #000000; -fx-border-radius: 50;" text="Collect Rent Payment">
+            <Button fx:id="btnCollectRentPayment" layoutX="9.0" layoutY="86.0" mnemonicParsing="false" onAction="#btnCollectRentPaymentAction" prefHeight="42.0" prefWidth="203.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50; -fx-border-color: #000000; -fx-border-radius: 50;" text="Collect Rent Payment">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
-            <Button fx:id="btnSentNotification" layoutX="9.0" layoutY="151.0" mnemonicParsing="false" onAction="#btnSentNotificationAction" prefHeight="42.0" prefWidth="203.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50; -fx-border-color: #000000; -fx-border-radius: 50;" text="Send Notification">
+            <Button fx:id="btnSentNotification" layoutX="9.0" layoutY="146.0" mnemonicParsing="false" onAction="#btnSentNotificationAction" prefHeight="42.0" prefWidth="203.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50; -fx-border-color: #000000; -fx-border-radius: 50;" text="Send Notification">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
-            <Button fx:id="btnManageFinances" layoutX="9.0" layoutY="330.0" mnemonicParsing="false" onAction="#btnManageFinancesAction" prefHeight="42.0" prefWidth="203.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50; -fx-border-color: #000000; -fx-border-radius: 50;" text="Manage Finances">
+            <Button fx:id="btnManageFinances" layoutX="9.0" layoutY="329.0" mnemonicParsing="false" onAction="#btnManageFinancesAction" prefHeight="42.0" prefWidth="203.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50; -fx-border-color: #000000; -fx-border-radius: 50;" text="Manage Finances">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
-            <Button fx:id="btnMaintenance" layoutX="9.0" layoutY="213.0" mnemonicParsing="false" onAction="#btnMaintenanceAction" prefHeight="42.0" prefWidth="203.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50; -fx-border-color: #000000; -fx-border-radius: 50;" text="Maintenance">
+            <Button fx:id="btnMaintenance" layoutX="9.0" layoutY="206.0" mnemonicParsing="false" onAction="#btnMaintenanceAction" prefHeight="42.0" prefWidth="203.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50; -fx-border-color: #000000; -fx-border-radius: 50;" text="Maintenance">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
-            <Button fx:id="btnManageHouse" layoutX="9.0" layoutY="272.0" mnemonicParsing="false" onAction="#btnManageHouseAction" prefHeight="42.0" prefWidth="203.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50; -fx-border-color: #000000; -fx-border-radius: 50;" text="Manage House">
+            <Button fx:id="btnManageHouse" layoutX="9.0" layoutY="267.0" mnemonicParsing="false" onAction="#btnManageHouseAction" prefHeight="42.0" prefWidth="203.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50; -fx-border-color: #000000; -fx-border-radius: 50;" text="Manage House">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>

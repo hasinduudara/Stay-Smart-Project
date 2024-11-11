@@ -79,7 +79,6 @@ public class SendNotificationDashboardController {
         }
 
         sendEmailWithGmail(FROM, Email, subject, body);
-        //sendEmailWithSendgrid(FROM, Email, subject, body);
     }
 
     private void sendEmailWithGmail(String from, String to, String subject, String body) {
@@ -113,36 +112,5 @@ public class SendNotificationDashboardController {
             new Alert(Alert.AlertType.ERROR, "Failed to send email").show();
         }
     }
-
-//    private void sendEmailWithSendgrid(String from, String to, String subject, String body) {
-//        String USERNAME = "tlwr ybxz bgzc dfyo";
-//
-//        Properties props = new Properties();
-//        props.put("mail.smtp.auth", "true");
-//        props.put("mail.smtp.starttls.enable", "true");
-//        props.put("mail.smtp.host", "smtp.sendgrid.net");
-//        props.put("mail.smtp.port", "587");
-//
-//        Session session = Session.getInstance(props, new Authenticator() {
-//            protected PasswordAuthentication getPasswordAuthentication() {
-//                return new PasswordAuthentication(USERNAME, "");
-//            }
-//        });
-//
-//        try {
-//            Message message = new MimeMessage(session);
-//            message.setFrom(new InternetAddress(from));
-//            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
-//            message.setSubject(subject);
-//            message.setText(body);
-//            Transport.send(message);
-//
-//            new Alert(Alert.AlertType.INFORMATION, "Email sent successfully").show();
-//        } catch (MessagingException e) {
-//            e.printStackTrace();
-//            new Alert(Alert.AlertType.ERROR, "Failed to send email").show();
-//        }
-//    }
-
 
 }
