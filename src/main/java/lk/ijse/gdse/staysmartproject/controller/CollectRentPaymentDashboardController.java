@@ -151,7 +151,21 @@ public class CollectRentPaymentDashboardController implements Initializable {
 
     @FXML
     void onMouseClicked(MouseEvent event) {
+        RentPaymentTM selectedItem = tableCollectRentPayment.getSelectionModel().getSelectedItem();
+        if (selectedItem == null) {
+            return;
+        }
 
+        lblRentPaymentId.setText(selectedItem.getRent_Payment_ID());
+        txtHouseId.setText(selectedItem.getHouse_ID());
+        lblTenantId.setText(selectedItem.getTenant_ID());
+        lblName.setText(selectedItem.getName());
+        lblRentPrice.setText(String.valueOf(selectedItem.getRent_Amount()));
+        dpDate.setValue(new java.sql.Date(selectedItem.getPayment_Date().getTime()).toLocalDate());
+
+        btnSubmitPayment.setDisable(true);
+        btnPrintBill.setDisable(true);
+        btnSearch.setDisable(true);
     }
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
