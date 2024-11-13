@@ -41,8 +41,6 @@ public class SendNotificationDashboardController {
 
     private TenantModel tenantModel = new TenantModel();
 
-    @Setter
-    private String Email;
 
     @FXML
     void btnSearchAction(ActionEvent event) {
@@ -68,7 +66,7 @@ public class SendNotificationDashboardController {
 
     @FXML
     void btnSendAction(ActionEvent event) {
-        final String FROM = "hasiduudara@gmail.com";
+        final String FROM = "hasindutechschool@gmail.com";
 
         String subject = txtSubject.getText();
         String body = txtBody.getText();
@@ -77,13 +75,13 @@ public class SendNotificationDashboardController {
             new Alert(Alert.AlertType.ERROR, "Please enter a subject and body").show();
             return;
         }
-
-        sendEmailWithGmail(FROM, Email, subject, body);
+        System.out.println(FROM+""+ lblEmail.getText()+""+ subject+""+ body);
+        sendEmailWithGmail(FROM, lblEmail.getText(), subject, body);
     }
 
     private void sendEmailWithGmail(String from, String to, String subject, String body) {
         String USERNAME = "apikey";
-        String PASSWORD = "tlwr ybxz bgzc dfyo";
+        String PASSWORD = "eumw-qtew-wvqb-ynuy";
 
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");

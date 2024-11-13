@@ -6,7 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 
-public class ManageFinancesDashboardController {
+public class ManageFinancesDashboardController{
 
     @FXML
     private Button btnCalculateProfit;

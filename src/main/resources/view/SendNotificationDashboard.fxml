@@ -86,6 +86,9 @@
                      <HBox.margin>
                         <Insets top="5.0" />
                      </HBox.margin>
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
                   </TextField>
                </children>
             </HBox>
@@ -93,6 +96,9 @@
                <VBox.margin>
                   <Insets top="3.0" />
                </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
             </TextArea>
          </children>
          <padding>

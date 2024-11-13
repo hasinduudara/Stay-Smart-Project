@@ -75,14 +75,23 @@ CREATE TABLE Maintains (
                            FOREIGN KEY (House_ID) REFERENCES House(House_ID) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
-
-
-
-
-
 -- Finances Table
 CREATE TABLE Finances (
                           Finance_ID INT PRIMARY KEY,
                           Income DECIMAL(15, 2) DEFAULT 0.00,
                           Expenses DECIMAL(15, 2) DEFAULT 0.00
+);
+
+-- Total Income
+UPDATE Finances
+SET Income = (
+    SELECT SUM(Rent_Amount)
+    FROM Rent_Payment
+);
+
+-- Total Expenses
+UPDATE Finances
+SET Expenses = (
+    SELECT SUM(Amount)
+    FROM Maintains
 );
