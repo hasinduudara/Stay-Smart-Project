@@ -97,14 +97,6 @@ public class CollectRentPaymentDashboardController implements Initializable {
 
             Map<String, Object> parameters = new HashMap<>();
 
-            parameters.put("Rent_Payment_ID", lblRentPaymentId.getText());
-            parameters.put("Rent_Amount", lblRentPrice.getText());
-            parameters.put("Payment_Date", Date.valueOf(dpDate.getValue()));
-            parameters.put("Tenant_ID", lblTenantId.getText());
-            parameters.put("House_ID", txtHouseId.getText());
-
-            //System.out.println("Parameters: " + parameters);
-
             JasperReport jasperReport = JasperCompileManager.compileReport(getClass().getResourceAsStream("/report/PrintBill.jrxml"));
 
             JasperPrint jasperPrint = JasperFillManager.fillReport(

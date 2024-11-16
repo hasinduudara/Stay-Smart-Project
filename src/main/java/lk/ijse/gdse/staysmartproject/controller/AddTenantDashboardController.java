@@ -85,12 +85,6 @@ public class AddTenantDashboardController implements Initializable {
             Connection connection = DBConnection.getInstance().getConnection();
             Map<String, Object> parameters = new HashMap<>();
 
-            parameters.put("Tenant_ID", lblTenantId.getText());
-            parameters.put("House_ID", txtHouseId.getText());
-            parameters.put("Name", txtName.getText());
-            parameters.put("Email", txtEmail.getText());
-            parameters.put("End_Of_Date", dpEndOfDate.getValue().toString());
-
             JasperReport jasperReport = JasperCompileManager.compileReport(getClass().getResourceAsStream("/report/TenantReport1.jrxml"));
 
             JasperPrint jasperPrint = JasperFillManager.fillReport(
@@ -265,7 +259,6 @@ public class AddTenantDashboardController implements Initializable {
         btnAddTenantDelete.setDisable(true);
         btnAddTenantUpdate.setDisable(true);
         btnAddTenantReset.setDisable(true);
-        btnAddTenantContractReport.setDisable(true);
     }
 
     private void refreshTable() throws SQLException, ClassNotFoundException {
@@ -302,6 +295,5 @@ public class AddTenantDashboardController implements Initializable {
         btnAddTenantDelete.setDisable(false);
         btnAddTenantUpdate.setDisable(false);
         btnAddTenantReset.setDisable(false);
-        btnAddTenantContractReport.setDisable(false);
     }
 }

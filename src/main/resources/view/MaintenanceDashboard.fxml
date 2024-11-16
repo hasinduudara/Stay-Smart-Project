@@ -56,7 +56,7 @@
             <Insets top="2.0" />
          </padding>
       </VBox>
-      <Button fx:id="btnSubmit" alignment="CENTER" contentDisplay="CENTER" layoutX="246.0" layoutY="260.0" mnemonicParsing="false" onAction="#btnSubmitAction" prefHeight="31.0" prefWidth="109.0" style="-fx-background-color: #01be38; -fx-background-radius: 30; -fx-border-color: #000000; -fx-border-radius: 30;" text="Submit" textFill="WHITE">
+      <Button fx:id="btnSubmit" alignment="CENTER" contentDisplay="CENTER" layoutX="169.0" layoutY="262.0" mnemonicParsing="false" onAction="#btnSubmitAction" prefHeight="31.0" prefWidth="109.0" style="-fx-background-color: #01be38; -fx-background-radius: 30; -fx-border-color: #000000; -fx-border-radius: 30;" text="Submit" textFill="WHITE">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
@@ -86,5 +86,10 @@
          </font>
       </Label>
       <DatePicker fx:id="dpDate" layoutX="146.0" layoutY="214.0" onAction="#dpDateAction" prefHeight="38.0" prefWidth="280.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000; -fx-border-width: 0 0 1 0;" />
+      <Button fx:id="btnGetReport" alignment="CENTER" contentDisplay="CENTER" layoutX="294.0" layoutY="262.0" mnemonicParsing="false" onAction="#btnGetReportAction" prefHeight="31.0" prefWidth="109.0" style="-fx-background-color: #0097ff; -fx-background-radius: 30; -fx-border-color: #000000; -fx-border-radius: 30;" text="Get Report" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

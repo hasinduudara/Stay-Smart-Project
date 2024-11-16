@@ -8,22 +8,28 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.gdse.staysmartproject.db.DBConnection;
 import lk.ijse.gdse.staysmartproject.dto.MaintenanceDTO;
 import lk.ijse.gdse.staysmartproject.dto.tm.MaintenanceTM;
 import lk.ijse.gdse.staysmartproject.model.MaintenanceModel;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.view.JasperViewer;
 
 import java.net.URL;
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.ResourceBundle;
+import java.time.LocalDate;
+import java.util.*;
 
 public class MaintenanceDashboardController implements Initializable {
 
     @FXML
     private Button btnSubmit;
+
+    @FXML
+    private Button btnGetReport;
 
     @FXML
     private TableColumn<MaintenanceTM, Double> colAmount;
@@ -133,5 +139,30 @@ public class MaintenanceDashboardController implements Initializable {
             maintenanceTMS.add(maintenanceTM);
         }
         tableMaintenance.setItems(maintenanceTMS);
+    }
+
+    @FXML
+    void btnGetReportAction(ActionEvent event) {
+        try {
+            Connection connection = DBConnection.getInstance().getConnection();
+
+            Map<String, Object> parameters = new HashMap<>();
+
+            JasperReport jasperReport = JasperCompileManager.compileReport(getClass().getResourceAsStream("/report/GetReport.jrxml"));
+
+            JasperPrint jasperPrint = JasperFillManager.fillReport(
+                    jasperReport,
+                    parameters,
+                    connection
+            );
+
+            JasperViewer.viewReport(jasperPrint, false);
+        } catch (JRException e) {
+            new Alert(Alert.AlertType.ERROR, "Fail to load report..!");
+            e.printStackTrace();
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, "Data empty..!");
+            e.printStackTrace();
+        }
     }
 }
