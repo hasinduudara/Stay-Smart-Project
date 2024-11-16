@@ -164,7 +164,7 @@ public class CollectRentPaymentDashboardController implements Initializable {
         dpDate.setValue(new java.sql.Date(selectedItem.getPayment_Date().getTime()).toLocalDate());
 
         btnSubmitPayment.setDisable(true);
-        btnPrintBill.setDisable(true);
+        btnPrintBill.setDisable(false);
         btnSearch.setDisable(true);
     }
 
@@ -196,7 +196,7 @@ public class CollectRentPaymentDashboardController implements Initializable {
         dpDate.setValue(null);
 
         btnSubmitPayment.setDisable(false);
-        btnPrintBill.setDisable(false);
+        btnPrintBill.setDisable(true);
         btnSearch.setDisable(false);
     }
 

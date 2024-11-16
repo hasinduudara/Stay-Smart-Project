@@ -1,0 +1,102 @@
+<!-- Created with Jaspersoft Studio version 7.0.0.final using JasperReports Library version 7.0.0-b478feaa9aab4375eba71de77b4ca138ad2f62aa  -->
+<jasperReport name="TenantReport1" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e2e9e7c7-9d85-4c06-8aa1-1a8f375abbe4">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter"/>
+	<query language="SQL"><![CDATA[select * from tenant;]]></query>
+	<field name="Tenant_ID" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Tenant_ID"/>
+		<property name="com.jaspersoft.studio.field.label" value="Tenant_ID"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tenant"/>
+	</field>
+	<field name="House_ID" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="House_ID"/>
+		<property name="com.jaspersoft.studio.field.label" value="House_ID"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tenant"/>
+	</field>
+	<field name="Name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Name"/>
+		<property name="com.jaspersoft.studio.field.label" value="Name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tenant"/>
+	</field>
+	<field name="Email" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Email"/>
+		<property name="com.jaspersoft.studio.field.label" value="Email"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tenant"/>
+	</field>
+	<field name="End_Of_Date" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="End_Of_Date"/>
+		<property name="com.jaspersoft.studio.field.label" value="End_Of_Date"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tenant"/>
+	</field>
+	<group name="Tenant_ID">
+		<expression><![CDATA[$F{Tenant_ID}]]></expression>
+	</group>
+	<group name="House_ID">
+		<expression><![CDATA[$F{House_ID}]]></expression>
+	</group>
+	<group name="Name">
+		<expression><![CDATA[$F{Name}]]></expression>
+	</group>
+	<group name="Email">
+		<expression><![CDATA[$F{Email}]]></expression>
+	</group>
+	<group name="End_Of_Date">
+		<expression><![CDATA[$F{End_Of_Date}]]></expression>
+	</group>
+	<background splitType="Stretch"/>
+	<title height="79" splitType="Stretch">
+		<element kind="staticText" uuid="2b5603be-9a0c-4c31-ae91-edd1464f8a1e" x="172" y="24" width="210" height="30" fontSize="16.0" hTextAlign="Center">
+			<text><![CDATA[Tenant Report]]></text>
+		</element>
+	</title>
+	<pageHeader height="35" splitType="Stretch"/>
+	<columnHeader height="61" splitType="Stretch">
+		<element kind="staticText" uuid="da4341f2-de27-4ccd-873d-eaf2bb1b5628" x="0" y="0" width="111" height="30" fontSize="12.0" hTextAlign="Center">
+			<text><![CDATA[Tenant ID]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="bcd484e7-c1aa-49e2-aad8-c9b297c5af36"/>
+		</element>
+		<element kind="staticText" uuid="d9b9d6a9-d45d-4b29-8507-1a3047e8a3fa" x="111" y="0" width="111" height="30" fontSize="12.0" hTextAlign="Center">
+			<text><![CDATA[House ID]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9180e6ba-9ffd-4212-ab98-c2f6f25767aa"/>
+		</element>
+		<element kind="staticText" uuid="5c2d89b5-f9f8-489d-8784-dfcbe163bc07" x="222" y="0" width="111" height="30" fontSize="12.0" hTextAlign="Center">
+			<text><![CDATA[Name]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a82897b5-5789-4922-935a-82c8a896b663"/>
+		</element>
+		<element kind="staticText" uuid="50cdffed-bde0-41de-b7d9-41705b5251d7" x="333" y="0" width="111" height="30" fontSize="12.0" hTextAlign="Center">
+			<text><![CDATA[Email]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c782e69c-69f1-4c77-805c-57145734a326"/>
+		</element>
+		<element kind="staticText" uuid="087660ad-66b3-4e7e-9ceb-37559d18bc89" x="444" y="0" width="111" height="30" fontSize="12.0" hTextAlign="Center">
+			<text><![CDATA[End Of Date]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="693c76b8-050a-420f-b4c6-383aa0b2e089"/>
+		</element>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<element kind="textField" uuid="78efcbc0-0ad9-47eb-b3eb-f2166086a5b8" x="0" y="0" width="111" height="30" hTextAlign="Center">
+				<expression><![CDATA[$F{Tenant_ID}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="bcd484e7-c1aa-49e2-aad8-c9b297c5af36"/>
+			</element>
+			<element kind="textField" uuid="2aab252e-949e-4b8c-b96d-472ebd0a8bb5" x="111" y="0" width="111" height="30" hTextAlign="Center">
+				<expression><![CDATA[$F{House_ID}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9180e6ba-9ffd-4212-ab98-c2f6f25767aa"/>
+			</element>
+			<element kind="textField" uuid="69a5719c-3116-40fa-9bc6-11bca7f944f5" x="222" y="0" width="111" height="30" hTextAlign="Center">
+				<expression><![CDATA[$F{Name}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a82897b5-5789-4922-935a-82c8a896b663"/>
+			</element>
+			<element kind="textField" uuid="2b35e132-6f79-4727-8ebd-4955a9ec52c7" x="333" y="0" width="111" height="30" hTextAlign="Center">
+				<expression><![CDATA[$F{Email}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c782e69c-69f1-4c77-805c-57145734a326"/>
+			</element>
+			<element kind="textField" uuid="20a7ef1a-f1f7-4a1c-a7d7-4bcafde58cbc" x="444" y="0" width="111" height="30" hTextAlign="Center">
+				<expression><![CDATA[$F{End_Of_Date}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="693c76b8-050a-420f-b4c6-383aa0b2e089"/>
+			</element>
+		</band>
+	</detail>
+	<columnFooter height="45" splitType="Stretch"/>
+	<pageFooter height="54" splitType="Stretch"/>
+	<summary height="42" splitType="Stretch"/>
+</jasperReport>

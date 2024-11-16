@@ -4,6 +4,7 @@ module lk.ijse.gdse.staysmartproject {
     requires java.sql;
     requires lombok;
     requires java.mail;
+    requires net.sf.jasperreports.core;
 
     opens lk.ijse.gdse.staysmartproject.controller to javafx.fxml;
     opens lk.ijse.gdse.staysmartproject.dto.tm to javafx.base;

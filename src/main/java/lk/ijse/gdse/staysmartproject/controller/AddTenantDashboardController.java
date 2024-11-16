@@ -9,17 +9,19 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.gdse.staysmartproject.db.DBConnection;
 import lk.ijse.gdse.staysmartproject.dto.TenantDTO;
 import lk.ijse.gdse.staysmartproject.dto.tm.TenantTM;
 import lk.ijse.gdse.staysmartproject.model.HouseModel;
 import lk.ijse.gdse.staysmartproject.model.TenantModel;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.view.JasperViewer;
 
 import java.net.URL;
+import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Optional;
-import java.util.ResourceBundle;
+import java.time.LocalDate;
+import java.util.*;
 
 public class AddTenantDashboardController implements Initializable {
 
@@ -79,7 +81,32 @@ public class AddTenantDashboardController implements Initializable {
 
     @FXML
     void btnAddTenantContractReportAction(ActionEvent event) {
+        try {
+            Connection connection = DBConnection.getInstance().getConnection();
+            Map<String, Object> parameters = new HashMap<>();
 
+            parameters.put("Tenant_ID", lblTenantId.getText());
+            parameters.put("House_ID", txtHouseId.getText());
+            parameters.put("Name", txtName.getText());
+            parameters.put("Email", txtEmail.getText());
+            parameters.put("End_Of_Date", dpEndOfDate.getValue().toString());
+
+            JasperReport jasperReport = JasperCompileManager.compileReport(getClass().getResourceAsStream("/report/TenantReport1.jrxml"));
+
+            JasperPrint jasperPrint = JasperFillManager.fillReport(
+                    jasperReport,
+                    parameters,
+                    connection
+            );
+
+            JasperViewer.viewReport(jasperPrint, false);
+        } catch (JRException e) {
+            new Alert(Alert.AlertType.ERROR, "Fail to load report..!");
+            e.printStackTrace();
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, "Data empty..!");
+            e.printStackTrace();
+        }
     }
 
     @FXML
