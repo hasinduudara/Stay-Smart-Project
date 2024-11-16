@@ -4,11 +4,15 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import lk.ijse.gdse.staysmartproject.db.DBConnection;
 import lk.ijse.gdse.staysmartproject.dto.HouseDTO;
 import lk.ijse.gdse.staysmartproject.dto.RentPaymentDTO;
@@ -18,15 +22,14 @@ import lk.ijse.gdse.staysmartproject.dto.tm.RentPaymentTM;
 import lk.ijse.gdse.staysmartproject.dto.tm.TenantTM;
 import lk.ijse.gdse.staysmartproject.model.HouseModel;
 import lk.ijse.gdse.staysmartproject.model.RentPaymentModel;
+import lk.ijse.gdse.staysmartproject.model.SharedDataModel;
 import lk.ijse.gdse.staysmartproject.model.TenantModel;
 import lombok.Data;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.view.JasperViewer;
 
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.SQLException;
+import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -34,6 +37,10 @@ import java.util.Map;
 import java.util.ResourceBundle;
 
 public class CollectRentPaymentDashboardController implements Initializable {
+
+    private final String url = "jdbc:mysql://localhost:3306/staysmart";
+    private final String user = "root";
+    private final String password = "hasindu12345";
 
     @FXML
     private Button btnPrintBill;
@@ -156,6 +163,7 @@ public class CollectRentPaymentDashboardController implements Initializable {
             if (isSaved) {
                 refreshPage();
                 new Alert(Alert.AlertType.INFORMATION, "saved successfully").show();
+                getRentPaymentAndIncomeSum();
             } else {
                 new Alert(Alert.AlertType.ERROR, "save failed").show();
             }
@@ -248,5 +256,29 @@ public class CollectRentPaymentDashboardController implements Initializable {
             rentPaymentTMS.add(rentPaymentTM);
         }
         tableCollectRentPayment.setItems(rentPaymentTMS);
+    }
+
+    public void getRentPaymentAndIncomeSum() {
+        try (Connection connection = DriverManager.getConnection(url, user, password);
+             Statement statement = connection.createStatement()) {
+
+            // Query to get the sum of Rent_Amount from Rent_Payment table
+            String rentAmountQuery = "SELECT SUM(Rent_Amount) AS totalRentAmount FROM Rent_Payment";
+            ResultSet rentAmountResult = statement.executeQuery(rentAmountQuery);
+            double totalRentAmount = 0;
+            if (rentAmountResult.next()) {
+                totalRentAmount = rentAmountResult.getDouble("totalRentAmount");
+            }
+
+            // Update the Income in Finances table
+            String updateIncomeQuery = "UPDATE Finances SET Income = " + totalRentAmount;
+            statement.executeUpdate(updateIncomeQuery);
+
+            // Set the totalRentAmount in SharedDataModel
+            SharedDataModel.getInstance().setTotalRentAmount(totalRentAmount);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
