@@ -9,6 +9,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.gdse.staysmartproject.db.DBConnection;
 import lk.ijse.gdse.staysmartproject.dto.HouseDTO;
 import lk.ijse.gdse.staysmartproject.dto.RentPaymentDTO;
 import lk.ijse.gdse.staysmartproject.dto.TenantDTO;
@@ -19,12 +20,17 @@ import lk.ijse.gdse.staysmartproject.model.HouseModel;
 import lk.ijse.gdse.staysmartproject.model.RentPaymentModel;
 import lk.ijse.gdse.staysmartproject.model.TenantModel;
 import lombok.Data;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.view.JasperViewer;
 
 import java.net.URL;
+import java.sql.Connection;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 public class CollectRentPaymentDashboardController implements Initializable {
@@ -86,7 +92,35 @@ public class CollectRentPaymentDashboardController implements Initializable {
 
     @FXML
     void btnPrintBillAction(ActionEvent event) {
+        try {
+            Connection connection = DBConnection.getInstance().getConnection();
 
+            Map<String, Object> parameters = new HashMap<>();
+
+            parameters.put("Rent_Payment_ID", lblRentPaymentId.getText());
+            parameters.put("Rent_Amount", lblRentPrice.getText());
+            parameters.put("Payment_Date", Date.valueOf(dpDate.getValue()));
+            parameters.put("Tenant_ID", lblTenantId.getText());
+            parameters.put("House_ID", txtHouseId.getText());
+
+            //System.out.println("Parameters: " + parameters);
+
+            JasperReport jasperReport = JasperCompileManager.compileReport(getClass().getResourceAsStream("/report/PrintBill.jrxml"));
+
+            JasperPrint jasperPrint = JasperFillManager.fillReport(
+                    jasperReport,
+                    parameters,
+                    connection
+            );
+
+            JasperViewer.viewReport(jasperPrint, false);
+        } catch (JRException e) {
+            new Alert(Alert.AlertType.ERROR, "Fail to load report..!");
+            e.printStackTrace();
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, "Data empty..!");
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -164,7 +198,6 @@ public class CollectRentPaymentDashboardController implements Initializable {
         dpDate.setValue(new java.sql.Date(selectedItem.getPayment_Date().getTime()).toLocalDate());
 
         btnSubmitPayment.setDisable(true);
-        btnPrintBill.setDisable(false);
         btnSearch.setDisable(true);
     }
 
@@ -196,7 +229,6 @@ public class CollectRentPaymentDashboardController implements Initializable {
         dpDate.setValue(null);
 
         btnSubmitPayment.setDisable(false);
-        btnPrintBill.setDisable(true);
         btnSearch.setDisable(false);
     }
 
@@ -223,7 +255,6 @@ public class CollectRentPaymentDashboardController implements Initializable {
             );
             rentPaymentTMS.add(rentPaymentTM);
         }
-
         tableCollectRentPayment.setItems(rentPaymentTMS);
     }
 }
