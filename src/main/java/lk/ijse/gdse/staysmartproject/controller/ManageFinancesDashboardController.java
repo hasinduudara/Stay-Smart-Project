@@ -30,7 +30,10 @@ public class ManageFinancesDashboardController {
 
     @FXML
     void btnCalculateProfitAction(ActionEvent event) {
-
+        double totalRentAmount = SharedDataModel.getInstance().getTotalRentAmount();
+        double totalExpenses = ExpensesDataModel.getInstance().getTotalExpenses();
+        double profit = totalRentAmount - totalExpenses;
+        lblViewProfit.setText(String.valueOf(profit));
     }
 
     @FXML
