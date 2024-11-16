@@ -5,9 +5,10 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.gdse.staysmartproject.model.ExpensesDataModel;
 import lk.ijse.gdse.staysmartproject.model.SharedDataModel;
 
-public class ManageFinancesDashboardController{
+public class ManageFinancesDashboardController {
 
     @FXML
     private Button btnCalculateProfit;
@@ -41,5 +42,9 @@ public class ManageFinancesDashboardController{
         // Get the totalRentAmount from SharedDataModel and set it to lblAlltenantPayments
         double totalRentAmount = SharedDataModel.getInstance().getTotalRentAmount();
         lblAlltenantPayments.setText(String.valueOf(totalRentAmount));
+
+        // Get the totalExpenses from ExpensesDataModel and set it to lblAllMaintenanceCosts
+        double totalExpenses = ExpensesDataModel.getInstance().getTotalExpenses();
+        lblAllMaintenanceCosts.setText(String.valueOf(totalExpenses));
     }
 }

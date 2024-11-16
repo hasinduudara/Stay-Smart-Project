@@ -11,19 +11,25 @@ import javafx.scene.layout.AnchorPane;
 import lk.ijse.gdse.staysmartproject.db.DBConnection;
 import lk.ijse.gdse.staysmartproject.dto.MaintenanceDTO;
 import lk.ijse.gdse.staysmartproject.dto.tm.MaintenanceTM;
+import lk.ijse.gdse.staysmartproject.model.ExpensesDataModel;
 import lk.ijse.gdse.staysmartproject.model.MaintenanceModel;
+import lk.ijse.gdse.staysmartproject.model.SharedDataModel;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.view.JasperViewer;
 
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.SQLException;
+import java.sql.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.*;
+import java.util.Date;
 
 public class MaintenanceDashboardController implements Initializable {
+
+    private final String url = "jdbc:mysql://localhost:3306/staysmart";
+    private final String user = "root";
+    private final String password = "hasindu12345";
 
     @FXML
     private Button btnSubmit;
@@ -78,6 +84,7 @@ public class MaintenanceDashboardController implements Initializable {
 
         try {
             refreshPage();
+            getMaintenanceCostSum();
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
@@ -96,10 +103,10 @@ public class MaintenanceDashboardController implements Initializable {
             boolean isSaved = maintenanceModel.saveMaintenance(maintenanceDTO);
 
             if (isSaved) {
-                new Alert(Alert.AlertType.INFORMATION, "Tenant saved successfully").show();
+                new Alert(Alert.AlertType.INFORMATION, "Maintenance add successfully").show();
                 refreshPage(); // Refresh the page to update the table
             } else {
-                new Alert(Alert.AlertType.ERROR, "Failed to save tenant").show();
+                new Alert(Alert.AlertType.ERROR, "Failed to add Maintenance").show();
             }
         } catch (ParseException | SQLException | ClassNotFoundException e) {
             e.printStackTrace();
@@ -162,6 +169,30 @@ public class MaintenanceDashboardController implements Initializable {
             e.printStackTrace();
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, "Data empty..!");
+            e.printStackTrace();
+        }
+    }
+
+    public void getMaintenanceCostSum() {
+        try (Connection connection = DriverManager.getConnection(url, user, password);
+             Statement statement = connection.createStatement()) {
+
+            // Query to get the sum of Amount from Maintains table
+            String totalExpensesQuery = "SELECT SUM(Amount) AS totalExpenses FROM Maintains";
+            ResultSet totalExpensesResult = statement.executeQuery(totalExpensesQuery);
+            double totalExpenses = 0;
+            if (totalExpensesResult.next()) {
+                totalExpenses = totalExpensesResult.getDouble("totalExpenses");
+            }
+
+            // Update the Expenses in Finances table
+            String updateExpensesQuery = "UPDATE Finances SET Expenses = " + totalExpenses;
+            statement.executeUpdate(updateExpensesQuery);
+
+            // Set the totalExpenses in ExpensesDataModel
+            ExpensesDataModel.getInstance().setTotalExpenses(totalExpenses);
+
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

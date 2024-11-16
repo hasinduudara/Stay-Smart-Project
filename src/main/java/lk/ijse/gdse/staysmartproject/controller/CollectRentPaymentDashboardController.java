@@ -163,7 +163,6 @@ public class CollectRentPaymentDashboardController implements Initializable {
             if (isSaved) {
                 refreshPage();
                 new Alert(Alert.AlertType.INFORMATION, "saved successfully").show();
-                getRentPaymentAndIncomeSum();
             } else {
                 new Alert(Alert.AlertType.ERROR, "save failed").show();
             }
@@ -211,6 +210,7 @@ public class CollectRentPaymentDashboardController implements Initializable {
 
         try {
             refreshPage();
+            getRentPaymentAndIncomeSum();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

@@ -17,4 +17,5 @@ public class SharedDataModel {
     public void setTotalRentAmount(double totalRentAmount) {
         this.totalRentAmount = totalRentAmount;
     }
+
 }
