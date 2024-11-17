@@ -80,7 +80,7 @@ public class SendNotificationDashboardController {
     }
 
     private void sendEmailWithGmail(String from, String to, String subject, String body) {
-        String PASSWORD = "bkfq-vkbz-ogkk-daku";
+        String PASSWORD = "bkfqvkbzogkkdaku";
 
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
