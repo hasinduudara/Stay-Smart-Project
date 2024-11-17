@@ -11,4 +11,5 @@ public class FinancesTM {
     private String Finance_ID;
     private Double Income;
     private Double Expense;
+    //private Double Profit;
 }

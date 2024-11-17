@@ -79,7 +79,8 @@ CREATE TABLE Maintains (
 CREATE TABLE Finances (
                           Finance_ID INT PRIMARY KEY,
                           Income DECIMAL(15, 2) DEFAULT 0.00,
-                          Expenses DECIMAL(15, 2) DEFAULT 0.00
+                          Expenses DECIMAL(15, 2) DEFAULT 0.00,
+                          Profit DECIMAL(15, 2) DEFAULT 0.00
 );
 
 -- Total Income

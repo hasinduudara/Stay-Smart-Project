@@ -2,8 +2,6 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -48,11 +46,6 @@
             </HBox>
          </children>
       </VBox>
-      <Button fx:id="btnCalculateProfit" layoutX="207.0" layoutY="158.0" mnemonicParsing="false" onAction="#btnCalculateProfitAction" prefHeight="38.0" prefWidth="198.0" style="-fx-background-color: #008fff; -fx-background-radius: 30; -fx-border-color: #000000; -fx-border-radius: 30;" text="Calculate The Profit" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="16.0" />
-         </font>
-      </Button>
       <HBox layoutX="90.0" layoutY="202.0" prefHeight="54.0" prefWidth="431.0">
          <children>
             <Label prefHeight="46.0" prefWidth="110.0" text="Profit (Rs) :">
@@ -67,17 +60,10 @@
             </Label>
          </children>
       </HBox>
-      <Button fx:id="btnGenerateReport" layoutX="211.0" layoutY="268.0" mnemonicParsing="false" onAction="#btnGenerateReportAction" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: #01be38; -fx-background-radius: 30; -fx-border-color: #000000; -fx-border-radius: 30;" text="Generate A Report" textFill="WHITE">
+      <Button fx:id="btnGenerateReport" layoutX="210.0" layoutY="290.0" mnemonicParsing="false" onAction="#btnGenerateReportAction" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: #01be38; -fx-background-radius: 30; -fx-border-color: #000000; -fx-border-radius: 30;" text="Generate A Report" textFill="WHITE">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Button>
-      <TableView fx:id="tableFinance" layoutX="34.0" layoutY="325.0" onMouseClicked="#onMouseClick" prefHeight="219.0" prefWidth="542.0" style="-fx-border-color: #000000;">
-        <columns>
-          <TableColumn fx:id="colAllIncome" prefWidth="150.39998626708984" text="All Income" />
-          <TableColumn fx:id="colAllExpenses" minWidth="0.0" prefWidth="208.79998779296875" text="All Expenses" />
-            <TableColumn fx:id="colProfit" prefWidth="183.20010375976562" text="Profit" />
-        </columns>
-      </TableView>
    </children>
 </AnchorPane>

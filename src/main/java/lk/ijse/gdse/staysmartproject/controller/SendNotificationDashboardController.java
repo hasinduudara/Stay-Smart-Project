@@ -66,7 +66,7 @@ public class SendNotificationDashboardController {
 
     @FXML
     void btnSendAction(ActionEvent event) {
-        final String FROM = "hasindutechschool@gmail.com";
+        final String FROM = "hasiduudara@gmail.com";
 
         String subject = txtSubject.getText();
         String body = txtBody.getText();
@@ -80,8 +80,7 @@ public class SendNotificationDashboardController {
     }
 
     private void sendEmailWithGmail(String from, String to, String subject, String body) {
-        String USERNAME = "apikey";
-        String PASSWORD = "eumw-qtew-wvqb-ynuy";
+        String PASSWORD = "bkfq-vkbz-ogkk-daku";
 
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
@@ -92,7 +91,7 @@ public class SendNotificationDashboardController {
 
         Session session = Session.getInstance(props, new Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(USERNAME, PASSWORD);
+                return new PasswordAuthentication(from, PASSWORD);
             }
         });
 

@@ -11,6 +11,7 @@ public class SharedDataModel {
     }
 
     public double getTotalRentAmount() {
+
         return totalRentAmount;
     }
 
