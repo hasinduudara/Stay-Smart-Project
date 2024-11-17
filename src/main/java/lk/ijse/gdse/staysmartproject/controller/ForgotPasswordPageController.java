@@ -3,13 +3,11 @@ package lk.ijse.gdse.staysmartproject.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.util.Duration;
 
 import java.io.IOException;
 import java.util.Random;
@@ -122,7 +120,6 @@ public class ForgotPasswordPageController {
             }
         } else {
             lblErrorMessage.setText("Passwords do not match.");
-
         }
     }
 
