@@ -24,8 +24,6 @@ import java.util.ResourceBundle;
 
 public class ManageFinancesDashboardController implements Initializable {
 
-    @FXML
-    private Button btnCalculateProfit;
 
     @FXML
     private Button btnGenerateReport;
@@ -53,37 +51,8 @@ public class ManageFinancesDashboardController implements Initializable {
     private final String password = "hasindu12345";
 
     @FXML
-    void btnCalculateProfitAction(ActionEvent event) {
-        double totalRentAmount = SharedDataModel.getInstance().getTotalRentAmount();
-        double totalExpenses = ExpensesDataModel.getInstance().getTotalExpenses();
-        double profit = totalRentAmount - totalExpenses;
-        lblViewProfit.setText(String.valueOf(profit));
-    }
-
-    @FXML
     void btnGenerateReportAction(ActionEvent event) {
         // Generate report logic here
-    }
-
-    @FXML
-    void btnSaveAction(ActionEvent event) {
-        try {
-            String financeId = new FinancesModel().getNextFinancesId();
-            double income = SharedDataModel.getInstance().getTotalRentAmount();
-            double expenses = ExpensesDataModel.getInstance().getTotalExpenses();
-            double profit = income - expenses;
-
-            FinancesDTO financesDTO = new FinancesDTO(financeId, income, expenses, profit);
-            boolean isSaved = FinancesModel.saveFinances(financesDTO);
-
-            if (isSaved) {
-                System.out.println("Finance record saved successfully.");
-            } else {
-                System.out.println("Failed to save finance record.");
-            }
-        } catch (SQLException | ClassNotFoundException e) {
-            e.printStackTrace();
-        }
     }
 
     @Override

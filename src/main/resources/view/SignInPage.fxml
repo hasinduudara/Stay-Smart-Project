@@ -15,7 +15,7 @@
       <AnchorPane layoutX="48.0" layoutY="53.0" prefHeight="324.0" prefWidth="324.0" style="-fx-background-color: #ececec; -fx-background-radius: 50; -fx-border-radius: 50; -fx-border-color: #000000;">
          <children>
             <TextField fx:id="txtSignInPassword" layoutX="103.0" layoutY="134.0" onAction="#txtSignInPasswordAction" promptText="Password" style="-fx-background-radius: 50;" />
-            <Label alignment="CENTER" layoutX="28.0" layoutY="22.0" prefHeight="35.0" prefWidth="268.0" style="-fx-background-color: #00cd79; -fx-background-radius: 50;" text="Log In To Your Account" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="28.0" layoutY="22.0" prefHeight="35.0" prefWidth="268.0" style="-fx-background-color: #00cd79; -fx-background-radius: 50; -fx-border-color: #000000; -fx-border-radius: 50;" text="Log In To Your Account" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="19.0" />
                </font>
@@ -42,14 +42,14 @@
                   <Font name="System Bold Italic" size="12.800000190734863" />
                </font>
             </Label>
-            <Button fx:id="btnSignInForgotPassword" layoutX="166.0" layoutY="218.0" mnemonicParsing="false" onAction="#btnSignInForgotPasswordAction" text="Forgot Password" />
+            <Button fx:id="btnSignInForgotPassword" layoutX="166.0" layoutY="218.0" mnemonicParsing="false" onAction="#btnSignInForgotPasswordAction" style="-fx-border-color: #000000; -fx-border-width: 0.5; -fx-background-radius: 30; -fx-border-radius: 30;" text="Forgot Password" />
             <Label layoutX="33.0" layoutY="270.0" text="Don't have an account?">
                <font>
                   <Font name="System Bold Italic" size="12.800000190734863" />
                </font>
             </Label>
-            <Button fx:id="btnSignInCreateAcc" layoutX="187.0" layoutY="266.0" mnemonicParsing="false" onAction="#btnSignInCreateAccAction" text="Create Account" />
-            <Button fx:id="btnSignInLoging" layoutX="136.0" layoutY="175.0" mnemonicParsing="false" onAction="#btnSignInLogingAction" text="Log In">
+            <Button fx:id="btnSignInCreateAcc" layoutX="187.0" layoutY="266.0" mnemonicParsing="false" onAction="#btnSignInCreateAccAction" style="-fx-border-color: #000000; -fx-border-width: 0.5; -fx-background-radius: 30; -fx-border-radius: 30;" text="Create Account" />
+            <Button fx:id="btnSignInLoging" layoutX="120.0" layoutY="175.0" mnemonicParsing="false" onAction="#btnSignInLogingAction" prefHeight="27.0" prefWidth="84.0" style="-fx-border-color: #000000; -fx-border-width: 0.5; -fx-border-radius: 30; -fx-background-radius: 30;" text="Log In">
                <font>
                   <Font name="System Bold" size="12.8" />
                </font>

@@ -15,7 +15,7 @@
       <AnchorPane layoutX="45.0" layoutY="76.0" prefHeight="369.0" prefWidth="324.0" style="-fx-background-color: #ececec; -fx-background-radius: 50; -fx-border-radius: 50; -fx-border-color: #000000;">
          <children>
             <TextField fx:id="txtSignUpPassword" layoutX="106.0" layoutY="217.0" onAction="#txtSignUpPasswordAction" promptText="Password" style="-fx-background-radius: 50;" />
-            <Label alignment="CENTER" layoutX="28.0" layoutY="22.0" prefHeight="35.0" prefWidth="268.0" style="-fx-background-color: #00cd79; -fx-background-radius: 50;" text="Create An Account" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="28.0" layoutY="22.0" prefHeight="35.0" prefWidth="268.0" style="-fx-background-color: #00cd79; -fx-background-radius: 50; -fx-border-color: #000000; -fx-border-radius: 50;" text="Create An Account" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="19.0" />
                </font>
@@ -37,13 +37,13 @@
                   <Image url="@../images/view-icon.png" />
                </image>
             </ImageView>
-            <Label layoutX="55.0" layoutY="319.0" text="Do you have an account?">
+            <Label layoutX="50.0" layoutY="318.0" text="Do you have an account?">
                <font>
                   <Font name="System Bold Italic" size="12.800000190734863" />
                </font>
             </Label>
-            <Button fx:id="btnSignUpLogingAcc" layoutX="213.0" layoutY="315.0" mnemonicParsing="false" onAction="#btnSignUpLogingAccAction" text="Sign In" />
-            <Button fx:id="btnSignUpCreateAcc" layoutX="107.0" layoutY="268.0" mnemonicParsing="false" onAction="#btnSignUpCreateAccAction" text="Create Account">
+            <Button fx:id="btnSignUpLogingAcc" layoutX="208.0" layoutY="314.0" mnemonicParsing="false" onAction="#btnSignUpLogingAccAction" prefHeight="27.0" prefWidth="66.0" style="-fx-background-radius: 30; -fx-border-color: #000000; -fx-border-radius: 30; -fx-border-width: 0.5;" text="Sign In" />
+            <Button fx:id="btnSignUpCreateAcc" layoutX="107.0" layoutY="268.0" mnemonicParsing="false" onAction="#btnSignUpCreateAccAction" style="-fx-border-color: #000000; -fx-background-radius: 30; -fx-border-radius: 30; -fx-border-width: 0.5;" text="Create Account">
                <font>
                   <Font name="System Bold" size="12.8" />
                </font>
