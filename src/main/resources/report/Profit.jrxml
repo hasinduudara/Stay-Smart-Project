@@ -1,0 +1,88 @@
+<!-- Created with Jaspersoft Studio version 7.0.0.final using JasperReports Library version 7.0.0-b478feaa9aab4375eba71de77b4ca138ad2f62aa  -->
+<jasperReport name="Profit" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="902ea5f2-08bb-40b7-84dc-cf9161aa173b">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter (5)"/>
+	<query language="SQL"><![CDATA[SELECT
+    (SELECT SUM(Rent_Amount) FROM Rent_Payment) AS Total_Rent_Payments,
+    (SELECT SUM(Amount) FROM Maintains) AS Total_Maintenance,
+    (SELECT SUM(Rent_Amount) - (SELECT SUM(Amount) FROM Maintains) FROM Rent_Payment) AS Total_Income;]]></query>
+	<field name="Total_Rent_Payments" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="Total_Rent_Payments"/>
+		<property name="com.jaspersoft.studio.field.label" value="Total_Rent_Payments"/>
+	</field>
+	<field name="Total_Maintenance" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="Total_Maintenance"/>
+		<property name="com.jaspersoft.studio.field.label" value="Total_Maintenance"/>
+	</field>
+	<field name="Total_Income" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="Total_Income"/>
+		<property name="com.jaspersoft.studio.field.label" value="Total_Income"/>
+	</field>
+	<group name="Total_Rent_Payments">
+		<expression><![CDATA[$F{Total_Rent_Payments}]]></expression>
+	</group>
+	<group name="Total_Maintenance">
+		<expression><![CDATA[$F{Total_Maintenance}]]></expression>
+	</group>
+	<group name="Total_Income">
+		<expression><![CDATA[$F{Total_Income}]]></expression>
+	</group>
+	<background splitType="Stretch"/>
+	<title height="79" splitType="Stretch">
+		<element kind="staticText" uuid="d723dccc-3ea0-4456-aba7-379ca99cda2a" x="194" y="24" width="167" height="30" fontSize="18.0" hTextAlign="Center">
+			<text><![CDATA[Profit Report]]></text>
+		</element>
+	</title>
+	<pageHeader height="35" splitType="Stretch"/>
+	<columnHeader height="30" splitType="Stretch">
+		<element kind="staticText" uuid="eaa3946b-7a4f-4205-92c6-e27bdabb509f" x="0" y="0" width="185" height="30" fontSize="12.0" hTextAlign="Center">
+			<text><![CDATA[Total Income]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5e412951-a3ab-417b-8be9-58c6d9b36ce7"/>
+			<box>
+				<pen lineWidth="1.0" lineStyle="Solid"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="210caee1-da7b-4e35-9ab5-a52c1e23f561" x="185" y="0" width="185" height="30" fontSize="12.0" hTextAlign="Center">
+			<text><![CDATA[Total Expenses]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cd44c2ac-25a4-4483-9fee-f6888a568eee"/>
+			<box>
+				<pen lineWidth="1.0" lineStyle="Solid"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="90b049b4-7207-44df-bf6f-c3c820f90998" x="370" y="0" width="185" height="30" fontSize="12.0" hTextAlign="Center">
+			<text><![CDATA[Profit]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b7043c7c-96a2-4aae-863d-84eeea9e1406"/>
+			<box>
+				<pen lineWidth="1.0" lineStyle="Solid"/>
+			</box>
+		</element>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<element kind="textField" uuid="fbcaa0df-949b-4b5b-8310-7cd78a1cb037" x="0" y="0" width="185" height="30" hTextAlign="Center">
+				<expression><![CDATA[$F{Total_Rent_Payments}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5e412951-a3ab-417b-8be9-58c6d9b36ce7"/>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="49fd2446-3fbf-4872-b73f-5c77114afaad" x="185" y="0" width="185" height="30" hTextAlign="Center">
+				<expression><![CDATA[$F{Total_Maintenance}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cd44c2ac-25a4-4483-9fee-f6888a568eee"/>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="84983be7-d04d-4875-be30-60e665c97552" x="370" y="0" width="185" height="30" hTextAlign="Center">
+				<expression><![CDATA[$F{Total_Income}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b7043c7c-96a2-4aae-863d-84eeea9e1406"/>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+			</element>
+		</band>
+	</detail>
+	<columnFooter height="45" splitType="Stretch"/>
+	<pageFooter height="54" splitType="Stretch"/>
+	<summary height="42" splitType="Stretch"/>
+</jasperReport>

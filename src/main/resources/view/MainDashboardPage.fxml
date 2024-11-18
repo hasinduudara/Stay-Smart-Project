@@ -12,7 +12,7 @@
             <Font name="System Bold" size="27.0" />
          </font>
       </Label>
-      <AnchorPane layoutX="24.0" layoutY="81.0" prefHeight="398.0" prefWidth="222.0" style="-fx-background-color: #00d887; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #000000;">
+      <AnchorPane layoutX="24.0" layoutY="76.0" prefHeight="398.0" prefWidth="222.0" style="-fx-background-color: #00d887; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #000000;">
          <children>
             <Button fx:id="btnAddTenant" layoutX="9.0" layoutY="27.0" mnemonicParsing="false" onAction="#btnAddTenantAction" prefHeight="42.0" prefWidth="203.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50; -fx-border-color: #000000; -fx-border-radius: 50;" text="Add Tenant">
                <font>
@@ -47,12 +47,12 @@
          </children>
       </AnchorPane>
       <AnchorPane fx:id="loardAnchorPain" layoutX="264.0" layoutY="21.0" prefHeight="558.0" prefWidth="612.0" style="-fx-background-color: #ffffff; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #000000;" />
-      <Label fx:id="lblTime" alignment="CENTER" layoutX="37.0" layoutY="492.0" prefHeight="42.0" prefWidth="196.0" style="-fx-border-color: #ffffff; -fx-background-radius: 30;" textFill="WHITE">
+      <Label fx:id="lblTime" alignment="CENTER" layoutX="37.0" layoutY="490.0" prefHeight="42.0" prefWidth="196.0" style="-fx-border-color: #ffffff; -fx-background-radius: 30;" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="lblDate" alignment="CENTER" layoutX="37.0" layoutY="542.0" prefHeight="42.0" prefWidth="196.0" style="-fx-border-color: #ffffff; -fx-background-radius: 30;" textFill="WHITE">
+      <Label fx:id="lblDate" alignment="CENTER" layoutX="37.0" layoutY="540.0" prefHeight="42.0" prefWidth="196.0" style="-fx-border-color: #ffffff; -fx-background-radius: 30;" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>

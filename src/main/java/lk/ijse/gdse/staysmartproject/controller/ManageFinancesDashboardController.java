@@ -1,25 +1,20 @@
 package lk.ijse.gdse.staysmartproject.controller;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
-import lk.ijse.gdse.staysmartproject.dto.FinancesDTO;
-import lk.ijse.gdse.staysmartproject.model.ExpensesDataModel;
+import lk.ijse.gdse.staysmartproject.db.DBConnection;
 import lk.ijse.gdse.staysmartproject.model.FinancesModel;
-import lk.ijse.gdse.staysmartproject.model.SharedDataModel;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.view.JasperViewer;
 
 import java.net.URL;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 public class ManageFinancesDashboardController implements Initializable {
@@ -29,6 +24,9 @@ public class ManageFinancesDashboardController implements Initializable {
     private Button btnGenerateReport;
 
     @FXML
+    private Label lblFinanceId;
+
+    @FXML
     private Label lblAllMaintenanceCosts;
 
     @FXML
@@ -36,9 +34,6 @@ public class ManageFinancesDashboardController implements Initializable {
 
     @FXML
     private Label lblViewProfit;
-
-    @FXML
-    private Button btnSave;
 
     @FXML
     private AnchorPane manageFinancesDashboard;
@@ -52,14 +47,33 @@ public class ManageFinancesDashboardController implements Initializable {
 
     @FXML
     void btnGenerateReportAction(ActionEvent event) {
-        // Generate report logic here
+        try {
+            Connection connection = DBConnection.getInstance().getConnection();
+            Map<String, Object> parameters = new HashMap<>();
+
+            JasperReport jasperReport = JasperCompileManager.compileReport(getClass().getResourceAsStream("/report/Profit.jrxml"));
+
+            JasperPrint jasperPrint = JasperFillManager.fillReport(
+                    jasperReport,
+                    parameters,
+                    connection
+            );
+
+            JasperViewer.viewReport(jasperPrint, false);
+        } catch (JRException e) {
+            new Alert(Alert.AlertType.ERROR, "Fail to load report..!");
+            e.printStackTrace();
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, "Data empty..!");
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ArrayList<Double> allMaintenanceCosts = financesModel.getFullCost();
-        lblAllMaintenanceCosts.setText(String.valueOf(allMaintenanceCosts.get(0)));
-        lblAlltenantPayments.setText(String.valueOf(allMaintenanceCosts.get(1)));
-        lblViewProfit.setText(String.valueOf(allMaintenanceCosts.get(1) - allMaintenanceCosts.get(0)));
+            lblAllMaintenanceCosts.setText(String.valueOf(allMaintenanceCosts.get(0)));
+            lblAlltenantPayments.setText(String.valueOf(allMaintenanceCosts.get(1)));
+            lblViewProfit.setText(String.valueOf(allMaintenanceCosts.get(1) - allMaintenanceCosts.get(0)));
     }
 }
