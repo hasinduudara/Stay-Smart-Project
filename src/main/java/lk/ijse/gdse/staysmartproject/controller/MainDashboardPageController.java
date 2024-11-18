@@ -6,11 +6,19 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
+
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.util.Duration;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 public class MainDashboardPageController implements Initializable {
 
@@ -37,6 +45,12 @@ public class MainDashboardPageController implements Initializable {
 
     @FXML
     private Button btnManageHouse;
+
+    @FXML
+    private Label lblTime;
+
+    @FXML
+    private Label lblDate;
 
     @FXML
     void btnAddTenantAction(ActionEvent event) {
@@ -66,6 +80,7 @@ public class MainDashboardPageController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         navigateTo("/view/AddTenantDashboard.fxml");
+        startClock();
     }
 
     @FXML
@@ -83,5 +98,17 @@ public class MainDashboardPageController implements Initializable {
             e.printStackTrace();
             new Alert(Alert.AlertType.ERROR, "Fail to load page!").show();
         }
+    }
+
+    private void startClock() {
+        Timeline clock = new Timeline(new KeyFrame(Duration.ZERO, e -> {
+            DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("hh:mm:ss a");
+            lblTime.setText(LocalTime.now().format(timeFormatter));
+
+            DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy.MM.dd");
+            lblDate.setText(LocalDate.now().format(dateFormatter));
+        }), new KeyFrame(Duration.seconds(1)));
+        clock.setCycleCount(Timeline.INDEFINITE);
+        clock.play();
     }
 }

@@ -86,13 +86,12 @@ public class SignInPageController {
 
     private boolean checkUserNameAndPassword() throws SQLException {
         List<UserDTO> allUsers = userModel.getAllUsers();
-
         for (UserDTO user : allUsers) {
-            if (user.getName().equals(txtSignInUserName.getText()) && user.getPassword().equals(PFSignInPassword.getText())) {
+            if (user.getUser_Name().equals(txtSignInUserName.getText()) && user.getPassword().equals(PFSignInPassword.getText())) {
                 return true;
             }
         }
-        return true;
+        return false;
     }
 
     private void loadUI(String resource) {

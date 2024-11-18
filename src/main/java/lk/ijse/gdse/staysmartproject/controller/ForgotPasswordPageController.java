@@ -8,6 +8,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
+import lk.ijse.gdse.staysmartproject.util.CrudUtil;
 
 import java.io.IOException;
 import java.util.Random;
@@ -81,6 +82,33 @@ public class ForgotPasswordPageController {
 
     @FXML
     void btnFPForgotPasswordAction(ActionEvent event) {
+//        if (isOTPValid()) {
+//            String newPassword = FPFPNewPassword.getText();
+//            String email = txtYourEmail.getText();
+//
+//            try (Connection connection = DriverManager.getConnection(
+//                    "jdbc:mysql://localhost:3306/staysmart",
+//                    "root",
+//                    "hasindu12345")) {
+////                String updateQuery = "UPDATE user SET password = ? WHERE email = ?";
+////                PreparedStatement preparedStatement = connection.prepareStatement(updateQuery);
+////                preparedStatement.setString(1, newPassword);
+////                preparedStatement.setString(2, email);
+////                preparedStatement.executeUpdate();
+//                boolean updateQuery = CrudUtil.execute("UPDATE user SET Password = ? WHERE Email = ?",newPassword,email);
+//                System.out.println(updateQuery);
+//                if (updateQuery) {
+//                    lblErrorMessage.setText("Password updated successfully.");
+//                    new Alert(Alert.AlertType.INFORMATION,"Password updated successfully.",ButtonType.OK).show();
+//                }
+//            } catch (SQLException e) {
+//                e.printStackTrace();
+//                lblErrorMessage.setText("Failed to update password. Please try again.");
+//            }
+//        } else {
+//            lblErrorMessage.setText("Invalid OTP.");
+//
+//        }
         if (isOTPValid()) {
             String newPassword = FPFPNewPassword.getText();
             String email = txtYourEmail.getText();
@@ -89,19 +117,23 @@ public class ForgotPasswordPageController {
                     "jdbc:mysql://localhost:3306/staysmart",
                     "root",
                     "hasindu12345")) {
-                String updateQuery = "UPDATE user SET password = ? WHERE email = ?";
+                String updateQuery = "UPDATE user SET Password = ? WHERE Email = ?";
                 PreparedStatement preparedStatement = connection.prepareStatement(updateQuery);
                 preparedStatement.setString(1, newPassword);
                 preparedStatement.setString(2, email);
-                preparedStatement.executeUpdate();
-                lblErrorMessage.setText("Password updated successfully.");
+                int rowsUpdated = preparedStatement.executeUpdate();
+                if (rowsUpdated > 0) {
+                    lblErrorMessage.setText("Password updated successfully.");
+                    new Alert(Alert.AlertType.INFORMATION, "Password updated successfully.", ButtonType.OK).show();
+                } else {
+                    lblErrorMessage.setText("Failed to update password. No matching user found.");
+                }
             } catch (SQLException e) {
                 e.printStackTrace();
                 lblErrorMessage.setText("Failed to update password. Please try again.");
             }
         } else {
             lblErrorMessage.setText("Invalid OTP.");
-
         }
     }
 
