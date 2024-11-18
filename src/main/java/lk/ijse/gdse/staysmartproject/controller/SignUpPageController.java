@@ -48,6 +48,9 @@ public class SignUpPageController {
     @FXML
     private TextField txtSignUpUsername;
 
+    @FXML
+    private Label lblErrorMessage;
+
     private UserDTO registeringUser = new UserDTO();
     private UserModel userModel = new UserModel();
 
@@ -63,9 +66,6 @@ public class SignUpPageController {
     @FXML
     void btnSignUpCreateAccAction(ActionEvent event) throws SQLException, IOException {
         saveUser();
-//        signUpPage.getChildren().clear();
-//        AnchorPane newPage = FXMLLoader.load(getClass().getResource("/view/SignInPage.fxml"));
-//        signUpPage.getChildren().add(newPage);
     }
 
     @FXML
@@ -87,13 +87,13 @@ public class SignUpPageController {
 
     private void saveUser() throws SQLException {
         if (areFieldsEmpty()) {
-            showErrorMessage("*Required fields cannot be empty.");
+            showErrorMessage("Required fields cannot be empty.");
         } else if (!isValidUsername(txtSignUpUsername.getText())) {
-            showErrorMessage("*Username must be 5-15 characters, containing only letters, digits, or underscores.");
+            showErrorMessage("Username must be 5-15 characters, containing only letters, digits, or underscores.");
         } else if (!isValidPassword(PFSignUpPassword.getText())) {
-            showErrorMessage("*Password must be at least 8 characters long, contain a digit, a lowercase letter, an uppercase letter, and a special character.");
+            showErrorMessage("Password must be at least 8 characters long, contain a digit, a lowercase letter, an uppercase letter, and a special character.");
         } else if (!isValidEmail(txtSignUpEmail.getText())) {
-            showErrorMessage("*Invalid email format.");
+            showErrorMessage("Invalid email format.");
         } else {
             registeringUser.setUser_ID(userModel.getNextUserId());
             registeringUser.setName(txtSignUpName.getText());
@@ -126,7 +126,6 @@ public class SignUpPageController {
             signUpPage.getChildren().clear();
             signUpPage.getChildren().add(FXMLLoader.load(getClass().getResource(ui)));
         } catch (IOException e) {
-            e.printStackTrace();
             showErrorMessage("Error loading the page: " + e.getMessage());
         }
     }
@@ -139,12 +138,11 @@ public class SignUpPageController {
     }
 
     private void showErrorMessage(String message) {
-        Label lblErrorMessage = new Label(message);
-        signUpPage.getChildren().add(lblErrorMessage);
+        lblErrorMessage.setText(message);
 
         Timeline timeline = new Timeline(new KeyFrame(
                 Duration.seconds(5),
-                ae -> signUpPage.getChildren().remove(lblErrorMessage)
+                ae -> lblErrorMessage.setText("")
         ));
         timeline.play();
     }

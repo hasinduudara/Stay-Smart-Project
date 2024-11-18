@@ -90,5 +90,10 @@
             <Font name="System Italic" size="15.0" />
          </font>
       </Text>
+      <Label fx:id="lblErrorMessage" alignment="CENTER" layoutX="15.0" layoutY="23.0" prefHeight="35.0" prefWidth="869.0" textFill="RED">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
