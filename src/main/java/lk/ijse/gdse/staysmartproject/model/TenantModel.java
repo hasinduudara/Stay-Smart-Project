@@ -1,11 +1,13 @@
 package lk.ijse.gdse.staysmartproject.model;
 
+import lk.ijse.gdse.staysmartproject.db.DBConnection;
 import lk.ijse.gdse.staysmartproject.dto.TenantDTO;
 import lk.ijse.gdse.staysmartproject.util.CrudUtil;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.sql.Connection;
 
 public class TenantModel {
 
@@ -23,17 +25,39 @@ public class TenantModel {
     }
 
     public static boolean saveTenant(TenantDTO tenant) throws SQLException, ClassNotFoundException {
-        boolean isSaved = CrudUtil.execute(
-                "INSERT INTO Tenant VALUES(?,?,?,?,?)",
-                tenant.getTenant_ID(),
-                tenant.getHouse_ID(),
-                tenant.getName(),
-                tenant.getEmail(),
-                tenant.getEnd_Of_Date());
+        Connection connection = DBConnection.getInstance().getConnection();
+        try {
+            connection.setAutoCommit(false);
 
-        if (isSaved) {
-            HouseModel houseModel = new HouseModel();
-            return houseModel.updateHouseStatus(tenant.getHouse_ID(), "Rented Out");
+            boolean isSaved = CrudUtil.execute(
+                    "INSERT INTO Tenant VALUES(?,?,?,?,?)",
+                    tenant.getTenant_ID(),
+                    tenant.getHouse_ID(),
+                    tenant.getName(),
+                    tenant.getEmail(),
+                    tenant.getEnd_Of_Date());
+
+            if (isSaved) {
+                HouseModel houseModel = new HouseModel();
+                boolean isUpdated = houseModel.updateHouseStatus(tenant.getHouse_ID(), "Rented Out");
+                if (isUpdated) {
+                    connection.commit();
+                    return true;
+                } else {
+                    connection.rollback();
+                }
+            } else {
+                connection.rollback();
+            }
+        } catch (SQLException e) {
+            if (connection != null) {
+                connection.rollback();
+            }
+            throw e;
+        } finally {
+            if (connection != null) {
+                connection.setAutoCommit(true);
+            }
         }
         return false;
     }
