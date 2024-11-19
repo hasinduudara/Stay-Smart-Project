@@ -1,10 +1,13 @@
 package lk.ijse.gdse.staysmartproject.controller;
 
+import javafx.animation.ParallelTransition;
+import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
+import javafx.util.Duration;
 import lk.ijse.gdse.staysmartproject.db.DBConnection;
 import lk.ijse.gdse.staysmartproject.model.FinancesModel;
 import net.sf.jasperreports.engine.*;
@@ -76,4 +79,5 @@ public class ManageFinancesDashboardController implements Initializable {
             lblAlltenantPayments.setText(String.valueOf(allMaintenanceCosts.get(1)));
             lblViewProfit.setText(String.valueOf(allMaintenanceCosts.get(1) - allMaintenanceCosts.get(0)));
     }
+
 }
