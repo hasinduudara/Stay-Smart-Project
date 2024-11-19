@@ -102,7 +102,8 @@ public class MaintenanceDashboardController implements Initializable {
 
             if (isSaved) {
                 new Alert(Alert.AlertType.INFORMATION, "Maintenance add successfully").show();
-                refreshPage(); // Refresh the page to update the table
+                refreshPage();
+                clearFields();
             } else {
                 new Alert(Alert.AlertType.ERROR, "Failed to add Maintenance").show();
             }
@@ -193,6 +194,13 @@ public class MaintenanceDashboardController implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public void clearFields() {
+        txtHouseId.clear();
+        txtAmount.clear();
+        txtDescription.clear();
+        dpDate.setValue(null);
     }
 
 }

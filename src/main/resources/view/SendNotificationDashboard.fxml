@@ -113,5 +113,10 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Button>
+      <Button fx:id="btnClear" alignment="CENTER" contentDisplay="CENTER" layoutX="15.0" layoutY="499.0" mnemonicParsing="false" onAction="#btnClearAction" prefHeight="31.0" prefWidth="109.0" style="-fx-background-color: red; -fx-background-radius: 30; -fx-border-color: #000000; -fx-border-radius: 30;" text="Clear" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

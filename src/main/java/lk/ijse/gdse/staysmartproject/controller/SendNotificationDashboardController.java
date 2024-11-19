@@ -1,9 +1,13 @@
 package lk.ijse.gdse.staysmartproject.controller;
 
+import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.util.Duration;
 import lk.ijse.gdse.staysmartproject.dto.TenantDTO;
 import lk.ijse.gdse.staysmartproject.model.TenantModel;
 
@@ -38,8 +42,10 @@ public class SendNotificationDashboardController {
     @FXML
     private TextField txtTenantId;
 
-    private TenantModel tenantModel = new TenantModel();
+    @FXML
+    private Button btnClear;
 
+    private TenantModel tenantModel = new TenantModel();
 
     @FXML
     void btnSearchAction(ActionEvent event) {
@@ -107,6 +113,15 @@ public class SendNotificationDashboardController {
             e.printStackTrace();
             new Alert(Alert.AlertType.ERROR, "Failed to send email").show();
         }
+    }
+
+    @FXML
+    void btnClearAction(ActionEvent event) {
+        txtTenantId.clear();
+        lblName.setText("");
+        lblEmail.setText("");
+        txtSubject.clear();
+        txtBody.clear();
     }
 
 }
