@@ -1,0 +1,102 @@
+<!-- Created with Jaspersoft Studio version 7.0.0.final using JasperReports Library version 7.0.0-b478feaa9aab4375eba71de77b4ca138ad2f62aa  -->
+<jasperReport name="ProfitReport" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4835db4a-8ef5-44bd-9d28-fe4379d07a43">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter (6)"/>
+	<parameter name="todayDate" class="java.lang.String"/>
+	<parameter name="time" class="java.lang.String"/>
+	<query language="SQL"><![CDATA[SELECT
+    (SELECT SUM(Rent_Amount) FROM Rent_Payment) AS Total_Rent_Payments,
+    (SELECT SUM(Amount) FROM Maintains) AS Total_Maintenance,
+    (SELECT SUM(Rent_Amount) - (SELECT SUM(Amount) FROM Maintains) FROM Rent_Payment) AS Total_Income;]]></query>
+	<field name="Total_Rent_Payments" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="Total_Rent_Payments"/>
+		<property name="com.jaspersoft.studio.field.label" value="Total_Rent_Payments"/>
+	</field>
+	<field name="Total_Maintenance" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="Total_Maintenance"/>
+		<property name="com.jaspersoft.studio.field.label" value="Total_Maintenance"/>
+	</field>
+	<field name="Total_Income" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="Total_Income"/>
+		<property name="com.jaspersoft.studio.field.label" value="Total_Income"/>
+	</field>
+	<group name="Total_Rent_Payments">
+		<expression><![CDATA[$F{Total_Rent_Payments}]]></expression>
+	</group>
+	<group name="Total_Maintenance">
+		<expression><![CDATA[$F{Total_Maintenance}]]></expression>
+	</group>
+	<group name="Total_Income">
+		<expression><![CDATA[$F{Total_Income}]]></expression>
+	</group>
+	<background splitType="Stretch"/>
+	<title height="180" splitType="Stretch">
+		<element kind="frame" uuid="bd815257-a5e8-4562-9772-5d84f05972aa" x="0" y="0" width="554" height="80" forecolor="#030000" backcolor="#FFFFFF">
+			<element kind="staticText" uuid="c55074d4-1a55-49a9-9f15-fd892cb75077" x="121" y="-5" width="320" height="69" fontName="Adobe Gothic Std B" fontSize="30.0" bold="true" hTextAlign="Center">
+				<text><![CDATA[Stay Smart]]></text>
+			</element>
+			<box>
+				<pen lineWidth="2.0" lineStyle="Solid"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="52bd4d7a-c7b2-469f-bd0f-322480b2cb7b" x="200" y="120" width="163" height="30" fontSize="18.0" bold="true" hTextAlign="Center">
+			<text><![CDATA[Profit Report]]></text>
+		</element>
+		<element kind="textField" uuid="cd09b682-eb7a-47ad-b72f-86b6713f95c1" x="0" y="90" width="100" height="30" fontSize="14.0" bold="true">
+			<expression><![CDATA[$P{todayDate}]]></expression>
+		</element>
+		<element kind="textField" uuid="9ee7d668-dcc2-44ce-8516-e949f233e7c6" x="454" y="90" width="100" height="30" fontSize="14.0" bold="true" hTextAlign="Right">
+			<expression><![CDATA[$P{time}]]></expression>
+		</element>
+	</title>
+	<columnHeader height="61" splitType="Stretch">
+		<element kind="staticText" uuid="a4c44d3f-e3d8-4e49-8f11-b33dfc50e665" x="0" y="0" width="185" height="30" fontSize="16.0" bold="true" hTextAlign="Center">
+			<text><![CDATA[Total Income]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1c7839ba-805c-4919-945b-9e0db575d2fd"/>
+			<box>
+				<pen lineWidth="1.0" lineStyle="Solid"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="a6f02007-8e9e-410b-8fce-076a40dc9afb" x="185" y="0" width="185" height="30" fontSize="16.0" bold="true" hTextAlign="Center">
+			<text><![CDATA[Total Expenses]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0b46636a-3267-4088-b398-bda97fbf1838"/>
+			<box>
+				<pen lineWidth="1.0" lineStyle="Solid"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="2f06b127-f30b-40bb-853f-f752d1765ce4" x="370" y="0" width="185" height="30" fontSize="16.0" bold="true" hTextAlign="Center">
+			<text><![CDATA[Total Profit]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="77ddd2d0-7639-4a76-ace8-2004ced27bd8"/>
+			<box>
+				<pen lineWidth="1.0" lineStyle="Solid"/>
+			</box>
+		</element>
+		<element kind="textField" uuid="3f2fc713-5649-4a75-9bb5-44e41fba54c9" x="0" y="30" width="185" height="30" fontSize="14.0" hTextAlign="Center">
+			<expression><![CDATA[$F{Total_Rent_Payments}]]></expression>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1c7839ba-805c-4919-945b-9e0db575d2fd"/>
+			<box>
+				<pen lineWidth="1.0" lineStyle="Solid"/>
+			</box>
+		</element>
+		<element kind="textField" uuid="a2905483-9bf2-4958-adda-42e1265bd3eb" x="185" y="30" width="185" height="30" fontSize="14.0" hTextAlign="Center">
+			<expression><![CDATA[$F{Total_Maintenance}]]></expression>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0b46636a-3267-4088-b398-bda97fbf1838"/>
+			<box>
+				<pen lineWidth="1.0" lineStyle="Solid"/>
+			</box>
+		</element>
+		<element kind="textField" uuid="b2ac0265-fd77-4d8e-9bcc-5fb83edf16db" x="370" y="30" width="185" height="30" fontSize="14.0" hTextAlign="Center">
+			<expression><![CDATA[$F{Total_Income}]]></expression>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="77ddd2d0-7639-4a76-ace8-2004ced27bd8"/>
+			<box>
+				<pen lineWidth="1.0" lineStyle="Solid"/>
+			</box>
+		</element>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch"/>
+	</detail>
+	<columnFooter height="45" splitType="Stretch"/>
+	<pageFooter height="54" splitType="Stretch"/>
+	<summary height="42" splitType="Stretch"/>
+</jasperReport>
