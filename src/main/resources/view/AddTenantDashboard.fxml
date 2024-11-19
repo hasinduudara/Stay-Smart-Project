@@ -42,7 +42,10 @@
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtHouseId" prefHeight="50.0" prefWidth="271.0" promptText="House ID" style="-fx-border-color: #000000; -fx-border-width: 0 0 1; -fx-background-color: #ffffff;" />
+                  <TextField fx:id="txtHouseId" prefHeight="50.0" prefWidth="271.0" promptText="House ID" style="-fx-border-color: #000000; -fx-border-width: 0 0 1; -fx-background-color: #ffffff;">
+                     <font>
+                        <Font name="System Bold" size="12.800000190734863" />
+                     </font></TextField>
                </children>
             </HBox>
             <HBox prefHeight="40.0" prefWidth="586.0">
@@ -52,7 +55,10 @@
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtName" prefHeight="50.0" prefWidth="271.0" promptText="Name" style="-fx-border-color: #000000; -fx-border-width: 0 0 1px 0; -fx-background-color: #ffffff;" />
+                  <TextField fx:id="txtName" prefHeight="50.0" prefWidth="271.0" promptText="Name" style="-fx-border-color: #000000; -fx-border-width: 0 0 1px 0; -fx-background-color: #ffffff;">
+                     <font>
+                        <Font name="System Bold" size="12.8" />
+                     </font></TextField>
                </children>
             </HBox>
             <HBox prefHeight="40.0" prefWidth="586.0">
@@ -62,7 +68,10 @@
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtEmail" prefHeight="50.0" prefWidth="271.0" promptText="Email" style="-fx-border-color: #000000; -fx-border-width: 0 0 1px 0; -fx-background-color: #ffffff;" />
+                  <TextField fx:id="txtEmail" prefHeight="50.0" prefWidth="271.0" promptText="Email" style="-fx-border-color: #000000; -fx-border-width: 0 0 1px 0; -fx-background-color: #ffffff;">
+                     <font>
+                        <Font name="System Bold" size="12.8" />
+                     </font></TextField>
                </children>
             </HBox>
             <HBox prefHeight="40.0" prefWidth="586.0">
