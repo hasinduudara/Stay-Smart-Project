@@ -1,5 +1,8 @@
 package lk.ijse.gdse.staysmartproject.controller;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.PauseTransition;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,6 +10,7 @@ import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.util.Duration;
 
 import java.io.IOException;
 import java.util.Random;
@@ -97,14 +101,14 @@ public class ForgotPasswordPageController {
                     lblErrorMessage.setText("Password updated successfully.");
                     new Alert(Alert.AlertType.INFORMATION, "Password updated successfully.", ButtonType.OK).show();
                 } else {
-                    lblErrorMessage.setText("Failed to update password. No matching user found.");
+                    showErrorMessage("Failed to update password. No matching user found.");
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
-                lblErrorMessage.setText("Failed to update password. Please try again.");
+                showErrorMessage("Failed to update password. Please try again.");
             }
         } else {
-            lblErrorMessage.setText("Invalid OTP.");
+            showErrorMessage("Invalid OTP.");
         }
     }
 
@@ -116,13 +120,13 @@ public class ForgotPasswordPageController {
                 sendEmail(txtYourEmail.getText(),
                         "Your OTP Code",
                         "Your OTP code is: " + generatedOTP);
-                lblErrorMessage.setText("OTP sent to your email.");
+                showErrorMessage("OTP sent to your email.");
             } catch (MessagingException e) {
                 e.printStackTrace();
-                lblErrorMessage.setText("Failed to send OTP. Please try again.");
+                showErrorMessage("Failed to send OTP. Please try again.");
             }
         } else {
-            lblErrorMessage.setText("Passwords do not match.");
+            showErrorMessage("Passwords do not match.");
         }
     }
 
@@ -186,6 +190,16 @@ public class ForgotPasswordPageController {
         forgotPasswordPage.getChildren().clear();
         AnchorPane newPage = FXMLLoader.load(getClass().getResource("/view/SignInPage.fxml"));
         forgotPasswordPage.getChildren().add(newPage);
+    }
+
+    private void showErrorMessage(String message) {
+        lblErrorMessage.setText(message);
+
+        Timeline timeline = new Timeline(new KeyFrame(
+                Duration.seconds(5),
+                ae -> lblErrorMessage.setText("")
+        ));
+        timeline.play();
     }
 
 }
