@@ -1,7 +1,6 @@
 package lk.ijse.gdse.staysmartproject.controller;
 
 import javafx.animation.KeyFrame;
-import javafx.animation.PauseTransition;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
