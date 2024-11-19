@@ -77,17 +77,16 @@ public class MainDashboardPageController implements Initializable {
         navigateTo("/view/ManageFinancesDashboard.fxml");
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        navigateTo("/view/AddTenantDashboard.fxml");
-        startClock();
-    }
-
     @FXML
     void btnManageHouseAction(ActionEvent event) {
         navigateTo("/view/ManageHouseDashboard.fxml");
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        navigateTo("/view/AddTenantDashboard.fxml");
+        startClock();
+    }
 
     public void navigateTo(String fxmlPath) {
         try {

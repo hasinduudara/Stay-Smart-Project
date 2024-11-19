@@ -2,7 +2,6 @@ package lk.ijse.gdse.staysmartproject.model;
 
 import lk.ijse.gdse.staysmartproject.db.DBConnection;
 import lk.ijse.gdse.staysmartproject.dto.FinancesDTO;
-import lk.ijse.gdse.staysmartproject.dto.MaintenanceDTO;
 import lk.ijse.gdse.staysmartproject.util.CrudUtil;
 
 import java.sql.Connection;

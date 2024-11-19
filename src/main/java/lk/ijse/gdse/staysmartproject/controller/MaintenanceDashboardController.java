@@ -13,7 +13,6 @@ import lk.ijse.gdse.staysmartproject.dto.MaintenanceDTO;
 import lk.ijse.gdse.staysmartproject.dto.tm.MaintenanceTM;
 import lk.ijse.gdse.staysmartproject.model.ExpensesDataModel;
 import lk.ijse.gdse.staysmartproject.model.MaintenanceModel;
-import lk.ijse.gdse.staysmartproject.model.SharedDataModel;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.view.JasperViewer;
 
@@ -21,7 +20,6 @@ import java.net.URL;
 import java.sql.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.*;
 import java.util.Date;
 

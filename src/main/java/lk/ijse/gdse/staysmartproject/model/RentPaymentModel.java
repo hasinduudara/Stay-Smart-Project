@@ -25,17 +25,6 @@ public class RentPaymentModel {
         return "RP001";
     }
 
-//    public boolean saveRentPayment(RentPaymentDTO rentPayment) throws SQLException, ClassNotFoundException {
-//        return CrudUtil.execute(
-//                "INSERT INTO Rent_Payment (Rent_Payment_ID, Rent_Amount, Payment_Date, Tenant_ID, House_ID) VALUES (?,?,?,?,?)",
-//                rentPayment.getRent_Payment_ID(),
-//                rentPayment.getRent_Amount(),
-//                new java.sql.Date(rentPayment.getPayment_Date().getTime()),
-//                rentPayment.getTenant_ID(),
-//                rentPayment.getHouse_ID()
-//        );
-//    }
-
     public ArrayList<RentPaymentDTO> getAllRentPayments() throws SQLException {
         ArrayList<RentPaymentDTO> allRentPayments = new ArrayList<>();
         ResultSet rst = CrudUtil.execute("SELECT * FROM Rent_Payment");

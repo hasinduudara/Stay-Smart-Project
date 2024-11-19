@@ -25,9 +25,4 @@ public class WelcomePageController {
         welcomePage.getChildren().add(FXMLLoader.load(getClass().getResource("/view/SignInPage.fxml")));
     }
 
-    @FXML
-    void btnSignInLogingAction(ActionEvent event) {
-
-    }
-
 }

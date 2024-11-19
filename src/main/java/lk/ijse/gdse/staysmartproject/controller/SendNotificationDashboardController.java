@@ -6,7 +6,6 @@ import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.gdse.staysmartproject.dto.TenantDTO;
 import lk.ijse.gdse.staysmartproject.model.TenantModel;
-import lombok.Setter;
 
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
