@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
@@ -53,6 +54,12 @@ public class MainDashboardPageController implements Initializable {
     private Label lblDate;
 
     @FXML
+    private ImageView profileImage;
+
+    @FXML
+    private Button btnProfile;
+
+    @FXML
     void btnAddTenantAction(ActionEvent event) {
         navigateTo("/view/AddTenantDashboard.fxml");
     }
@@ -80,6 +87,11 @@ public class MainDashboardPageController implements Initializable {
     @FXML
     void btnManageHouseAction(ActionEvent event) {
         navigateTo("/view/ManageHouseDashboard.fxml");
+    }
+
+    @FXML
+    void btnProfileAction(ActionEvent event) {
+        navigateTo("/view/ProfileEditePage.fxml");
     }
 
     @Override

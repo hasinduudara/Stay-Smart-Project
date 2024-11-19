@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="profileEditePage" prefHeight="558.0" prefWidth="612.0" style="-fx-background-color: #ffffff; -fx-background-radius: 20;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.staysmartproject.controller.ProfileEditePageController">
+   <children>
+      <ImageView fx:id="profileEditePageImage" fitHeight="150.0" fitWidth="200.0" layoutX="22.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="lblUserName" layoutX="261.0" layoutY="55.0" prefHeight="38.0" prefWidth="226.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30; -fx-border-color: #000000; -fx-border-radius: 30;" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblEmail" layoutX="261.0" layoutY="103.0" prefHeight="38.0" prefWidth="288.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30; -fx-border-color: #000000; -fx-border-radius: 30;" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <AnchorPane layoutX="36.0" layoutY="241.0" prefHeight="286.0" prefWidth="540.0" style="-fx-border-color: #000000; -fx-background-radius: 30; -fx-border-radius: 30;">
+         <children>
+            <Label alignment="CENTER" layoutX="96.0" layoutY="27.0" prefHeight="38.0" prefWidth="348.0" style="-fx-background-radius: 30; -fx-border-color: #000000; -fx-border-radius: 30;" text="Do you want to change Username?">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="41.0" layoutY="96.0" prefHeight="27.0" prefWidth="111.0" text="New UserName">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtNewUserName" layoutX="219.0" layoutY="90.0" prefHeight="38.0" prefWidth="279.0" promptText="New UserName" style="-fx-background-color: #ffffff; -fx-border-color: #000000; -fx-border-width: 0 0 1 0;" />
+            <Label layoutX="41.0" layoutY="155.0" prefHeight="27.0" prefWidth="162.0" text="Conform UserName">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtConformUserName" layoutX="219.0" layoutY="149.0" prefHeight="38.0" prefWidth="279.0" promptText="Conform UserName" style="-fx-background-color: #ffffff; -fx-border-color: #000000; -fx-border-width: 0 0 1 0;" />
+            <Button fx:id="btnChangeUserName" alignment="CENTER" layoutX="183.0" layoutY="219.0" mnemonicParsing="false" onAction="#btnChangeUserNameAction" prefHeight="38.0" prefWidth="173.0" style="-fx-background-radius: 30; -fx-border-color: #000000; -fx-border-radius: 30; -fx-background-color: red;" text="Change Username" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <Button fx:id="btnProfimeImageUpload" layoutX="66.0" layoutY="181.0" mnemonicParsing="false" onAction="#btnProfimeImageUploadAction" prefHeight="34.0" prefWidth="111.0" style="-fx-background-color: #007cff; -fx-background-radius: 30; -fx-border-color: #000000; -fx-border-radius: 30;" text="Upload" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

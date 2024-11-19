@@ -2,16 +2,12 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="mainDashboardPage" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #004252;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.staysmartproject.controller.MainDashboardPageController">
    <children>
-      <Label alignment="CENTER" layoutX="37.0" layoutY="17.0" prefHeight="42.0" prefWidth="196.0" style="-fx-background-color: #008caf; -fx-background-radius: 50; -fx-border-color: #ffffff; -fx-border-radius: 50;" text="Stay Smart" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="27.0" />
-         </font>
-      </Label>
       <AnchorPane layoutX="24.0" layoutY="75.0" prefHeight="398.0" prefWidth="222.0" style="-fx-background-color: #007491; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #ffffff;">
          <children>
             <Button fx:id="btnAddTenant" layoutX="9.0" layoutY="27.0" mnemonicParsing="false" onAction="#btnAddTenantAction" prefHeight="42.0" prefWidth="203.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50; -fx-border-color: #000000; -fx-border-radius: 50;" text="Add Tenant">
@@ -57,5 +53,11 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
+      <ImageView fx:id="profileImage" fitHeight="42.0" fitWidth="54.0" layoutX="24.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="btnProfile" layoutX="106.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnProfileAction" prefHeight="36.0" prefWidth="140.0" style="-fx-background-color: #007491; -fx-background-radius: 30; -fx-border-color: #ffffff; -fx-border-radius: 30;" text="Profile" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
