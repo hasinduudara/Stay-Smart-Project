@@ -28,7 +28,10 @@
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtHouseId" prefHeight="50.0" prefWidth="271.0" promptText="House ID" style="-fx-border-color: #000000; -fx-border-width: 0 0 1; -fx-background-color: #ffffff;" />
+                  <TextField fx:id="txtHouseId" prefHeight="50.0" prefWidth="271.0" promptText="House ID" style="-fx-border-color: #000000; -fx-border-width: 0 0 1; -fx-background-color: #ffffff;">
+                     <font>
+                        <Font name="System Bold" size="12.800000190734863" />
+                     </font></TextField>
                   <Button fx:id="btnSearch" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#btnSearchAction" prefHeight="31.0" prefWidth="109.0" style="-fx-background-color: #008fff; -fx-background-radius: 30; -fx-border-color: #000000; -fx-border-radius: 30;" text="Search" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="15.0" />
@@ -48,7 +51,7 @@
                   </Label>
                   <Label fx:id="lblTenantId" prefHeight="41.0" prefWidth="278.0">
                      <font>
-                        <Font size="15.0" />
+                        <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
                </children>
@@ -62,7 +65,7 @@
                   </Label>
                   <Label fx:id="lblName" prefHeight="34.0" prefWidth="272.0">
                      <font>
-                        <Font size="15.0" />
+                        <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
                </children>
@@ -76,7 +79,7 @@
                   </Label>
                   <Label fx:id="lblRentPrice" prefHeight="34.0" prefWidth="272.0">
                      <font>
-                        <Font size="15.0" />
+                        <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
                </children>

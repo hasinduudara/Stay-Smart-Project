@@ -29,7 +29,10 @@
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtHouseId" prefHeight="44.0" prefWidth="231.0" promptText="House ID" style="-fx-border-color: #000000; -fx-border-width: 0 0 1; -fx-background-color: #ffffff;" />
+                        <TextField fx:id="txtHouseId" prefHeight="44.0" prefWidth="231.0" promptText="House ID" style="-fx-border-color: #000000; -fx-border-width: 0 0 1; -fx-background-color: #ffffff;">
+                           <font>
+                              <Font name="System Bold" size="12.800000190734863" />
+                           </font></TextField>
                         <Button fx:id="btnSearch" mnemonicParsing="false" onAction="#btnSearchAction" prefHeight="34.0" prefWidth="112.0" style="-fx-background-color: #008fff; -fx-background-radius: 30; -fx-border-color: #000000; -fx-border-radius: 30;" text="Search" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="15.0" />
@@ -49,7 +52,10 @@
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lblHouseStatus" prefHeight="42.0" prefWidth="253.0" />
+                  <Label fx:id="lblHouseStatus" prefHeight="42.0" prefWidth="253.0">
+                     <font>
+                        <Font name="System Bold" size="12.8" />
+                     </font></Label>
                   <Button fx:id="btnHouseStatusReset" mnemonicParsing="false" onAction="#btnHouseStatusResetAction" prefHeight="34.0" prefWidth="112.0" style="-fx-background-color: #01be38; -fx-background-radius: 30; -fx-border-color: #000000; -fx-border-radius: 30;" text="Reset" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="15.0" />
@@ -69,7 +75,10 @@
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtRentPrice" prefHeight="44.0" prefWidth="263.0" promptText="Rent Price" style="-fx-border-color: #000000; -fx-border-width: 0 0 1; -fx-background-color: #ffffff;" />
+                        <TextField fx:id="txtRentPrice" prefHeight="44.0" prefWidth="263.0" promptText="Rent Price" style="-fx-border-color: #000000; -fx-border-width: 0 0 1; -fx-background-color: #ffffff;">
+                           <font>
+                              <Font name="System Bold" size="12.8" />
+                           </font></TextField>
                         <Button fx:id="btnRentPriceChange" mnemonicParsing="false" onAction="#btnRentPriceChangeAction" prefHeight="34.0" prefWidth="112.0" style="-fx-background-color: #008fff; -fx-background-radius: 30; -fx-border-color: #000000; -fx-border-radius: 30;" text="Change" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="15.0" />

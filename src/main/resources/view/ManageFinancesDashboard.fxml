@@ -25,7 +25,7 @@
                   </Label>
                   <Label fx:id="lblAlltenantPayments" prefHeight="46.0" prefWidth="254.0" style="-fx-background-color: #ffffff;">
                      <font>
-                        <Font size="15.0" />
+                        <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
                </children>
@@ -39,7 +39,7 @@
                   </Label>
                   <Label fx:id="lblAllMaintenanceCosts" prefHeight="46.0" prefWidth="254.0" style="-fx-background-color: #ffffff;">
                      <font>
-                        <Font size="15.0" />
+                        <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
                </children>
@@ -55,7 +55,7 @@
             </Label>
             <Label fx:id="lblViewProfit" prefHeight="47.0" prefWidth="282.0" style="-fx-border-color: #000000; -fx-border-width: 0 0 1 0; -fx-background-color: #ffffff;">
                <font>
-                  <Font size="15.0" />
+                  <Font name="System Bold" size="15.0" />
                </font>
             </Label>
          </children>

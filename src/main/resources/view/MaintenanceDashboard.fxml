@@ -28,7 +28,10 @@
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtHouseId" prefHeight="50.0" prefWidth="271.0" promptText="House ID" style="-fx-border-color: #000000; -fx-border-width: 0 0 1; -fx-background-color: #ffffff;" />
+                  <TextField fx:id="txtHouseId" prefHeight="50.0" prefWidth="271.0" promptText="House ID" style="-fx-border-color: #000000; -fx-border-width: 0 0 1; -fx-background-color: #ffffff;">
+                     <font>
+                        <Font name="System Bold" size="12.800000190734863" />
+                     </font></TextField>
                </children>
             </HBox>
             <HBox prefHeight="43.0" prefWidth="566.0" spacing="20.0">
@@ -38,7 +41,10 @@
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtAmount" prefHeight="50.0" prefWidth="271.0" promptText="Amount ( eg: 5000.00 )" style="-fx-border-color: #000000; -fx-border-width: 0 0 1; -fx-background-color: #ffffff;" />
+                  <TextField fx:id="txtAmount" prefHeight="50.0" prefWidth="271.0" promptText="Amount ( eg: 5000.00 )" style="-fx-border-color: #000000; -fx-border-width: 0 0 1; -fx-background-color: #ffffff;">
+                     <font>
+                        <Font name="System Bold" size="12.8" />
+                     </font></TextField>
                </children>
             </HBox>
             <HBox prefHeight="43.0" prefWidth="566.0" spacing="20.0">
@@ -48,7 +54,10 @@
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtDescription" prefHeight="43.0" prefWidth="415.0" promptText="Changing a bulb" style="-fx-border-color: #000000; -fx-border-width: 0 0 1; -fx-background-color: #ffffff;" />
+                  <TextField fx:id="txtDescription" prefHeight="43.0" prefWidth="415.0" promptText="Changing a bulb" style="-fx-border-color: #000000; -fx-border-width: 0 0 1; -fx-background-color: #ffffff;">
+                     <font>
+                        <Font name="System Bold" size="12.8" />
+                     </font></TextField>
                </children>
             </HBox>
          </children>
