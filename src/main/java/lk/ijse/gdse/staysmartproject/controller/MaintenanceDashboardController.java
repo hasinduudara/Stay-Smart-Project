@@ -241,8 +241,6 @@ public class MaintenanceDashboardController implements Initializable {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-
     }
 
 }

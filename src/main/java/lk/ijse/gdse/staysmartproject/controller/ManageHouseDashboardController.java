@@ -55,6 +55,9 @@ public class ManageHouseDashboardController implements Initializable {
     @FXML
     private TextField txtRentPrice;
 
+    @FXML
+    private Button btnClearValues;
+
     private HouseModel houseModel = new HouseModel();
 
     @FXML
@@ -140,6 +143,13 @@ public class ManageHouseDashboardController implements Initializable {
             lblHouseStatus.setText(selectedItem.getStatus());
             txtRentPrice.setText(String.valueOf(selectedItem.getRent_Price()));
         }
+    }
+
+    @FXML
+    void btnClearValuesAction(ActionEvent event) {
+        txtHouseId.clear();
+        lblHouseStatus.setText("");
+        txtRentPrice.clear();
     }
 
 }

@@ -96,12 +96,17 @@
             <Insets top="3.0" />
          </padding>
       </VBox>
-      <TableView fx:id="tableManageHouse" layoutX="23.0" layoutY="234.0" onMouseClicked="#onClickTable" prefHeight="280.0" prefWidth="566.0" style="-fx-border-color: #000000;">
+      <TableView fx:id="tableManageHouse" layoutX="23.0" layoutY="275.0" onMouseClicked="#onClickTable" prefHeight="262.0" prefWidth="566.0" style="-fx-border-color: #000000;">
         <columns>
           <TableColumn fx:id="colHouseId" prefWidth="152.0000057220459" text="House ID" />
           <TableColumn fx:id="colStatus" prefWidth="235.20001220703125" text="Status" />
             <TableColumn fx:id="colRentPrice" prefWidth="178.40005493164062" text="Rent Price" />
         </columns>
       </TableView>
+      <Button fx:id="btnClearValues" layoutX="236.0" layoutY="225.0" mnemonicParsing="false" onAction="#btnClearValuesAction" prefHeight="34.0" prefWidth="139.0" style="-fx-background-color: #01be38; -fx-background-radius: 30; -fx-border-color: #000000; -fx-border-radius: 30;" text="Clear Values" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
