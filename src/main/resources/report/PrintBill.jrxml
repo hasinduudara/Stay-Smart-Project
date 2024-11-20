@@ -2,6 +2,8 @@
 <jasperReport name="PrintBill" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="723db85a-c190-4ce4-86e7-2dbbcb98f612">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter (2)"/>
+	<parameter name="todayDate" class="java.lang.String"/>
+	<parameter name="time" class="java.lang.String"/>
 	<query language="SQL"><![CDATA[select * from rent_payment;]]></query>
 	<field name="Rent_Payment_ID" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="Rent_Payment_ID"/>
@@ -44,82 +46,97 @@
 		<expression><![CDATA[$F{House_ID}]]></expression>
 	</group>
 	<background splitType="Stretch"/>
-	<title height="79" splitType="Stretch">
-		<element kind="staticText" uuid="195266db-93e7-4482-b315-fa115351e975" x="203" y="24" width="149" height="30" fontSize="20.0" hTextAlign="Center">
-			<text><![CDATA[Print Bill]]></text>
+	<title height="117" splitType="Stretch">
+		<element kind="frame" uuid="a99d7264-2318-4ed7-a613-da5876237574" x="0" y="0" width="550" height="100">
+			<element kind="staticText" uuid="7bfc5e40-2da1-4d18-bca5-4498c541e2ec" x="191" y="21" width="184" height="58" fontSize="26.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+				<text><![CDATA[Stay Smart]]></text>
+			</element>
+			<box>
+				<pen lineWidth="2.0" lineStyle="Solid"/>
+			</box>
 		</element>
 	</title>
-	<pageHeader height="35" splitType="Stretch"/>
-	<columnHeader height="61" splitType="Stretch">
-		<element kind="staticText" uuid="ab27b0e5-3995-4c09-a776-3f368c6c6751" x="0" y="0" width="111" height="30" fontSize="12.0" hTextAlign="Center">
+	<pageHeader height="50" splitType="Stretch">
+		<element kind="textField" uuid="f725666f-0e5d-4183-bc20-189d51b99736" x="0" y="0" width="140" height="30" fontSize="16.0" bold="true">
+			<expression><![CDATA[$P{todayDate}]]></expression>
+		</element>
+		<element kind="textField" uuid="f3247bc0-ba5a-45a0-a1c2-fadc48649df4" x="430" y="0" width="120" height="30" fontSize="16.0" bold="true" hTextAlign="Right">
+			<expression><![CDATA[$P{time}]]></expression>
+		</element>
+		<element kind="staticText" uuid="0ec98980-1536-420e-aea5-e02d9a0ff874" x="148" y="0" width="270" height="50" fontSize="26.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Rent Payment Report]]></text>
+		</element>
+	</pageHeader>
+	<columnHeader height="35" splitType="Stretch">
+		<element kind="staticText" uuid="a2452bf0-c975-47ca-9c5e-1eb2d7372813" x="0" y="0" width="111" height="30" bold="true" hTextAlign="Center">
 			<text><![CDATA[Rent Payment ID]]></text>
-			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a3b0112c-549b-4bcb-a1cf-42dd3a61792c"/>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2539c969-f13c-4fd8-bf3d-f8cb251bc282"/>
 			<box>
 				<pen lineWidth="1.0" lineStyle="Solid"/>
 			</box>
 		</element>
-		<element kind="staticText" uuid="03515238-2d80-47ff-bd3a-b47327974dca" x="111" y="0" width="111" height="30" fontSize="12.0" hTextAlign="Center">
+		<element kind="staticText" uuid="35eaca9e-2c9c-4655-92ac-2b2749ec2dea" x="111" y="0" width="111" height="30" bold="true" hTextAlign="Center">
 			<text><![CDATA[Rent Amount]]></text>
-			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6ab45d71-4551-4f4b-92db-dfbd20117331"/>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2c0b122a-b252-43e5-a2db-ae1418f7d190"/>
 			<box>
 				<pen lineWidth="1.0" lineStyle="Solid"/>
 			</box>
 		</element>
-		<element kind="staticText" uuid="d82064d4-cbdb-40d0-82f0-24e2855051d1" x="222" y="0" width="111" height="30" fontSize="12.0" hTextAlign="Center">
+		<element kind="staticText" uuid="701c161d-4ee5-4e8a-b956-3e895a287d14" x="222" y="0" width="111" height="30" bold="true" hTextAlign="Center">
 			<text><![CDATA[Payment Date]]></text>
-			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e7bbfc91-a983-43bf-92e4-7c386c0f8661"/>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cabc97ca-b8e9-4e77-b1d3-f8d18dc837ca"/>
 			<box>
 				<pen lineWidth="1.0" lineStyle="Solid"/>
 			</box>
 		</element>
-		<element kind="staticText" uuid="af352364-7af5-42ba-bf47-edc9965bcfd9" x="333" y="0" width="111" height="30" fontSize="12.0" hTextAlign="Center">
+		<element kind="staticText" uuid="9276a195-1950-4461-b9c7-cf357f1e5b1b" x="333" y="0" width="111" height="30" bold="true" hTextAlign="Center">
 			<text><![CDATA[Tenant ID]]></text>
-			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="60dd5ce8-2c24-4dad-af84-0a0f5800798f"/>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8499b29f-4a47-4d4b-b86b-d12bbb42962b"/>
 			<box>
 				<pen lineWidth="1.0" lineStyle="Solid"/>
 			</box>
 		</element>
-		<element kind="staticText" uuid="3cc8c395-0d66-4294-b26c-8083c7c4d801" x="444" y="0" width="111" height="30" fontSize="12.0" hTextAlign="Center">
+		<element kind="staticText" uuid="7a375a77-2edc-4c31-ab26-c10caadc6a99" x="444" y="0" width="111" height="30" bold="true" hTextAlign="Center">
 			<text><![CDATA[House ID]]></text>
-			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="af8abf85-5235-4097-a275-8d2022a41cf9"/>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a518eed5-3d42-4ed6-ac23-61f0c4bfc61b"/>
 			<box>
 				<pen lineWidth="1.0" lineStyle="Solid"/>
 			</box>
 		</element>
 	</columnHeader>
 	<detail>
-		<band height="125" splitType="Stretch">
-			<element kind="textField" uuid="1fa7f9c7-33a3-49f0-9e13-08c231819171" x="0" y="0" width="111" height="30" hTextAlign="Center">
+		<band height="35" splitType="Stretch">
+			<element kind="textField" uuid="94a558c6-6f43-46de-b7fd-8d61668cc45c" x="0" y="0" width="111" height="30" hTextAlign="Center">
 				<expression><![CDATA[$F{Rent_Payment_ID}]]></expression>
-				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a3b0112c-549b-4bcb-a1cf-42dd3a61792c"/>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2539c969-f13c-4fd8-bf3d-f8cb251bc282"/>
 				<box>
 					<pen lineWidth="1.0" lineStyle="Solid"/>
 				</box>
 			</element>
-			<element kind="textField" uuid="47e3db99-df48-4073-937f-608312a190e2" x="111" y="0" width="111" height="30" hTextAlign="Center">
+			<element kind="textField" uuid="081191a5-77a0-4f06-b19d-aeaae464b711" x="111" y="0" width="111" height="30" hTextAlign="Center">
 				<expression><![CDATA[$F{Rent_Amount}]]></expression>
-				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6ab45d71-4551-4f4b-92db-dfbd20117331"/>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2c0b122a-b252-43e5-a2db-ae1418f7d190"/>
 				<box>
 					<pen lineWidth="1.0" lineStyle="Solid"/>
 				</box>
 			</element>
-			<element kind="textField" uuid="74f2c9af-e27a-4248-81f3-d3b0f2530830" x="222" y="0" width="111" height="30" hTextAlign="Center">
+			<element kind="textField" uuid="db60ad73-0be0-466c-b644-d3339840681d" x="222" y="0" width="111" height="30" hTextAlign="Center">
 				<expression><![CDATA[$F{Payment_Date}]]></expression>
-				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e7bbfc91-a983-43bf-92e4-7c386c0f8661"/>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cabc97ca-b8e9-4e77-b1d3-f8d18dc837ca"/>
 				<box>
 					<pen lineWidth="1.0" lineStyle="Solid"/>
 				</box>
 			</element>
-			<element kind="textField" uuid="c1eca16c-d407-4497-89b8-cd3dcfd84479" x="333" y="0" width="111" height="30" hTextAlign="Center">
+			<element kind="textField" uuid="469bfaf2-d0a6-416b-901b-d2b08bdc785e" x="333" y="0" width="111" height="30" hTextAlign="Center">
 				<expression><![CDATA[$F{Tenant_ID}]]></expression>
-				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="60dd5ce8-2c24-4dad-af84-0a0f5800798f"/>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8499b29f-4a47-4d4b-b86b-d12bbb42962b"/>
 				<box>
 					<pen lineWidth="1.0" lineStyle="Solid"/>
 				</box>
 			</element>
-			<element kind="textField" uuid="adfb0ad0-a466-4b62-9469-84b622fdc38c" x="444" y="0" width="111" height="30" hTextAlign="Center">
+			<element kind="textField" uuid="64f1d876-b2b1-4d79-a772-7a3ec7c7e05d" x="444" y="0" width="111" height="30" hTextAlign="Center">
 				<expression><![CDATA[$F{House_ID}]]></expression>
-				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="af8abf85-5235-4097-a275-8d2022a41cf9"/>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a518eed5-3d42-4ed6-ac23-61f0c4bfc61b"/>
 				<box>
 					<pen lineWidth="1.0" lineStyle="Solid"/>
 				</box>

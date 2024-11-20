@@ -25,6 +25,7 @@ import net.sf.jasperreports.view.JasperViewer;
 import java.net.URL;
 import java.sql.*;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -97,6 +98,9 @@ public class CollectRentPaymentDashboardController implements Initializable {
             Connection connection = DBConnection.getInstance().getConnection();
 
             Map<String, Object> parameters = new HashMap<>();
+
+            parameters.put("todayDate", LocalDate.now().toString());
+            parameters.put("time", LocalTime.now().toString());
 
             JasperReport jasperReport = JasperCompileManager.compileReport(getClass().getResourceAsStream("/report/PrintBill.jrxml"));
 

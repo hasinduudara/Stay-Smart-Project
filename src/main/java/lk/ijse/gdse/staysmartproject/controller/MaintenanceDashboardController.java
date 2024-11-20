@@ -20,6 +20,8 @@ import java.net.URL;
 import java.sql.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.*;
 import java.util.Date;
 
@@ -154,7 +156,10 @@ public class MaintenanceDashboardController implements Initializable {
 
             Map<String, Object> parameters = new HashMap<>();
 
-            JasperReport jasperReport = JasperCompileManager.compileReport(getClass().getResourceAsStream("/report/GetReport.jrxml"));
+            parameters.put("todayDate", LocalDate.now().toString());
+            parameters.put("time", LocalTime.now().toString());
+
+            JasperReport jasperReport = JasperCompileManager.compileReport(getClass().getResourceAsStream("/report/MainteinsReport.jrxml"));
 
             JasperPrint jasperPrint = JasperFillManager.fillReport(
                     jasperReport,

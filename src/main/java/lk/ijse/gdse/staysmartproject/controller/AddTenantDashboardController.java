@@ -20,6 +20,8 @@ import net.sf.jasperreports.view.JasperViewer;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.*;
 
 public class AddTenantDashboardController implements Initializable {
@@ -83,6 +85,9 @@ public class AddTenantDashboardController implements Initializable {
         try {
             Connection connection = DBConnection.getInstance().getConnection();
             Map<String, Object> parameters = new HashMap<>();
+
+            parameters.put("todayDate", LocalDate.now().toString());
+            parameters.put("time", LocalTime.now().toString());
 
             JasperReport jasperReport = JasperCompileManager.compileReport(getClass().getResourceAsStream("/report/TenantReport1.jrxml"));
 
