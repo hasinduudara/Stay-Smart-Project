@@ -6,15 +6,10 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.FileChooser;
-import javafx.stage.Stage;
 import lk.ijse.gdse.staysmartproject.util.CrudUtil;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -66,26 +61,6 @@ public class ProfileEditePageController {
         } catch (SQLException e) {
             e.printStackTrace();
             new Alert(Alert.AlertType.ERROR, "An error occurred while updating the user name.").show();
-        }
-    }
-
-    @FXML
-    void btnProfimeImageUploadAction(ActionEvent event) {
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Choose an image");
-        fileChooser.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg", "*.gif")
-        );
-
-        File file = fileChooser.showOpenDialog(new Stage());
-        if (file != null) {
-            try {
-                // Load and display the image
-                Image image = new Image(new FileInputStream(file));
-                profileEditePageImage.setImage(image);
-            } catch (Exception ex) {
-                ex.printStackTrace();  // Handle errors (e.g., file not found)
-            }
         }
     }
 

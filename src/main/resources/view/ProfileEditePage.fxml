@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -11,10 +11,9 @@
 
 <AnchorPane fx:id="profileEditePage" prefHeight="558.0" prefWidth="612.0" style="-fx-background-color: #ffffff; -fx-background-radius: 20;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.staysmartproject.controller.ProfileEditePageController">
    <children>
-      <ImageView fx:id="profileEditePageImage" fitHeight="150.0" fitWidth="200.0" layoutX="22.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true" />
       <AnchorPane layoutX="15.0" layoutY="259.0" prefHeight="236.0" prefWidth="582.0" style="-fx-border-color: #000000; -fx-background-radius: 30; -fx-border-radius: 30;">
          <children>
-            <Label alignment="CENTER" layoutX="96.0" layoutY="27.0" prefHeight="38.0" prefWidth="348.0" style="-fx-background-radius: 30; -fx-border-color: #000000; -fx-border-radius: 30;" text="Do you want to change Username?">
+            <Label alignment="CENTER" layoutX="117.0" layoutY="25.0" prefHeight="38.0" prefWidth="348.0" style="-fx-background-radius: 30; -fx-border-color: #000000; -fx-border-radius: 30;" text="Do you want to change Username?">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -43,21 +42,16 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </TextField>
-            <Button fx:id="btnChangeEmail" alignment="CENTER" layoutX="394.0" layoutY="151.0" mnemonicParsing="false" onAction="#btnChangeEmailAction" prefHeight="38.0" prefWidth="173.0" style="-fx-background-radius: 30; -fx-border-color: #000000; -fx-border-radius: 30; -fx-background-color: red;" text="New Email" textFill="WHITE">
+            <Button fx:id="btnChangeEmail" alignment="CENTER" layoutX="394.0" layoutY="151.0" mnemonicParsing="false" onAction="#btnChangeEmailAction" prefHeight="38.0" prefWidth="173.0" style="-fx-background-radius: 30; -fx-border-color: #000000; -fx-border-radius: 30; -fx-background-color: red;" text="Change Email" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
          </children>
       </AnchorPane>
-      <Button fx:id="btnProfimeImageUpload" layoutX="66.0" layoutY="181.0" mnemonicParsing="false" onAction="#btnProfimeImageUploadAction" prefHeight="34.0" prefWidth="111.0" style="-fx-background-color: #007cff; -fx-background-radius: 30; -fx-border-color: #000000; -fx-border-radius: 30;" text="Upload" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="15.0" />
-         </font>
-      </Button>
-      <VBox layoutX="239.0" layoutY="14.0" prefHeight="200.0" prefWidth="331.0">
+      <VBox layoutX="35.0" layoutY="71.0" prefHeight="172.0" prefWidth="542.0">
          <children>
-            <HBox prefHeight="46.0" prefWidth="331.0">
+            <HBox prefHeight="46.0" prefWidth="331.0" spacing="10.0">
                <children>
                   <Label prefHeight="38.0" prefWidth="92.0" text="User Name :">
                      <font>
@@ -70,8 +64,11 @@
                      </font>
                   </Label>
                </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
             </HBox>
-            <HBox prefHeight="48.0" prefWidth="331.0">
+            <HBox prefHeight="48.0" prefWidth="331.0" spacing="10.0">
                <children>
                   <Label prefHeight="38.0" prefWidth="92.0" text="Name :">
                      <font>
@@ -85,7 +82,7 @@
                   </Label>
                </children>
             </HBox>
-            <HBox prefHeight="48.0" prefWidth="331.0">
+            <HBox prefHeight="48.0" prefWidth="331.0" spacing="10.0">
                <children>
                   <Label prefHeight="38.0" prefWidth="92.0" text="Email :">
                      <font>
@@ -100,6 +97,14 @@
                </children>
             </HBox>
          </children>
+         <padding>
+            <Insets top="10.0" />
+         </padding>
       </VBox>
+      <Label alignment="CENTER" layoutX="80.0" layoutY="24.0" prefHeight="32.0" prefWidth="472.0" style="-fx-background-color: #ffffff; -fx-background-radius: 20; -fx-border-color: #000000; -fx-border-radius: 20;" text="Edit Profile">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
