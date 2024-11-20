@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.gdse.staysmartproject.db.DBConnection;
 import lk.ijse.gdse.staysmartproject.dto.MaintenanceDTO;
@@ -72,6 +73,9 @@ public class MaintenanceDashboardController implements Initializable {
 
     @FXML
     private TextField txtHouseId;
+
+    @FXML
+    private Button btnReset;
 
     MaintenanceModel maintenanceModel = new MaintenanceModel();
 
@@ -206,6 +210,39 @@ public class MaintenanceDashboardController implements Initializable {
         txtAmount.clear();
         txtDescription.clear();
         dpDate.setValue(null);
+    }
+
+    @FXML
+    void onMouseClick(MouseEvent event) {
+        MaintenanceTM selectedItem = tableMaintenance.getSelectionModel().getSelectedItem();
+        if (selectedItem != null) {
+            lblMaintenanceId.setText(selectedItem.getMT_ID());
+            txtHouseId.setText(selectedItem.getHouse_ID());
+            txtAmount.setText(String.valueOf(selectedItem.getAmount()));
+            txtDescription.setText(selectedItem.getDescription());
+            dpDate.setValue(LocalDate.parse(new SimpleDateFormat("yyyy-MM-dd").format(selectedItem.getDate())));
+            btnSubmit.setDisable(true);
+        }
+    }
+
+    @FXML
+    void btnResetAction(ActionEvent event) {
+        txtHouseId.clear();
+        txtAmount.clear();
+        txtDescription.clear();
+        dpDate.setValue(null);
+        lblMaintenanceId.setText("");
+
+        btnSubmit.setDisable(false);
+
+        try {
+            String nextRentPaymentId = maintenanceModel.getNextMaintenanceId();
+            lblMaintenanceId.setText(nextRentPaymentId);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
     }
 
 }

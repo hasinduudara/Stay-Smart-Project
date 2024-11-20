@@ -65,12 +65,12 @@
             <Insets top="2.0" />
          </padding>
       </VBox>
-      <Button fx:id="btnSubmit" alignment="CENTER" contentDisplay="CENTER" layoutX="169.0" layoutY="262.0" mnemonicParsing="false" onAction="#btnSubmitAction" prefHeight="31.0" prefWidth="109.0" style="-fx-background-color: #01be38; -fx-background-radius: 30; -fx-border-color: #000000; -fx-border-radius: 30;" text="Submit" textFill="WHITE">
+      <Button fx:id="btnSubmit" alignment="CENTER" contentDisplay="CENTER" layoutX="126.0" layoutY="262.0" mnemonicParsing="false" onAction="#btnSubmitAction" prefHeight="31.0" prefWidth="109.0" style="-fx-background-color: #01be38; -fx-background-radius: 30; -fx-border-color: #000000; -fx-border-radius: 30;" text="Submit" textFill="WHITE">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Button>
-      <TableView fx:id="tableMaintenance" layoutX="19.0" layoutY="301.0" prefHeight="244.0" prefWidth="574.0" style="-fx-border-color: #000000;">
+      <TableView fx:id="tableMaintenance" layoutX="19.0" layoutY="301.0" onMouseClicked="#onMouseClick" prefHeight="244.0" prefWidth="574.0" style="-fx-border-color: #000000;">
          <columns>
             <TableColumn fx:id="colMaintenanceId" prefWidth="104.00006675720215" text="Maintenance ID" />
             <TableColumn fx:id="colHouseId" prefWidth="86.39996337890625" text="House ID" />
@@ -95,7 +95,12 @@
          </font>
       </Label>
       <DatePicker fx:id="dpDate" layoutX="146.0" layoutY="214.0" onAction="#dpDateAction" prefHeight="38.0" prefWidth="280.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000; -fx-border-width: 0 0 1 0;" />
-      <Button fx:id="btnGetReport" alignment="CENTER" contentDisplay="CENTER" layoutX="294.0" layoutY="262.0" mnemonicParsing="false" onAction="#btnGetReportAction" prefHeight="31.0" prefWidth="109.0" style="-fx-background-color: #0097ff; -fx-background-radius: 30; -fx-border-color: #000000; -fx-border-radius: 30;" text="Get Report" textFill="WHITE">
+      <Button fx:id="btnGetReport" alignment="CENTER" contentDisplay="CENTER" layoutX="251.0" layoutY="262.0" mnemonicParsing="false" onAction="#btnGetReportAction" prefHeight="31.0" prefWidth="109.0" style="-fx-background-color: #0097ff; -fx-background-radius: 30; -fx-border-color: #000000; -fx-border-radius: 30;" text="Get Report" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnReset" alignment="CENTER" contentDisplay="CENTER" layoutX="377.0" layoutY="262.0" mnemonicParsing="false" onAction="#btnResetAction" prefHeight="31.0" prefWidth="109.0" style="-fx-background-color: #01be38; -fx-background-radius: 30; -fx-border-color: #000000; -fx-border-radius: 30;" text="Reset" textFill="WHITE">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
