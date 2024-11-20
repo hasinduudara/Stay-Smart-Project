@@ -83,6 +83,9 @@ public class CollectRentPaymentDashboardController implements Initializable {
     private Label lblTenantId;
 
     @FXML
+    private Button btnReset;
+
+    @FXML
     private TableView<RentPaymentTM> tableCollectRentPayment;
 
     @FXML
@@ -279,4 +282,25 @@ public class CollectRentPaymentDashboardController implements Initializable {
             e.printStackTrace();
         }
     }
+
+    @FXML
+    void btnResetAction(ActionEvent event) {
+        txtHouseId.clear();
+        lblTenantId.setText("");
+        lblName.setText("");
+        lblRentPrice.setText("");
+        dpDate.setValue(null);
+        lblRentPaymentId.setText("");
+
+        btnSubmitPayment.setDisable(false);
+        btnSearch.setDisable(false);
+
+        try {
+            String nextRentPaymentId = rentPaymentModel.getNextRentPaymentId();
+            lblRentPaymentId.setText(nextRentPaymentId);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
