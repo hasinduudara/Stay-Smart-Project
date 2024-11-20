@@ -2,13 +2,19 @@ package lk.ijse.gdse.staysmartproject.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import lk.ijse.gdse.staysmartproject.util.CrudUtil;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -36,19 +42,51 @@ public class ProfileEditePageController {
     private ImageView profileEditePageImage;
 
     @FXML
-    private TextField txtConformUserName;
-
-    @FXML
     private TextField txtNewUserName;
 
     @FXML
-    void btnChangeUserNameAction(ActionEvent event) {
+    private Button btnChangeEmail;
 
+    @FXML
+    private TextField txtNewEmail;
+
+    @FXML
+    void btnChangeUserNameAction(ActionEvent event) {
+        String newUserName = txtNewUserName.getText();
+
+        try {
+            boolean isUpdated = CrudUtil.execute("UPDATE User SET User_Name = ? WHERE User_ID = ?", newUserName, "U001");
+            if (isUpdated) {
+                lblUserName.setText(newUserName);
+                new Alert(Alert.AlertType.INFORMATION, "User name updated successfully.").show();
+                clearFields();
+            } else {
+                new Alert(Alert.AlertType.ERROR, "Failed to update user name.").show();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR, "An error occurred while updating the user name.").show();
+        }
     }
 
     @FXML
     void btnProfimeImageUploadAction(ActionEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Choose an image");
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg", "*.gif")
+        );
 
+        File file = fileChooser.showOpenDialog(new Stage());
+        if (file != null) {
+            try {
+                // Load and display the image
+                Image image = new Image(new FileInputStream(file));
+                profileEditePageImage.setImage(image);
+            } catch (Exception ex) {
+                ex.printStackTrace();  // Handle errors (e.g., file not found)
+            }
+        }
     }
 
     public void initialize() {
@@ -65,6 +103,30 @@ public class ProfileEditePageController {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+    }
+
+    private void clearFields() {
+        txtNewUserName.clear();
+        txtNewEmail.clear();
+    }
+
+    @FXML
+    void btnChangeEmailAction(ActionEvent event) {
+        String newEmail = txtNewEmail.getText();
+
+        try {
+            boolean isUpdated = CrudUtil.execute("UPDATE User SET Email = ? WHERE User_ID = ?", newEmail, "U001");
+            if (isUpdated) {
+                lblEmail.setText(newEmail);
+                new Alert(Alert.AlertType.INFORMATION, "Email updated successfully.").show();
+                clearFields();
+            } else {
+                new Alert(Alert.AlertType.ERROR, "Failed to update email.").show();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR, "An error occurred while updating the email.").show();
         }
     }
 
