@@ -147,5 +147,13 @@ public class SignUpPageController {
         timeline.play();
     }
 
+    @FXML
+    void initialize() {
+        txtSignUpName.setOnAction(event -> txtSignUpEmail.requestFocus());
+        txtSignUpEmail.setOnAction(event -> txtSignUpUsername.requestFocus());
+        txtSignUpUsername.setOnAction(event -> PFSignUpPassword.requestFocus());
+        PFSignUpPassword.setOnAction(event -> btnSignUpCreateAcc.fire());
+    }
+
 
 }
