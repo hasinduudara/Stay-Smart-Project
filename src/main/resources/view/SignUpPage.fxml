@@ -31,7 +31,7 @@
                   <Font name="System Bold" size="12.8" />
                </font>
             </Label>
-            <PasswordField fx:id="PFSignUpPassword" layoutX="107.0" layoutY="217.0" onAction="#PFSignUpPasswordAction" promptText="Password" style="-fx-background-radius: 50;" />
+            <PasswordField fx:id="PFSignUpPassword" layoutX="107.0" layoutY="217.0" onAction="#PFSignUpPasswordAction" promptText="Example123@#" style="-fx-background-radius: 50;" />
             <ImageView fx:id="btnSignUpView" fitHeight="27.0" fitWidth="25.0" layoutX="272.0" layoutY="218.0" onDragDetected="#btnSignUpViewAction" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/view-icon.png" />
