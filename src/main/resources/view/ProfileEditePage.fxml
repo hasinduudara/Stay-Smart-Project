@@ -11,7 +11,7 @@
 
 <AnchorPane fx:id="profileEditePage" prefHeight="558.0" prefWidth="612.0" style="-fx-background-color: #ffffff; -fx-background-radius: 20;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.staysmartproject.controller.ProfileEditePageController">
    <children>
-      <AnchorPane layoutX="15.0" layoutY="259.0" prefHeight="236.0" prefWidth="582.0" style="-fx-border-color: #000000; -fx-background-radius: 30; -fx-border-radius: 30;">
+      <AnchorPane layoutX="15.0" layoutY="244.0" prefHeight="236.0" prefWidth="582.0" style="-fx-border-color: #000000; -fx-background-radius: 30; -fx-border-radius: 30;">
          <children>
             <Label alignment="CENTER" layoutX="117.0" layoutY="25.0" prefHeight="38.0" prefWidth="348.0" style="-fx-background-radius: 30; -fx-border-color: #000000; -fx-border-radius: 30;" text="Do you want to change Username?">
                <font>
