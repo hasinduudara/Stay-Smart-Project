@@ -197,6 +197,10 @@ public class AddTenantDashboardController implements Initializable {
         colEmail.setCellValueFactory(new PropertyValueFactory<>("Email"));
         colEndOfDate.setCellValueFactory(new PropertyValueFactory<>("End_Of_Date"));
 
+        txtHouseId.setOnAction(event -> txtName.requestFocus());
+        txtName.setOnAction(event -> txtEmail.requestFocus());
+        txtEmail.setOnAction(event -> dpEndOfDate.requestFocus());
+
         try {
             refreshPage();
         } catch (Exception e) {

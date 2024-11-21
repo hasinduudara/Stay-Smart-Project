@@ -124,4 +124,10 @@ public class SendNotificationDashboardController {
         txtBody.clear();
     }
 
+    @FXML
+    void initialize() {
+        txtTenantId.setOnAction(event -> btnSearch.fire());
+        txtSubject.setOnAction(event -> txtBody.requestFocus());
+    }
+
 }

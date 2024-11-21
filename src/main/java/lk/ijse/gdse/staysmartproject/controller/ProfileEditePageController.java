@@ -66,6 +66,9 @@ public class ProfileEditePageController {
 
     public void initialize() {
         loadUserProfile();
+
+        txtNewUserName.setOnAction(event -> btnChangeUserName.fire());
+        txtNewEmail.setOnAction(event -> btnChangeEmail.fire());
     }
 
     private void loadUserProfile() {

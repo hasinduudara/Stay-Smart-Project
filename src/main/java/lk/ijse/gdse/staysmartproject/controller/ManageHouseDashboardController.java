@@ -127,6 +127,8 @@ public class ManageHouseDashboardController implements Initializable {
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
+
+        txtHouseId.setOnAction(event -> btnSearch.fire());
     }
 
     private void loadHouseData() throws SQLException, ClassNotFoundException {

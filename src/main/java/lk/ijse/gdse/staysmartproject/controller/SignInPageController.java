@@ -111,4 +111,10 @@ public class SignInPageController {
         alert.showAndWait();
     }
 
+    @FXML
+    void initialize() {
+        txtSignInUserName.setOnAction(event -> PFSignInPassword.requestFocus());
+        PFSignInPassword.setOnAction(event -> btnSignInLoging.fire());
+    }
+
 }

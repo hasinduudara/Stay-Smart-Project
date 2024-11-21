@@ -15,7 +15,7 @@
       <AnchorPane layoutX="48.0" layoutY="53.0" prefHeight="324.0" prefWidth="324.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50; -fx-border-radius: 50; -fx-border-color: #000000;">
          <children>
             <TextField fx:id="txtSignInPassword" layoutX="103.0" layoutY="134.0" onAction="#txtSignInPasswordAction" promptText="Password" style="-fx-background-radius: 50;" />
-            <Label alignment="CENTER" layoutX="28.0" layoutY="22.0" prefHeight="35.0" prefWidth="268.0" style="-fx-background-color: #00cd79; -fx-background-radius: 50; -fx-border-color: #000000; -fx-border-radius: 50;" text="Log In To Your Account" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="28.0" layoutY="22.0" prefHeight="35.0" prefWidth="268.0" style="-fx-background-color: #02ba53; -fx-background-radius: 50; -fx-border-color: #000000; -fx-border-radius: 50;" text="Log In To Your Account" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="19.0" />
                </font>
@@ -51,7 +51,7 @@
                   <Font name="System Bold Italic" size="12.800000190734863" />
                </font>
             </Label>
-            <Button fx:id="btnSignInCreateAcc" layoutX="187.0" layoutY="266.0" mnemonicParsing="false" onAction="#btnSignInCreateAccAction" style="-fx-border-color: #000000; -fx-border-width: 0.5; -fx-background-radius: 30; -fx-border-radius: 30; -fx-background-color: #00cd79;" text="Create Account" textFill="WHITE">
+            <Button fx:id="btnSignInCreateAcc" layoutX="187.0" layoutY="266.0" mnemonicParsing="false" onAction="#btnSignInCreateAccAction" style="-fx-border-color: #000000; -fx-border-width: 0.5; -fx-background-radius: 30; -fx-border-radius: 30; -fx-background-color: #02ba53;" text="Create Account" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.8" />
                </font></Button>

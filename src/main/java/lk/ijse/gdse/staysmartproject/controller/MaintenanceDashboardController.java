@@ -86,6 +86,10 @@ public class MaintenanceDashboardController implements Initializable {
         colDescription.setCellValueFactory(new PropertyValueFactory<>("Description"));
         colDate.setCellValueFactory(new PropertyValueFactory<>("Date"));
 
+        txtHouseId.setOnAction(event -> txtAmount.requestFocus());
+        txtAmount.setOnAction(event -> txtDescription.requestFocus());
+        txtDescription.setOnAction(event -> dpDate.requestFocus());
+
         try {
             refreshPage();
             getMaintenanceCostSum();
