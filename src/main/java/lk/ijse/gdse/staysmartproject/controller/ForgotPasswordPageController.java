@@ -23,10 +23,10 @@ import java.util.Properties;
 public class ForgotPasswordPageController {
 
     @FXML
-    private PasswordField FPFPNewPassword;
+    private PasswordField FPFPNewPassword; //encapsulation
 
     @FXML
-    private PasswordField PFFPComPassword;
+    private PasswordField PFFPComPassword; //encapsulation
 
     @FXML
     private Button btnCheckEmail;
@@ -103,10 +103,11 @@ public class ForgotPasswordPageController {
 
     }
 
+    // Abstracted
     @FXML
     void btnFPForgotPasswordAction(ActionEvent event) {
-        String newPassword = FPFPNewPassword.getText();
-        String confirmPassword = PFFPComPassword.getText();
+        String newPassword = FPFPNewPassword.getText(); //encapsulation
+        String confirmPassword = PFFPComPassword.getText(); //encapsulation
         String enteredOTP = txtFPEnterCode.getText();
 
         if (!newPassword.equals(confirmPassword)) {
