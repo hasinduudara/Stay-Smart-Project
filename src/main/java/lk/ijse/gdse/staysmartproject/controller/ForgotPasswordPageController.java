@@ -103,11 +103,10 @@ public class ForgotPasswordPageController {
 
     }
 
-    // Abstracted
     @FXML
     void btnFPForgotPasswordAction(ActionEvent event) {
-        String newPassword = FPFPNewPassword.getText(); //encapsulation
-        String confirmPassword = PFFPComPassword.getText(); //encapsulation
+        String newPassword = FPFPNewPassword.getText();
+        String confirmPassword = PFFPComPassword.getText();
         String enteredOTP = txtFPEnterCode.getText();
 
         if (!newPassword.equals(confirmPassword)) {
