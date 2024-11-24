@@ -113,7 +113,12 @@
                         <Font name="System Bold" size="12.8" />
                      </font>
                   </Button>
-                  <Button fx:id="btnAddTenantContractReport" mnemonicParsing="false" onAction="#btnAddTenantContractReportAction" prefHeight="30.0" prefWidth="93.0" style="-fx-background-color: #b23cfe; -fx-background-radius: 20; -fx-border-color: #000000; -fx-border-radius: 20;" text="Get Report" textFill="WHITE">
+                  <Button fx:id="btnAddTenantContractReport" mnemonicParsing="false" onAction="#btnAddTenantContractReportAction" prefHeight="30.0" prefWidth="93.0" style="-fx-background-color: #b23cfe; -fx-background-radius: 20; -fx-border-color: #000000; -fx-border-radius: 20;" text="Full Report" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.8" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnContract" mnemonicParsing="false" onAction="#btnContractAction" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #006429; -fx-background-radius: 20; -fx-border-color: #000000; -fx-border-radius: 20;" text="Contract" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="12.8" />
                      </font>

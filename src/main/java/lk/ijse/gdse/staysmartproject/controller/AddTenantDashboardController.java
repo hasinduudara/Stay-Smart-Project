@@ -77,6 +77,9 @@ public class AddTenantDashboardController implements Initializable {
     @FXML
     private DatePicker dpEndOfDate;
 
+    @FXML
+    private Button btnContract;
+
     TenantModel tenantModel = new TenantModel();
     HouseModel houseModel = new HouseModel();
 
@@ -303,5 +306,33 @@ public class AddTenantDashboardController implements Initializable {
         btnAddTenantDelete.setDisable(false);
         btnAddTenantUpdate.setDisable(false);
         btnAddTenantReset.setDisable(false);
+        btnContract.setDisable(true);
+    }
+
+    @FXML
+    void btnContractAction(ActionEvent event) {
+        try {
+            Connection connection = DBConnection.getInstance().getConnection();
+            Map<String, Object> parameters = new HashMap<>();
+
+            parameters.put("todayDate", LocalDate.now().toString());
+            parameters.put("time", LocalTime.now().toString());
+
+            JasperReport jasperReport = JasperCompileManager.compileReport(getClass().getResourceAsStream("/report/LastTenantReport.jrxml"));
+
+            JasperPrint jasperPrint = JasperFillManager.fillReport(
+                    jasperReport,
+                    parameters,
+                    connection
+            );
+
+            JasperViewer.viewReport(jasperPrint, false);
+        } catch (JRException e) {
+            new Alert(Alert.AlertType.ERROR, "Fail to load report..!");
+            e.printStackTrace();
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, "Data empty..!");
+            e.printStackTrace();
+        }
     }
 }
