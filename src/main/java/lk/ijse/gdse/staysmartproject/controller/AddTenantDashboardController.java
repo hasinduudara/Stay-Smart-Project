@@ -270,6 +270,7 @@ public class AddTenantDashboardController implements Initializable {
         btnAddTenantDelete.setDisable(true);
         btnAddTenantUpdate.setDisable(true);
         btnAddTenantReset.setDisable(true);
+        btnContract.setDisable(false);
     }
 
     private void refreshTable() throws SQLException, ClassNotFoundException {
