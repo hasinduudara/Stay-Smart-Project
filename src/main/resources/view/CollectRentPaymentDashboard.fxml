@@ -104,7 +104,7 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Button>
-      <Button fx:id="btnPrintBill" alignment="CENTER" layoutX="241.0" layoutY="304.0" mnemonicParsing="false" onAction="#btnPrintBillAction" prefHeight="31.0" prefWidth="138.0" style="-fx-background-radius: 30; -fx-background-color: #ff0078; -fx-border-color: #000000; -fx-border-radius: 30;" text="Print Report" textFill="WHITE">
+      <Button fx:id="btnPrintBill" alignment="CENTER" layoutX="241.0" layoutY="304.0" mnemonicParsing="false" onAction="#btnPrintBillAction" prefHeight="31.0" prefWidth="138.0" style="-fx-background-radius: 30; -fx-background-color: #ff0078; -fx-border-color: #000000; -fx-border-radius: 30;" text="Print Bill" textFill="WHITE">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>

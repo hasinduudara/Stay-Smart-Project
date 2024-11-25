@@ -1,0 +1,128 @@
+<!-- Created with Jaspersoft Studio version 7.0.0.final using JasperReports Library version 7.0.0-b478feaa9aab4375eba71de77b4ca138ad2f62aa  -->
+<jasperReport name="LastMainteinsReport" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c2cac987-3074-4efa-ac6b-cada1f21c948">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter (10)"/>
+	<parameter name="todayDate" class="java.lang.String"/>
+	<parameter name="time" class="java.lang.String"/>
+	<query language="SQL"><![CDATA[SELECT MT_ID, House_ID, Amount, Description, Date
+FROM Maintains
+ORDER BY MT_ID DESC
+LIMIT 1;]]></query>
+	<field name="MT_ID" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="MT_ID"/>
+		<property name="com.jaspersoft.studio.field.label" value="MT_ID"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="maintains"/>
+	</field>
+	<field name="House_ID" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="House_ID"/>
+		<property name="com.jaspersoft.studio.field.label" value="House_ID"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="maintains"/>
+	</field>
+	<field name="Amount" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="Amount"/>
+		<property name="com.jaspersoft.studio.field.label" value="Amount"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="maintains"/>
+	</field>
+	<field name="Description" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Description"/>
+		<property name="com.jaspersoft.studio.field.label" value="Description"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="maintains"/>
+	</field>
+	<field name="Date" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="Date"/>
+		<property name="com.jaspersoft.studio.field.label" value="Date"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="maintains"/>
+	</field>
+	<group name="MT_ID">
+		<expression><![CDATA[$F{MT_ID}]]></expression>
+	</group>
+	<group name="House_ID">
+		<expression><![CDATA[$F{House_ID}]]></expression>
+	</group>
+	<group name="Amount">
+		<expression><![CDATA[$F{Amount}]]></expression>
+	</group>
+	<group name="Description">
+		<expression><![CDATA[$F{Description}]]></expression>
+	</group>
+	<group name="Date">
+		<expression><![CDATA[$F{Date}]]></expression>
+	</group>
+	<background splitType="Stretch"/>
+	<title height="116" splitType="Stretch">
+		<element kind="frame" uuid="554edca7-cd43-434e-80a1-6139d303cffa" x="0" y="16" width="550" height="85">
+			<element kind="staticText" uuid="b72b99b9-65bc-41df-a1e7-8f22c3f1fb49" x="171" y="17" width="217" height="52" fontSize="26.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+				<text><![CDATA[Stay Smart]]></text>
+			</element>
+			<box>
+				<pen lineWidth="2.0" lineStyle="Solid"/>
+			</box>
+		</element>
+	</title>
+	<pageHeader height="57" splitType="Stretch">
+		<element kind="textField" uuid="b7c258da-f0bb-491a-8ec7-1f64a80999ec" x="0" y="0" width="130" height="30" fontSize="16.0" bold="true" vTextAlign="Middle">
+			<expression><![CDATA[$P{todayDate}]]></expression>
+		</element>
+		<element kind="textField" uuid="b7f71a97-6d7c-49bf-930a-7b1bae2b7852" x="430" y="0" width="120" height="30" fontSize="16.0" bold="true" hTextAlign="Right">
+			<expression><![CDATA[$P{time}]]></expression>
+		</element>
+		<element kind="staticText" uuid="dad97733-391f-4e4d-a9d0-029496b53d4b" x="144" y="10" width="270" height="47" fontSize="26.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Maintenance Report]]></text>
+		</element>
+	</pageHeader>
+	<columnHeader height="33" splitType="Stretch">
+		<element kind="staticText" uuid="7fe7dfdf-2be8-46a0-80a5-a83d8109d320" x="0" y="0" width="111" height="30" fontSize="14.0" bold="true" vTextAlign="Middle">
+			<text><![CDATA[MT ID :]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7452228d-2672-448f-a5c2-f421ea72c0f6"/>
+		</element>
+		<element kind="textField" uuid="eb4bf03f-2850-4995-8c97-84052f54b683" x="180" y="1" width="111" height="30" fontSize="12.0" vTextAlign="Middle">
+			<expression><![CDATA[$F{MT_ID}]]></expression>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7452228d-2672-448f-a5c2-f421ea72c0f6"/>
+		</element>
+	</columnHeader>
+	<detail>
+		<band height="273" splitType="Stretch">
+			<element kind="textField" uuid="3d160ed4-9bb3-4b10-84dd-6e23c6d4b838" x="180" y="7" width="111" height="30" fontSize="12.0" bold="false" vTextAlign="Middle">
+				<expression><![CDATA[$F{House_ID}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a3f1e28d-0faf-4807-84c4-8b808af595a7"/>
+			</element>
+			<element kind="textField" uuid="fd67d600-44ee-40ab-a442-e59c11b46a61" x="180" y="47" width="111" height="30" fontSize="12.0" vTextAlign="Middle">
+				<expression><![CDATA[$F{Amount}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="90724171-255e-40d3-a612-106b6265a248"/>
+			</element>
+			<element kind="textField" uuid="f7596ac6-c11c-4b93-83df-fcac8f1bfa46" x="180" y="87" width="111" height="30" fontSize="12.0" vTextAlign="Middle">
+				<expression><![CDATA[$F{Description}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f49a0af7-1889-499b-82ea-4601a138effa"/>
+			</element>
+			<element kind="staticText" uuid="7b60f338-6514-4540-bc1c-f6a88ec16f06" x="0" y="7" width="111" height="30" fontSize="16.0" bold="true" vTextAlign="Middle">
+				<text><![CDATA[House ID :]]></text>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a3f1e28d-0faf-4807-84c4-8b808af595a7"/>
+			</element>
+			<element kind="staticText" uuid="a692812b-9321-4dab-bfe1-e26f64a2a622" x="0" y="47" width="111" height="30" fontSize="16.0" bold="true" vTextAlign="Middle">
+				<text><![CDATA[Amount :]]></text>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="90724171-255e-40d3-a612-106b6265a248"/>
+			</element>
+			<element kind="staticText" uuid="0af1a049-1c45-406f-bf48-3347e6bf1a0a" x="0" y="87" width="111" height="30" fontSize="16.0" bold="true" vTextAlign="Middle">
+				<text><![CDATA[Description :]]></text>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f49a0af7-1889-499b-82ea-4601a138effa"/>
+			</element>
+			<element kind="staticText" uuid="48533034-232e-4675-b7ce-f4d09ac02df8" x="0" y="129" width="111" height="30" fontSize="16.0" bold="true" vTextAlign="Middle">
+				<text><![CDATA[Date :]]></text>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="985cc19d-0702-4a03-8177-0f03eb449fe9"/>
+			</element>
+			<element kind="textField" uuid="96621334-eb7b-4f2d-a329-a8ce6e3b590f" x="180" y="129" width="111" height="30" fontSize="12.0" vTextAlign="Middle">
+				<expression><![CDATA[$F{Date}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="985cc19d-0702-4a03-8177-0f03eb449fe9"/>
+			</element>
+			<element kind="frame" uuid="b5809850-6225-402e-af62-e64ec1bd5ad6" x="0" y="183" width="544" height="90">
+				<element kind="staticText" uuid="6ee2fc07-282b-4258-aa32-e3da692bb029" x="98" y="19" width="364" height="56" fontSize="26.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+					<text><![CDATA[Maintenance Successful!]]></text>
+				</element>
+				<box>
+					<pen lineWidth="2.0" lineStyle="Dashed"/>
+				</box>
+			</element>
+		</band>
+	</detail>
+	<summary height="13" splitType="Stretch"/>
+</jasperReport>

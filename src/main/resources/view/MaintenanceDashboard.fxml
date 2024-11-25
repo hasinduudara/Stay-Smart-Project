@@ -65,7 +65,7 @@
             <Insets top="2.0" />
          </padding>
       </VBox>
-      <Button fx:id="btnSubmit" alignment="CENTER" contentDisplay="CENTER" layoutX="126.0" layoutY="262.0" mnemonicParsing="false" onAction="#btnSubmitAction" prefHeight="31.0" prefWidth="109.0" style="-fx-background-color: #01be38; -fx-background-radius: 30; -fx-border-color: #000000; -fx-border-radius: 30;" text="Submit" textFill="WHITE">
+      <Button fx:id="btnSubmit" alignment="CENTER" contentDisplay="CENTER" layoutX="52.0" layoutY="262.0" mnemonicParsing="false" onAction="#btnSubmitAction" prefHeight="31.0" prefWidth="109.0" style="-fx-background-color: #01be38; -fx-background-radius: 30; -fx-border-color: #000000; -fx-border-radius: 30;" text="Submit" textFill="WHITE">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
@@ -95,12 +95,17 @@
          </font>
       </Label>
       <DatePicker fx:id="dpDate" layoutX="146.0" layoutY="214.0" onAction="#dpDateAction" prefHeight="38.0" prefWidth="280.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000; -fx-border-width: 0 0 1 0;" />
-      <Button fx:id="btnGetReport" alignment="CENTER" contentDisplay="CENTER" layoutX="251.0" layoutY="262.0" mnemonicParsing="false" onAction="#btnGetReportAction" prefHeight="31.0" prefWidth="109.0" style="-fx-background-color: #0097ff; -fx-background-radius: 30; -fx-border-color: #000000; -fx-border-radius: 30;" text="Get Report" textFill="WHITE">
+      <Button fx:id="btnGetReport" alignment="CENTER" contentDisplay="CENTER" layoutX="177.0" layoutY="262.0" mnemonicParsing="false" onAction="#btnGetReportAction" prefHeight="34.0" prefWidth="146.0" style="-fx-background-color: #0097ff; -fx-background-radius: 30; -fx-border-color: #000000; -fx-border-radius: 30;" text="Get Full Report" textFill="WHITE">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Button>
-      <Button fx:id="btnReset" alignment="CENTER" contentDisplay="CENTER" layoutX="377.0" layoutY="262.0" mnemonicParsing="false" onAction="#btnResetAction" prefHeight="31.0" prefWidth="109.0" style="-fx-background-color: #01be38; -fx-background-radius: 30; -fx-border-color: #000000; -fx-border-radius: 30;" text="Reset" textFill="WHITE">
+      <Button fx:id="btnReset" alignment="CENTER" contentDisplay="CENTER" layoutX="340.0" layoutY="262.0" mnemonicParsing="false" onAction="#btnResetAction" prefHeight="31.0" prefWidth="109.0" style="-fx-background-color: #01be38; -fx-background-radius: 30; -fx-border-color: #000000; -fx-border-radius: 30;" text="Reset" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnReport" alignment="CENTER" contentDisplay="CENTER" layoutX="465.0" layoutY="262.0" mnemonicParsing="false" onAction="#btnReportAction" prefHeight="34.0" prefWidth="112.0" style="-fx-background-color: #0097ff; -fx-background-radius: 30; -fx-border-color: #000000; -fx-border-radius: 30;" text="Report" textFill="WHITE">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>

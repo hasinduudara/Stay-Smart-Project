@@ -215,6 +215,8 @@ public class CollectRentPaymentDashboardController implements Initializable {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+
+        txtHouseId.setOnAction(event -> btnSearch.fire());
     }
 
     private void refreshPage() throws SQLException, ClassNotFoundException {

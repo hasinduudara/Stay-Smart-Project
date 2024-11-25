@@ -77,6 +77,9 @@ public class MaintenanceDashboardController implements Initializable {
     @FXML
     private Button btnReset;
 
+    @FXML
+    private Button btnReport;
+
     MaintenanceModel maintenanceModel = new MaintenanceModel();
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -243,6 +246,34 @@ public class MaintenanceDashboardController implements Initializable {
             String nextRentPaymentId = maintenanceModel.getNextMaintenanceId();
             lblMaintenanceId.setText(nextRentPaymentId);
         } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void btnReportAction(ActionEvent event) {
+        try {
+            Connection connection = DBConnection.getInstance().getConnection();
+
+            Map<String, Object> parameters = new HashMap<>();
+
+            parameters.put("todayDate", LocalDate.now().toString());
+            parameters.put("time", LocalTime.now().toString());
+
+            JasperReport jasperReport = JasperCompileManager.compileReport(getClass().getResourceAsStream("/report/LastMainteinsReport.jrxml"));
+
+            JasperPrint jasperPrint = JasperFillManager.fillReport(
+                    jasperReport,
+                    parameters,
+                    connection
+            );
+
+            JasperViewer.viewReport(jasperPrint, false);
+        } catch (JRException e) {
+            new Alert(Alert.AlertType.ERROR, "Fail to load report..!");
+            e.printStackTrace();
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, "Data empty..!");
             e.printStackTrace();
         }
     }
