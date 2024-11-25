@@ -105,7 +105,7 @@ public class CollectRentPaymentDashboardController implements Initializable {
             parameters.put("todayDate", LocalDate.now().toString());
             parameters.put("time", LocalTime.now().toString());
 
-            JasperReport jasperReport = JasperCompileManager.compileReport(getClass().getResourceAsStream("/report/PrintBill.jrxml"));
+            JasperReport jasperReport = JasperCompileManager.compileReport(getClass().getResourceAsStream("/report/LastRentPaymentBill.jrxml"));
 
             JasperPrint jasperPrint = JasperFillManager.fillReport(
                     jasperReport,
