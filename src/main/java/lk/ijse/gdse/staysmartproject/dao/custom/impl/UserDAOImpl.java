@@ -1,6 +1,6 @@
-// userModel.java
-package lk.ijse.gdse.staysmartproject.model;
+package lk.ijse.gdse.staysmartproject.dao.custom.impl;
 
+import lk.ijse.gdse.staysmartproject.dao.custom.UserDAO;
 import lk.ijse.gdse.staysmartproject.db.DBConnection;
 import lk.ijse.gdse.staysmartproject.dto.UserDTO;
 
@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserModel {
+public class UserDAOImpl implements UserDAO {
 
     public boolean saveUser(UserDTO user) throws SQLException {
         Connection connection = DBConnection.getInstance().getConnection();
@@ -66,7 +66,4 @@ public class UserModel {
 
         return userList;
     }
-
-
-
 }

@@ -9,11 +9,11 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.gdse.staysmartproject.dao.custom.TenantDAO;
+import lk.ijse.gdse.staysmartproject.dao.custom.impl.TenantDAOImpl;
 import lk.ijse.gdse.staysmartproject.db.DBConnection;
 import lk.ijse.gdse.staysmartproject.dto.TenantDTO;
 import lk.ijse.gdse.staysmartproject.dto.tm.TenantTM;
-import lk.ijse.gdse.staysmartproject.model.HouseModel;
-import lk.ijse.gdse.staysmartproject.model.TenantModel;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.view.JasperViewer;
 
@@ -80,8 +80,9 @@ public class AddTenantDashboardController implements Initializable {
     @FXML
     private Button btnContract;
 
-    TenantModel tenantModel = new TenantModel();
-    HouseModel houseModel = new HouseModel();
+//    TenantModel tenantModel = new TenantModel();
+//    HouseModel houseModel = new HouseModel();
+    TenantDAO tenantDAO = new TenantDAOImpl();
 
     @FXML
     void btnAddTenantContractReportAction(ActionEvent event) {
@@ -119,7 +120,7 @@ public class AddTenantDashboardController implements Initializable {
 
         if (buttonType.get() == ButtonType.YES) {
             try {
-                boolean isDeleted = tenantModel.deleteTenant(tenantId);
+                boolean isDeleted = tenantDAO.deleteTenant(tenantId);
                 if (isDeleted) {
                     new Alert(Alert.AlertType.INFORMATION, "Tenant deleted successfully").show();
                     refreshPage();
@@ -180,7 +181,7 @@ public class AddTenantDashboardController implements Initializable {
             TenantDTO tenantDTO = new TenantDTO(Tenant_ID, House_ID, Name, Email, new Date());
 
             try {
-                boolean isUpdated = tenantModel.updateTenant(tenantDTO);
+                boolean isUpdated = tenantDAO.updateTenant(tenantDTO);
                 if (isUpdated) {
                     new Alert(Alert.AlertType.INFORMATION, "Tenant updated successfully").show();
                     refreshPage();
@@ -244,7 +245,7 @@ public class AddTenantDashboardController implements Initializable {
         if (validName && validEmail) {
             TenantDTO tenantDTO = new TenantDTO(Tenant_ID, House_ID, Name, Email, End_Of_Date);
 
-            boolean isSaved = tenantModel.saveTenant(tenantDTO); // Call the method on the instance
+            boolean isSaved = tenantDAO.saveTenant(tenantDTO); // Call the method on the instance
 
             if (isSaved) {
                 new Alert(Alert.AlertType.INFORMATION, "Tenant saved successfully").show();
@@ -258,7 +259,7 @@ public class AddTenantDashboardController implements Initializable {
     private void refreshPage() throws SQLException, ClassNotFoundException {
         refreshTable();
 
-        String nextTenantId = tenantModel.getNextTenantId();
+        String nextTenantId = tenantDAO.getNextTenantId();
         lblTenantId.setText(nextTenantId);
 
         txtName.setText("");
@@ -274,7 +275,7 @@ public class AddTenantDashboardController implements Initializable {
     }
 
     private void refreshTable() throws SQLException, ClassNotFoundException {
-        ArrayList<TenantDTO> allTenants = tenantModel.getAllTenants();
+        ArrayList<TenantDTO> allTenants = tenantDAO.getAllTenants();
         ObservableList<TenantTM> tenantTMS = FXCollections.observableArrayList();
 
         for (TenantDTO tenantDTO : allTenants) {

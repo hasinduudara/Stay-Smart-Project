@@ -1,7 +1,6 @@
 package lk.ijse.gdse.staysmartproject.dto.tm;
 
 import lombok.*;
-
 import java.util.Date;
 
 @Getter

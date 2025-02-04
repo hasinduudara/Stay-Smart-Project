@@ -10,8 +10,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.gdse.staysmartproject.dao.custom.UserDAO;
+import lk.ijse.gdse.staysmartproject.dao.custom.impl.UserDAOImpl;
 import lk.ijse.gdse.staysmartproject.dto.UserDTO;
-import lk.ijse.gdse.staysmartproject.model.UserModel;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -44,7 +45,8 @@ public class SignInPageController {
     @FXML
     private TextField txtSignInUserName;
 
-    private UserModel userModel = new UserModel();
+//    private UserModel userModel = new UserModel();
+    UserDAO userDAO = new UserDAOImpl();
 
     @FXML
     void PFSignInPasswordAction(ActionEvent event) {
@@ -85,7 +87,7 @@ public class SignInPageController {
     }
 
     private boolean checkUserNameAndPassword() throws SQLException {
-        List<UserDTO> allUsers = userModel.getAllUsers();
+        List<UserDTO> allUsers = userDAO.getAllUsers();
         for (UserDTO user : allUsers) {
             if (user.getUser_Name().equals(txtSignInUserName.getText()) && user.getPassword().equals(PFSignInPassword.getText())) {
                 return true;

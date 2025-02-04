@@ -1,15 +1,16 @@
-package lk.ijse.gdse.staysmartproject.model;
+package lk.ijse.gdse.staysmartproject.dao.custom.impl;
 
+import lk.ijse.gdse.staysmartproject.dao.custom.TenantDAO;
 import lk.ijse.gdse.staysmartproject.db.DBConnection;
 import lk.ijse.gdse.staysmartproject.dto.TenantDTO;
 import lk.ijse.gdse.staysmartproject.util.CrudUtil;
 
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.sql.Connection;
 
-public class TenantModel {
+public class TenantDAOImpl implements TenantDAO {
 
     public String getNextTenantId() throws SQLException {
         ResultSet rst = CrudUtil.execute("SELECT Tenant_ID FROM Tenant ORDER BY Tenant_ID DESC LIMIT 1");
@@ -24,7 +25,7 @@ public class TenantModel {
         return "T001";
     }
 
-    public static boolean saveTenant(TenantDTO tenant) throws SQLException, ClassNotFoundException {
+    public boolean saveTenant(TenantDTO tenant) throws SQLException, ClassNotFoundException {
         Connection connection = DBConnection.getInstance().getConnection();
         try {
             connection.setAutoCommit(false);

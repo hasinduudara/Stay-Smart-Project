@@ -9,8 +9,9 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.gdse.staysmartproject.dao.custom.HouseDAO;
+import lk.ijse.gdse.staysmartproject.dao.custom.impl.HouseDAOImpl;
 import lk.ijse.gdse.staysmartproject.dto.tm.HouseTM;
-import lk.ijse.gdse.staysmartproject.model.HouseModel;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -58,13 +59,14 @@ public class ManageHouseDashboardController implements Initializable {
     @FXML
     private Button btnClearValues;
 
-    private HouseModel houseModel = new HouseModel();
+//    private HouseModel houseModel = new HouseModel();
+    HouseDAO houseDAO = new HouseDAOImpl();
 
     @FXML
     void btnHouseStatusResetAction(ActionEvent event) {
         String houseId = txtHouseId.getText();
         try {
-            boolean isReset = houseModel.resetHouseStatus(houseId);
+            boolean isReset = houseDAO.resetHouseStatus(houseId);
             if (isReset) {
                 new Alert(Alert.AlertType.INFORMATION, "House status reset to Available").show();
                 loadHouseData(); // Refresh the table to reflect changes
@@ -88,7 +90,7 @@ public class ManageHouseDashboardController implements Initializable {
         }
 
         try {
-            boolean isUpdated = houseModel.updateRentPrice(houseId, newRentPrice);
+            boolean isUpdated = houseDAO.updateRentPrice(houseId, newRentPrice);
             if (isUpdated) {
                 new Alert(Alert.AlertType.INFORMATION, "Rent price updated successfully").show();
                 loadHouseData(); // Refresh the table to reflect changes
@@ -104,7 +106,7 @@ public class ManageHouseDashboardController implements Initializable {
     void btnSearchAction(ActionEvent event) {
         String houseId = txtHouseId.getText();
         try {
-            HouseTM house = houseModel.findHouseById(houseId);
+            HouseTM house = houseDAO.findHouseById(houseId);
             if (house != null) {
                 lblHouseStatus.setText(house.getStatus());
                 txtRentPrice.setText(String.valueOf(house.getRent_Price()));
@@ -132,7 +134,7 @@ public class ManageHouseDashboardController implements Initializable {
     }
 
     private void loadHouseData() throws SQLException, ClassNotFoundException {
-        ArrayList<HouseTM> allHouses = houseModel.getAllHouses();
+        ArrayList<HouseTM> allHouses = houseDAO.getAllHouses();
         ObservableList<HouseTM> houseTMS = FXCollections.observableArrayList(allHouses);
         tableManageHouse.setItems(houseTMS);
     }

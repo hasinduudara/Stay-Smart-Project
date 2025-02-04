@@ -1,15 +1,13 @@
 package lk.ijse.gdse.staysmartproject.controller;
 
-import javafx.animation.ParallelTransition;
-import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
-import javafx.util.Duration;
+import lk.ijse.gdse.staysmartproject.dao.custom.FinanceDAO;
+import lk.ijse.gdse.staysmartproject.dao.custom.impl.FinanceDAOImpl;
 import lk.ijse.gdse.staysmartproject.db.DBConnection;
-import lk.ijse.gdse.staysmartproject.model.FinancesModel;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.view.JasperViewer;
 
@@ -43,7 +41,8 @@ public class ManageFinancesDashboardController implements Initializable {
     @FXML
     private AnchorPane manageFinancesDashboard;
 
-    FinancesModel financesModel = new FinancesModel();
+//    FinancesModel financesModel = new FinancesModel();
+    FinanceDAO financesModel = new FinanceDAOImpl();
 
 
     private final String url = "jdbc:mysql://localhost:3306/StaySmart";

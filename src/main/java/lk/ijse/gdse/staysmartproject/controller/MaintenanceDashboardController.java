@@ -9,11 +9,12 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.gdse.staysmartproject.dao.custom.MaintenanceDAO;
+import lk.ijse.gdse.staysmartproject.dao.custom.impl.MaintenanceDAOImpl;
 import lk.ijse.gdse.staysmartproject.db.DBConnection;
 import lk.ijse.gdse.staysmartproject.dto.MaintenanceDTO;
 import lk.ijse.gdse.staysmartproject.dto.tm.MaintenanceTM;
 import lk.ijse.gdse.staysmartproject.model.ExpensesDataModel;
-import lk.ijse.gdse.staysmartproject.model.MaintenanceModel;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.view.JasperViewer;
 
@@ -80,7 +81,8 @@ public class MaintenanceDashboardController implements Initializable {
     @FXML
     private Button btnReport;
 
-    MaintenanceModel maintenanceModel = new MaintenanceModel();
+//    MaintenanceModel maintenanceModel = new MaintenanceModel();
+    MaintenanceDAO maintenanceModel = new MaintenanceDAOImpl();
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
         colMaintenanceId.setCellValueFactory(new PropertyValueFactory<>("MT_ID"));

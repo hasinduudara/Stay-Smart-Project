@@ -1,5 +1,6 @@
-package lk.ijse.gdse.staysmartproject.model;
+package lk.ijse.gdse.staysmartproject.dao.custom.impl;
 
+import lk.ijse.gdse.staysmartproject.dao.custom.RentPaymentDAO;
 import lk.ijse.gdse.staysmartproject.db.DBConnection;
 import lk.ijse.gdse.staysmartproject.dto.HouseDTO;
 import lk.ijse.gdse.staysmartproject.dto.RentPaymentDTO;
@@ -12,7 +13,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Optional;
 
-public class RentPaymentModel {
+public class RentPaymentDAOImpl implements RentPaymentDAO {
 
     public String getNextRentPaymentId() throws SQLException {
         ResultSet rst = CrudUtil.execute("SELECT Rent_Payment_ID FROM Rent_Payment ORDER BY Rent_Payment_ID DESC LIMIT 1");

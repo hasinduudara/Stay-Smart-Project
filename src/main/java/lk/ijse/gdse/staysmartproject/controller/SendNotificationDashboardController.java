@@ -1,15 +1,12 @@
 package lk.ijse.gdse.staysmartproject.controller;
 
-import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.*;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.util.Duration;
+import lk.ijse.gdse.staysmartproject.dao.custom.TenantDAO;
+import lk.ijse.gdse.staysmartproject.dao.custom.impl.TenantDAOImpl;
 import lk.ijse.gdse.staysmartproject.dto.TenantDTO;
-import lk.ijse.gdse.staysmartproject.model.TenantModel;
 
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
@@ -45,7 +42,8 @@ public class SendNotificationDashboardController {
     @FXML
     private Button btnClear;
 
-    private TenantModel tenantModel = new TenantModel();
+//    private TenantModel tenantModel = new TenantModel();
+    TenantDAO tenantDAO = new TenantDAOImpl();
 
     @FXML
     void btnSearchAction(ActionEvent event) {
@@ -56,7 +54,7 @@ public class SendNotificationDashboardController {
         }
 
         try {
-            TenantDTO tenantDTO = tenantModel.getTenantById(tenantId);
+            TenantDTO tenantDTO = tenantDAO.getTenantById(tenantId);
             if (tenantDTO != null) {
                 lblName.setText(tenantDTO.getName());
                 lblEmail.setText(tenantDTO.getEmail());

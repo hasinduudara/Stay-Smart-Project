@@ -9,6 +9,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+
 public class FinancesDTO {
     private String Finance_ID;
     private Double Income;

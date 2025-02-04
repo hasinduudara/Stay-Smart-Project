@@ -9,16 +9,19 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.gdse.staysmartproject.dao.custom.HouseDAO;
+import lk.ijse.gdse.staysmartproject.dao.custom.RentPaymentDAO;
+import lk.ijse.gdse.staysmartproject.dao.custom.TenantDAO;
+import lk.ijse.gdse.staysmartproject.dao.custom.impl.HouseDAOImpl;
+import lk.ijse.gdse.staysmartproject.dao.custom.impl.RentPaymentDAOImpl;
+import lk.ijse.gdse.staysmartproject.dao.custom.impl.TenantDAOImpl;
 import lk.ijse.gdse.staysmartproject.db.DBConnection;
 import lk.ijse.gdse.staysmartproject.dto.RentPaymentDTO;
 import lk.ijse.gdse.staysmartproject.dto.TenantDTO;
 import lk.ijse.gdse.staysmartproject.dto.tm.HouseTM;
 import lk.ijse.gdse.staysmartproject.dto.tm.RentPaymentTM;
 import lk.ijse.gdse.staysmartproject.dto.tm.TenantTM;
-import lk.ijse.gdse.staysmartproject.model.HouseModel;
-import lk.ijse.gdse.staysmartproject.model.RentPaymentModel;
 import lk.ijse.gdse.staysmartproject.model.SharedDataModel;
-import lk.ijse.gdse.staysmartproject.model.TenantModel;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.view.JasperViewer;
 
@@ -91,9 +94,13 @@ public class CollectRentPaymentDashboardController implements Initializable {
     @FXML
     private TextField txtHouseId;
 
-    RentPaymentModel rentPaymentModel = new RentPaymentModel();
-    TenantModel tenantModel = new TenantModel();
-    HouseModel houseModel = new HouseModel();
+//    RentPaymentModel rentPaymentModel = new RentPaymentModel();
+//    TenantModel tenantModel = new TenantModel();
+//    HouseModel houseModel = new HouseModel();
+
+    RentPaymentDAO rentPaymentDAO = new RentPaymentDAOImpl();
+    TenantDAO tenantDAO = new TenantDAOImpl();
+    HouseDAO houseDAO = new HouseDAOImpl();
 
     @FXML
     void btnPrintBillAction(ActionEvent event) {
@@ -128,8 +135,8 @@ public class CollectRentPaymentDashboardController implements Initializable {
         String houseId = txtHouseId.getText(); // Get the entered House_ID from the text field
 
         if (!houseId.isEmpty()) {
-            ArrayList<TenantDTO> tenantsByHouseId = tenantModel.getTenantsByHouseId(houseId);
-            final HouseTM houseById = houseModel.findHouseById(houseId);
+            ArrayList<TenantDTO> tenantsByHouseId = tenantDAO.getTenantsByHouseId(houseId);
+            final HouseTM houseById = houseDAO.findHouseById(houseId);
 
             if (!tenantsByHouseId.isEmpty()) {
                 TenantDTO tenant = tenantsByHouseId.getFirst();
@@ -154,7 +161,7 @@ public class CollectRentPaymentDashboardController implements Initializable {
         if (lblName.getText().isEmpty()) {
             showErrorMessage("Please select valid house id");
         } else {
-            final boolean isSaved = rentPaymentModel.saveRentPayment(new RentPaymentDTO(
+            final boolean isSaved = rentPaymentDAO.saveRentPayment(new RentPaymentDTO(
                     lblRentPaymentId.getText(),
                     Double.valueOf(lblRentPrice.getText()),
                     Date.valueOf(dpDate.getValue()),
@@ -222,7 +229,7 @@ public class CollectRentPaymentDashboardController implements Initializable {
     private void refreshPage() throws SQLException, ClassNotFoundException {
         refreshTable();
 
-        String nextRentPaymentId = rentPaymentModel.getNextRentPaymentId();
+        String nextRentPaymentId = rentPaymentDAO.getNextRentPaymentId();
         lblRentPaymentId.setText(nextRentPaymentId);
 
         txtHouseId.setText("");
@@ -236,14 +243,14 @@ public class CollectRentPaymentDashboardController implements Initializable {
     }
 
     private void refreshTable() throws SQLException, ClassNotFoundException {
-        ArrayList<RentPaymentDTO> rentPaymentDTOS = rentPaymentModel.getAllRentPayments();
+        ArrayList<RentPaymentDTO> rentPaymentDTOS = rentPaymentDAO.getAllRentPayments();
         ObservableList<RentPaymentTM> rentPaymentTMS = FXCollections.observableArrayList();
 
         for (RentPaymentDTO rentPaymentDTO : rentPaymentDTOS) {
             String houseId = rentPaymentDTO.getHouse_ID();
             String tenantName = "";
 
-            ArrayList<TenantDTO> tenantsByHouseId = tenantModel.getTenantsByHouseId(houseId);
+            ArrayList<TenantDTO> tenantsByHouseId = tenantDAO.getTenantsByHouseId(houseId);
             if (!tenantsByHouseId.isEmpty()) {
                 tenantName = tenantsByHouseId.get(0).getName();
             }
@@ -298,7 +305,7 @@ public class CollectRentPaymentDashboardController implements Initializable {
         btnSearch.setDisable(false);
 
         try {
-            String nextRentPaymentId = rentPaymentModel.getNextRentPaymentId();
+            String nextRentPaymentId = rentPaymentDAO.getNextRentPaymentId();
             lblRentPaymentId.setText(nextRentPaymentId);
         } catch (SQLException e) {
             e.printStackTrace();

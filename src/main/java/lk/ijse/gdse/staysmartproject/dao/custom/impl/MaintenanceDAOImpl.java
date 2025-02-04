@@ -1,5 +1,6 @@
-package lk.ijse.gdse.staysmartproject.model;
+package lk.ijse.gdse.staysmartproject.dao.custom.impl;
 
+import lk.ijse.gdse.staysmartproject.dao.custom.MaintenanceDAO;
 import lk.ijse.gdse.staysmartproject.dto.MaintenanceDTO;
 import lk.ijse.gdse.staysmartproject.util.CrudUtil;
 
@@ -7,7 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class MaintenanceModel {
+public class MaintenanceDAOImpl implements MaintenanceDAO {
 
     public String getNextMaintenanceId() throws SQLException {
         ResultSet rst = CrudUtil.execute("SELECT MT_ID FROM maintains ORDER BY MT_ID DESC LIMIT 1");

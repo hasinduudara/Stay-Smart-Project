@@ -1,5 +1,6 @@
-package lk.ijse.gdse.staysmartproject.model;
+package lk.ijse.gdse.staysmartproject.dao.custom.impl;
 
+import lk.ijse.gdse.staysmartproject.dao.custom.HouseDAO;
 import lk.ijse.gdse.staysmartproject.db.DBConnection;
 import lk.ijse.gdse.staysmartproject.dto.tm.HouseTM;
 import lk.ijse.gdse.staysmartproject.util.CrudUtil;
@@ -7,7 +8,8 @@ import lk.ijse.gdse.staysmartproject.util.CrudUtil;
 import java.sql.*;
 import java.util.ArrayList;
 
-public class HouseModel {
+public class HouseDAOImpl implements HouseDAO {
+
     public ArrayList<HouseTM> getAllHouses() throws SQLException, ClassNotFoundException {
         ArrayList<HouseTM> houses = new ArrayList<>();
         Connection connection = DBConnection.getInstance().getConnection();
@@ -76,5 +78,4 @@ public class HouseModel {
         }
         return 0.0;
     }
-
 }
